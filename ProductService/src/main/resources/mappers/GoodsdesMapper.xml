@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.product.mapper.GoodsDesMapper">
+  <resultMap id="BaseResultMap" type="com.team.facade.pojo.GoodsDes">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="goodsDesId" jdbcType="INTEGER" property="goodsDesId" />
+    <result column="goodsDesPicture" jdbcType="VARCHAR" property="goodsDesPicture" />
+    <result column="goodsWeight" jdbcType="REAL" property="goodsWeight" />
+    <result column="goodsId" jdbcType="INTEGER" property="goodsId" />
+    <result column="goodsAttr" jdbcType="VARBINARY" property="goodsAttr" />
+  </resultMap>
+
+  <sql id="Base_Column_List">goodsDesId,goodsDesPicture,goodsWeight,goodsId,goodsAttr</sql>
+
+  <select id="queryList" resultMap="BaseResultMap"  resultType="com.team.facade.pojo.GoodsDes">
+    select <include refid="Base_Column_List"/> from goodsDes
+  </select>
+
+  <select id="queryGoodsDesByExample" resultMap="BaseResultMap" parameterType="com.team.facade.pojo.GoodsDes" >
+    select <include refid="Base_Column_List"/> from goodsDes where 1 = 1
+    <if test="goodsDesId != null" >
+      and goodsDesId = #{goodsDesId,jdbcType=INTEGER}
+    </if>
+
+    <if test="goodsAttr != null and goodsAttr!=''" >
+      and goodsAttr = #{goodsDiscount,jdbcType=VARCHAR}
+    </if>
+
+    <if test="goodsId != null and goodsId!=''" >
+      and goodsId = #{goodsId,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="queryByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from goodsDes
+    where goodsDesId = #{goodsDesId,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insertSelective" parameterType="com.team.facade.pojo.GoodsDes" >
+    insert into goodsDes
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsDesId != null" >
+        goodsDesId,
+      </if>
+      <if test="goodsDesPicture != null" >
+        goodsDesPicture,
+      </if>
+      <if test="goodsWeight != null" >
+        goodsWeight,
+      </if>
+      <if test="goodsId != null" >
+        goodsId,
+      </if>
+      <if test="goodsAttr != null" >
+        goodsAttr,
+      </if>
+
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsDesId != null" >
+        #{goodsDesId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDesPicture != null" >
+        #{goodsDesPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsWeight != null" >
+        #{goodsWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAttr != null" >
+        #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+
+    </trim>
+  </insert>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goodsDes
+    where goodsDesId = #{goodsDesId,jdbcType=INTEGER}
+  </delete>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.team.facade.pojo.GoodsDes" >
+    update goodsDes
+    <set >
+      <if test="goodsDesPicture != null" >
+        goodsDesPicture = #{goodsDesPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsWeight != null" >
+        goodsWeight = #{goodsWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsId != null" >
+        goodsId = #{goodsId,jdbcType=INTEGER},
+      </if>
+
+      <if test="goodsAttr != null" >
+        goodsAttr = #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where goodsDesId = #{goodsDesId,jdbcType=INTEGER}
+  </update>
+
+
+
+
+
+
+</mapper>

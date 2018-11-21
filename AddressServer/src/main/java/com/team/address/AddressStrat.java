@@ -1,12 +1,13 @@
-package com.team.shopping.productservice;
+package com.team.address;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductServiceApplication {
+public class AddressStrat {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductServiceApplication.class, args);
+        SpringApplication.run(AddressStrat.class, args);
+
     }
 }
