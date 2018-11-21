@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.team.shopping.adressserver.mapper.AddressMapper">
+<mapper namespace="com.team.address.mapper.AddressMapper">
 
 
-    <select id="getAll" parameterType="AddressVo" resultType="Address">
+    <select id="getAll" parameterType="com.team.address.vo.AddressVo" resultType="Address">
         select * from address
         <where>
             <if test="customAddress.addressId>0 and customAddress.addressId!=null">

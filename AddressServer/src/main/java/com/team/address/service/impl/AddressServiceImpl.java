@@ -1,9 +1,9 @@
-package com.team.shopping.adressserver.service.impl;
+package com.team.address.service.impl;
 
 import com.team.facade.pojo.Address;
-import com.team.shopping.adressserver.mapper.AddressMapper;
-import com.team.shopping.adressserver.service.AddressService;
-import com.team.shopping.adressserver.vo.AddressVo;
+import com.team.address.mapper.AddressMapper;
+import com.team.address.service.AddressService;
+import com.team.address.vo.AddressVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

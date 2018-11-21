@@ -1,4 +1,4 @@
-package com.team.shopping.adressserver.vo;
+package com.team.address.vo;
 
 import com.team.facade.pojo.Address;
 

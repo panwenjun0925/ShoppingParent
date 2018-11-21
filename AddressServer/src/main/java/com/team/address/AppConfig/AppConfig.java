@@ -1,4 +1,4 @@
-package com.team.shopping.adressserver.AppConfig;
+package com.team.address.AppConfig;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringBootConfiguration;
@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Version: 1.0
  */
 @SpringBootConfiguration
-@ComponentScan(basePackages = {"com.team.shopping.adressserver"})
-@MapperScan(basePackages = {"com.team.shopping.adressserver.mapper"})
+@ComponentScan(basePackages = {"com.team.address"})
+@MapperScan(basePackages = {"com.team.address.mapper"})
 public class AppConfig {
+
 }
