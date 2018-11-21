@@ -10,22 +10,22 @@ import java.io.Serializable;
  */
 public class Address implements Serializable {
     private static final long serialVersionUID = 2149226404561917959L;
-    private int addressId;
-    private String receiver;
-    private String deliveryAddress;
-    private String detailedAddress;
-    private String phone;
-    private String tel;
-    private String email;
-    private String landmark;
-    private String bestDeliverTime;
-    private String postcode;
-    private int userId;
+    private Integer addressId; //地址的id
+    private String receiver;   //收货人名字
+    private String deliveryAddress; //配送地址
+    private String detailedAddress; //详细地址
+    private String phone; //手机号码
+    private String tel; //座机号码
+    private String email;   //电子邮件
+    private String landmark;    //标志性建筑
+    private String bestDeliverTime; //最佳送货时间
+    private String postcode;    //邮政编码
+    private Integer userId;     //用户的id
 
     public Address() {
     }
 
-    public Address(int addressId, String receiver, String deliveryAddress, String detailedAddress, String phone, String tel, String email, String landmark, String bestDeliverTime, String postcode, int userId) {
+    public Address(Integer addressId, String receiver, String deliveryAddress, String detailedAddress, String phone, String tel, String email, String landmark, String bestDeliverTime, String postcode, Integer userId) {
         this.addressId = addressId;
         this.receiver = receiver;
         this.deliveryAddress = deliveryAddress;
@@ -39,11 +39,11 @@ public class Address implements Serializable {
         this.userId = userId;
     }
 
-    public int getAddressId() {
+    public Integer getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(int addressId) {
+    public void setAddressId(Integer addressId) {
         this.addressId = addressId;
     }
 
@@ -119,11 +119,11 @@ public class Address implements Serializable {
         this.postcode = postcode;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
