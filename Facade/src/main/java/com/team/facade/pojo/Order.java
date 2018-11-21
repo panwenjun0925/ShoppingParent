@@ -1,12 +1,15 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 22:37
  * @Description:
  * @Version: 1.0
  */
-public class Order {
+public class Order implements Serializable {
+    private static final long serialVersionUID = -7011898217831806483L;
     private int orderId;
     private String orderNum;
     private int orderState;

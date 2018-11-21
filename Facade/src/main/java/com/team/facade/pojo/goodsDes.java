@@ -1,12 +1,15 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 23:00
  * @Description:
  * @Version: 1.0
  */
-public class goodsDes {
+public class goodsDes implements Serializable {
+    private static final long serialVersionUID = 8345155532955847690L;
     private int goodsDesId;
     private String goodsDesPicture;
     private double goodsWeight;
