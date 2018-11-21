@@ -10,20 +10,20 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
     private static final long serialVersionUID = -2725377651954525077L;
-    private int userId;
-    private String userNumber;
-    private String userName;
-    private String phone;
-    private String registerTime;
-    private String email;
-    private String idCard;
-    private String inviterId;
-    private String password;
+    private Integer userId;     //用户的id
+    private String userNumber;      //用户的编号
+    private String userName;        //用户名
+    private String phone;           //手机号码
+    private String registerTime;    //注册时间
+    private String email;           //电子邮件
+    private String idCard;          //身份证号码
+    private String inviterId;       //邀请人的id
+    private String password;        //登录密码
 
     public User() {
     }
 
-    public User(int userId, String userNumber, String userName, String phone, String registerTime, String email, String idCard, String inviterId, String password) {
+    public User(Integer userId, String userNumber, String userName, String phone, String registerTime, String email, String idCard, String inviterId, String password) {
         this.userId = userId;
         this.userNumber = userNumber;
         this.userName = userName;
@@ -39,7 +39,7 @@ public class User implements Serializable {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
