@@ -8,18 +8,18 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
-public class orderDes implements Serializable {
+public class OrderDes implements Serializable {
     private static final long serialVersionUID = 7133863547374353710L;
-    private int orderDesId;
-    private int goodsNum;
-    private String orderNumber;
-    private int orderId;
-    private int goodsId;
+    private int orderDesId;     //订单详情ID
+    private int goodsNum;       //商品数量
+    private String orderNumber; //订单的编号
+    private int orderId;        //订单的ID
+    private int goodsId;        //商品ID
 
-    public orderDes() {
+    public OrderDes() {
     }
 
-    public orderDes(int orderDesId, int goodsNum, String orderNumber, int orderId, int goodsId) {
+    public OrderDes(int orderDesId, int goodsNum, String orderNumber, int orderId, int goodsId) {
         this.orderDesId = orderDesId;
         this.goodsNum = goodsNum;
         this.orderNumber = orderNumber;
@@ -69,7 +69,7 @@ public class orderDes implements Serializable {
 
     @Override
     public String toString() {
-        return "orderDes{" +
+        return "OrderDes{" +
                 "orderDesId=" + orderDesId +
                 ", goodsNum=" + goodsNum +
                 ", orderNumber='" + orderNumber + '\'' +
