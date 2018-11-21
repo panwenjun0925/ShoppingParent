@@ -10,10 +10,25 @@ import java.io.Serializable;
  */
 public class GoodsDes implements Serializable {
     private static final long serialVersionUID = 8345155532955847690L;
+    /**
+     * 商品详情id
+     */
     private Integer goodsDesId;
+    /**
+     * 具体选择的商品的图片 和属性对应
+     */
     private String goodsDesPicture;
+    /**
+     * 具体商品的重量
+     */
     private Double goodsWeight;
+    /**
+     * 具体某件商品的属性 json字符串存储
+     */
     private String goodsAttr;
+    /**
+     * 商品id
+     */
     private Integer goodsId;
 
     public GoodsDes(){}

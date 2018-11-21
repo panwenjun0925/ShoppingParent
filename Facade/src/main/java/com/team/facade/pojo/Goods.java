@@ -10,17 +10,53 @@ import java.io.Serializable;
  */
 public class Goods implements Serializable {
     private static final long serialVersionUID = 6244987807951023526L;
+    /**
+     * 商品的ID
+     */
     private Integer goodsId;
+    /**
+     * 商品的名字
+     */
     private String goodsName;
+    /**
+     * 商品的展示价格
+     */
     private Double goodsShowPrice;
+    /**
+     * 商品展示的图片地址
+     */
     private String goodsShowPicture;
+    /**
+     * 是否上架
+     */
     private Integer isPutaway;
+    /**
+     * 商品折扣力度
+     */
     private Double goodsDiscount;
+    /**
+     * 商品最后交易价格
+     */
     private Double goodsRealPrice;
+    /**
+     * 商品总数量
+     */
     private Integer goodsTotal;
+    /**
+     * 这个商品所属的类别
+     */
     private Integer goodsTypeId;
+    /**
+     * 这个商品所属的品牌
+     */
     private Integer brandId;
+    /**
+     * 这个商品所属的上架时间
+     */
     private String goodsShelfTime;
+    /**
+     * 这个商品所属的所有属性
+     */
     private String goodsAttr;
 
     public Goods() {
