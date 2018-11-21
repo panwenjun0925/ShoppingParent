@@ -14,16 +14,20 @@
     <result column="goodsRealPrice" jdbcType="REAL" property="goodsRealPrice" />
     <result column="goodsTotal" jdbcType="INTEGER" property="goodsTotal" />
     <result column="goodsTypeId" jdbcType="INTEGER" property="goodsTypeId" />
+    <result column="goodsAttr" jdbcType="VARCHAR" property="goodsAttr" />
+    <result column="goodsShelfTime" jdbcType="VARCHAR" property="goodsShelfTime" />
+    <result column="brandId" jdbcType="INTEGER" property="brandId" />
+
   </resultMap>
 
-  <sql id="Base_Column_List">goodsId,goodsName,goodsShowPrice,goodsShowPicture,isPutaway,goodsDiscount,goodsRealPrice,goodsTotal,goodsTypeId</sql>
+  <sql id="Base_Column_List">goodsId,goodsName,goodsShowPrice,goodsShowPicture,isPutaway,goodsDiscount,goodsRealPrice,goodsTotal,goodsTypeId,goodsAttr,goodsShelfTime,brandId</sql>
 
   <select id="queryList" resultMap="BaseResultMap"  resultType="com.team.facade.pojo.Goods">
-    select <include refid="Base_Column_List"/> from goods
+    select <include refid="Base_Column_List"/> from goods where isPutaway =1
   </select>
 
   <select id="queryGoodsByExample" resultMap="BaseResultMap" parameterType="com.team.facade.pojo.Goods" >
-    select <include refid="Base_Column_List"/> from goods where 1=1
+    select <include refid="Base_Column_List"/> from goods where isPutaway =1
     <if test="goodsId != null" >
       and goodsId = #{goodsId,jdbcType=INTEGER}
     </if>
@@ -34,9 +38,6 @@
       and goodsShowPrice &lt;= #{goodsShowPrice,jdbcType=DOUBLE}
     </if>
 
-    <if test="isPutaway != null and isPutaway!=''" >
-      and isPutaway = #{isPutaway,jdbcType=INTEGER}
-    </if>
     <if test="goodsDiscount != null and goodsDiscount!=''" >
       and goodsDiscount = #{goodsDiscount,jdbcType=DOUBLE}
     </if>
@@ -46,6 +47,9 @@
     <if test="goodsTypeId != null and goodsTypeId!=''" >
       and goodsTypeId = #{goodsTypeId,jdbcType=INTEGER}
     </if>
+    <if test="brandId != null and brandId!=''" >
+      and brandId = #{brandId,jdbcType=INTEGER}
+    </if>
   </select>
 
   <select id="queryByRealPrice" resultMap="BaseResultMap" parameterType="java.lang.Double" >
@@ -53,6 +57,7 @@
     <include refid="Base_Column_List" />
     from goods
     where goodsRealPrice &lt;= #{goodsRealPrice,jdbcType=DOUBLE}
+    and  isPutaway = 1
   </select>
 
   <select id="queryByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -92,6 +97,15 @@
       <if test="goodsTypeId != null" >
         goodsTypeId,
       </if>
+      <if test="goodsAttr != null" >
+        goodsAttr,
+      </if>
+      <if test="goodsShelfTime != null" >
+        goodsShelfTime,
+      </if>
+      <if test="brandId != null" >
+        brandId,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="goodsId != null" >
@@ -121,6 +135,15 @@
       <if test="goodsTypeId != null" >
         #{goodsTypeId,jdbcType=INTEGER},
       </if>
+      <if test="goodsAttr != null" >
+        #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsShelfTime != null" >
+        #{goodsShelfTime,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
 
@@ -130,32 +153,55 @@
   </delete>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.team.facade.pojo.Goods" >
-    update t_user
+    update goods
     <set >
-      <if test="userloginname != null" >
-        userLoginName = #{userloginname,jdbcType=VARCHAR},
+      <if test="goodsName != null" >
+        goodsName = #{goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        passWord = #{password,jdbcType=CHAR},
+      <if test="goodsShowPrice != null" >
+        goodsShowPrice = #{goodsShowPrice,jdbcType=CHAR},
       </if>
-      <if test="telnum != null" >
-        telNum = #{telnum,jdbcType=CHAR},
+      <if test="goodsShowPicture != null" >
+        goodsShowPicture = #{goodsShowPicture,jdbcType=VARCHAR},
       </if>
-      <if test="photo != null" >
-        photo = #{photo,jdbcType=VARCHAR},
+      <if test="isPutaway != null" >
+        isPutaway = #{isPutaway,jdbcType=INTEGER},
       </if>
-      <if test="userrealname != null" >
-        userRealName = #{userrealname,jdbcType=VARCHAR},
+      <if test="goodsDiscount != null" >
+        goodsDiscount = #{goodsDiscount,jdbcType=DOUBLE},
       </if>
-      <if test="delegationid != null" >
-        delegationId = #{delegationid,jdbcType=INTEGER},
+      <if test="goodsRealPrice != null" >
+        goodsRealPrice = #{goodsRealPrice,jdbcType=DOUBLE},
       </if>
-      <if test="staffid != null" >
-        staffId = #{staffid,jdbcType=INTEGER},
+      <if test="goodsTotal != null" >
+        goodsTotal = #{goodsTotal,jdbcType=INTEGER},
+      </if>
+      <if test="goodsTypeId != null" >
+        goodsTypeId = #{goodsTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAttr != null" >
+        goodsAttr = #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsShelfTime != null" >
+        goodsShelfTime = #{goodsShelfTime,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        brandId = #{brandId,jdbcType=INTEGER},
       </if>
     </set>
-    where userid = #{userid,jdbcType=INTEGER}
+    where goodsId = #{goodsId,jdbcType=INTEGER}
   </update>
+
+  <select id="queryByIsPutaway" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from goods
+    where isPutaway = 0
+  </select>
+
+
+
+
 
 
 
