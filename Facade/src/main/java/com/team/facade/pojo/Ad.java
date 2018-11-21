@@ -8,28 +8,28 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
-public class Ad implements Serializable {
+public class Ad implements Serializable{
     private static final long serialVersionUID = 6503722364997685178L;
-    private int adId;
-    private String adDes;
-    private String adPicture;
-    private int adType;
+    private Integer adId;          //广告Id
+    private String adDes;          //广告描述
+    private String adPicture;      //广告图片地址
+    private Integer adType;        //广告类型
 
     public Ad() {
     }
 
-    public Ad(int adId, String adDes, String adPicture, int adType) {
+    public Ad(Integer adId, String adDes, String adPicture, Integer adType) {
         this.adId = adId;
         this.adDes = adDes;
         this.adPicture = adPicture;
         this.adType = adType;
     }
 
-    public int getAdId() {
+    public Integer getAdId() {
         return adId;
     }
 
-    public void setAdId(int adId) {
+    public void setAdId(Integer adId) {
         this.adId = adId;
     }
 
@@ -49,11 +49,11 @@ public class Ad implements Serializable {
         this.adPicture = adPicture;
     }
 
-    public int getAdType() {
+    public Integer getAdType() {
         return adType;
     }
 
-    public void setAdType(int adType) {
+    public void setAdType(Integer adType) {
         this.adType = adType;
     }
 

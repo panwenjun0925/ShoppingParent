@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.shopping.adserver.mapper.AdMapper">
+
+<select id="findBy" resultType="Ad" parameterType="com.team.shopping.adserver.vo.AdVo">
+    select * from  ad
+    <where>
+        <if test="constomAd.adId != null and constomAd.adId > 0">
+          and adId = #{constomAd.adId}
+        </if>
+        <if test="constomAd.adDes != null and constomAd.adDes !=''">
+            and adDes =#{constomAd.adDes}
+        </if>
+        <if test="constomAd.adPicture != null and constomAd.adPicture !=''">
+            and adPicture = #{constomAd.adPicture}
+        </if>
+        <if test="constomAd.adType != null and constomAd.adType != ''">
+            and adType =#{constomAd.adType}
+        </if>
+    </where>
+</select>
+
+<insert id="add" parameterType="Ad">
+    insert into ad (adId,adDes,adPicture,adType) values (null,#{adDes},#{adPicture},#{adType})
+</insert>
+
+<delete id="deleteById" >
+    delete from ad where adId in (#{id})
+</delete>
+
+<update id="update" parameterType="Ad">
+    update ad
+    <set>
+        <if test="adDes != null and adDes != ''">
+            adDes = #{adDes},
+        </if>
+        <if test="adPicture != null and adPicture !=''">
+            adPicture =#{adPicture},
+        </if>
+        <if test="adType != null and adType !=''">
+            adType =#{adType},
+        </if>
+    </set>
+    where adId = #{adId}
+</update>
+</mapper>

@@ -10,15 +10,15 @@ import java.io.Serializable;
  */
 public class Order implements Serializable {
     private static final long serialVersionUID = -7011898217831806483L;
-    private int orderId;
-    private String orderNum;
-    private int orderState;
-    private String orderCreateTime;
-    private String orderPayTime;
-    private int orderPayMode;
-    private double paymentMoney;
-    private int userId;
-    private int adressId;
+    private int orderId;    //订单的id
+    private String orderNum;    //订单的编号
+    private int orderState;     //订单的状态
+    private String orderCreateTime; //订单的创建的时间
+    private String orderPayTime;    //订单的支付时间
+    private int orderPayMode;       //订单的支付方式
+    private double paymentMoney;    //订单的付款金额
+    private int userId;             //订单的付款人
+    private int adressId;           //收货的地址
 
     public Order() {
     }

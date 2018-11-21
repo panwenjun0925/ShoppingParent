@@ -1,4 +1,4 @@
-package com.team.shopping.adressserver;
+package com.team.address;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

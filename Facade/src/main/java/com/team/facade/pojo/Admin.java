@@ -10,24 +10,24 @@ import java.io.Serializable;
  */
 public class Admin implements Serializable {
     private static final long serialVersionUID = -2407082356930835768L;
-    private int adminId;
-    private String adminName;
-    private String adminPassword;
+    private Integer adminId;         //管理员Id
+    private String adminName;        //管理员账户
+    private String adminPassword;    //管理员密码
 
     public Admin() {
     }
 
-    public Admin(int adminId, String adminName, String adminPassword) {
+    public Admin(Integer adminId, String adminName, String adminPassword) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminPassword = adminPassword;
     }
 
-    public int getAdminId() {
+    public Integer getAdminId() {
         return adminId;
     }
 
-    public void setAdminId(int adminId) {
+    public void setAdminId(Integer adminId) {
         this.adminId = adminId;
     }
 

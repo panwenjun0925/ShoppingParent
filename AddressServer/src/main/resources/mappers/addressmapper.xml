@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.address.mapper.AddressMapper">
+
+
+    <select id="getAll" parameterType="com.team.address.vo.AddressVo" resultType="Address">
+        select * from address
+        <where>
+            <if test="customAddress.addressId>0 and customAddress.addressId!=null">
+                and addressId=#{customAddress.addressId}
+            </if>
+            <if test="customAddress.receiver!='' and customAddress.receiver!=null">
+                and receiver=#{customAddress.receiver}
+            </if>
+            <if test="customAddress.deliveryAddress!='' and customAddress.deliveryAddress!=null">
+                and deliveryAddress=#{customAddress.deliveryAddress}
+            </if>
+            <if test="customAddress.detailedAddress!='' and customAddress.detailedAddress!=null">
+                and detailedAddress=#{customAddress.detailedAddress}
+            </if>
+            <if test="customAddress.phone!='' and customAddress.phone!=null">
+                and phone=#{customAddress.phone}
+            </if>
+            <if test="customAddress.tel!='' and customAddress.tel!=null">
+                and tel=#{customAddress.tel}
+            </if>
+            <if test="customAddress.email!='' and customAddress.email!=null">
+                and email=#{customAddress.email}
+            </if>
+            <if test="customAddress.landmark!='' and customAddress.landmark!=null">
+                and landmark=#{customAddress.landmark}
+            </if>
+            <if test="customAddress.bestDeliverTime!='' and customAddress.bestDeliverTime!=null">
+                and bestDeliverTime=#{customAddress.bestDeliverTime}
+            </if>
+            <if test="customAddress.postcode!='' and customAddress.postcode!=null">
+                and postcode=#{customAddress.postcode}
+            </if>
+            <if test="customAddress.userId>0 and customAddress.userId!=null">
+                and userId=#{customAddress.userId}
+            </if>
+
+        </where>
+
+    </select>
+    <insert id="add" parameterType="Address">
+        insert into address values(null,#{receiver},#{deliveryAddress},#{detailedAddress},#{phone},#{tel},#{email},
+        #{landmark},#{bestDeliverTime},#{postcode},#{userId})
+    </insert>
+    <delete id="deleteById" parameterType="Address">
+        delete from address where addressId=#{addressId}
+    </delete>
+    <update id="update" parameterType="Address">
+        update address
+        <set>
+            <if test="receiver!=null and receiver!=''">
+                receiver=#{receiver},
+            </if>
+            <if test="deliveryAddress!=null and deliveryAddress!=''">
+                deliveryAddress=#{deliveryAddress},
+            </if>
+            <if test="detailedAddress!=null and detailedAddress!=''">
+                detailedAddress=#{detailedAddress},
+            </if>
+            <if test="phone!=null and phone!=''">
+                phone=#{phone},
+            </if>
+            <if test="tel!=null and tel!=''">
+                tel=#{tel},
+            </if>
+            <if test="email!=null and email!=''">
+                email=#{email},
+            </if>
+            <if test="landmark!=null and landmark!=''">
+                landmark=#{landmark},
+            </if>
+            <if test="bestDeliverTime!=null and bestDeliverTime!=''">
+                bestDeliverTime=#{bestDeliverTime},
+            </if>
+            <if test="postcode!=null and postcode!=''">
+                postcode=#{postcode},
+            </if>
+            <if test="userId!=null and userId>0">
+                userId=#{userId},
+            </if>
+        </set>
+        where addressId=#{addressId}
+    </update>
+
+</mapper>
