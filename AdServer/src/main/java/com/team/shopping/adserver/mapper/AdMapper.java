@@ -2,6 +2,8 @@ package com.team.shopping.adserver.mapper;
 
 import com.team.facade.pojo.Ad;
 import com.team.shopping.adserver.vo.AdVo;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
+@Mapper
+@Repository
 public interface AdMapper {
     /**
      * 功能描述:添加广告
