@@ -19,21 +19,13 @@ public class Goods implements Serializable {
     private Double goodsRealPrice;
     private Integer goodsTotal;
     private Integer goodsTypeId;
+    private Integer brandId;
+    private String goodsShelfTime;
+    private String goodsAttr;
 
     public Goods() {
     }
 
-    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsTypeId) {
-        this.goodsId = goodsId;
-        this.goodsName = goodsName;
-        this.goodsShowPrice = goodsShowPrice;
-        this.goodsShowPicture = goodsShowPicture;
-        this.isPutaway = isPutaway;
-        this.goodsDiscount = goodsDiscount;
-        this.goodsRealPrice = goodsRealPrice;
-        this.goodsTotal = goodsTotal;
-        this.goodsTypeId = goodsTypeId;
-    }
 
     public Integer getGoodsId() {
         return goodsId;
@@ -107,6 +99,30 @@ public class Goods implements Serializable {
         this.goodsTypeId = goodsTypeId;
     }
 
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getGoodsShelfTime() {
+        return goodsShelfTime;
+    }
+
+    public void setGoodsShelfTime(String goodsShelfTime) {
+        this.goodsShelfTime = goodsShelfTime;
+    }
+
+    public String getGoodsAttr() {
+        return goodsAttr;
+    }
+
+    public void setGoodsAttr(String goodsAttr) {
+        this.goodsAttr = goodsAttr;
+    }
+
     @Override
     public String toString() {
         return "Goods{" +
@@ -119,6 +135,9 @@ public class Goods implements Serializable {
                 ", goodsRealPrice=" + goodsRealPrice +
                 ", goodsTotal=" + goodsTotal +
                 ", goodsTypeId=" + goodsTypeId +
+                ", brandId=" + brandId +
+                ", goodsShelfTime='" + goodsShelfTime + '\'' +
+                ", goodsAttr='" + goodsAttr + '\'' +
                 '}';
     }
 }
