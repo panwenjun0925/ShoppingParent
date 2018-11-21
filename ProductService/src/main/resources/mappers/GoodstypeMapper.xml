@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.product.mapper.GoodsTypeMapper">
-    <resultMap id="BaseResultMap" type="com.team.facade.pojo.Goodstype">
+    <resultMap id="BaseResultMap" type="com.team.facade.pojo.GoodsType">
         <!--
           WARNING - @mbg.generated
         -->

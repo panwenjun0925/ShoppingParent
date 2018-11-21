@@ -15,4 +15,6 @@ public class ProductTypeController {
 
     @Autowired
     private ProductTypeService productTypeService;
+
+
 }
