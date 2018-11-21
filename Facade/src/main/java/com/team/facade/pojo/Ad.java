@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
-public class Ad implements Serializable {
+public class Ad implements Serializable{
     private static final long serialVersionUID = 6503722364997685178L;
     private int adId;
     private String adDes;
