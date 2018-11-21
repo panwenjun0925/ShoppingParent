@@ -6,17 +6,17 @@ package com.team.facade.pojo;
  * @Description:
  * @Version: 1.0
  */
-public class goodsDes {
-    private int goodsDesId;
+public class GoodsDes {
+    private Integer goodsDesId;
     private String goodsDesPicture;
-    private double goodsWeight;
+    private Double goodsWeight;
     private String goodsAttr;
-    private int goodsId;
+    private Integer goodsId;
 
-    public goodsDes() {
+    public GoodsDes() {
     }
 
-    public goodsDes(int goodsDesId, String goodsDesPicture, double goodsWeight, String goodsAttr, int goodsId) {
+    public GoodsDes(Integer goodsDesId, String goodsDesPicture, Double goodsWeight, String goodsAttr, Integer goodsId) {
         this.goodsDesId = goodsDesId;
         this.goodsDesPicture = goodsDesPicture;
         this.goodsWeight = goodsWeight;
@@ -24,11 +24,11 @@ public class goodsDes {
         this.goodsId = goodsId;
     }
 
-    public int getGoodsDesId() {
+    public Integer getGoodsDesId() {
         return goodsDesId;
     }
 
-    public void setGoodsDesId(int goodsDesId) {
+    public void setGoodsDesId(Integer goodsDesId) {
         this.goodsDesId = goodsDesId;
     }
 
@@ -40,11 +40,11 @@ public class goodsDes {
         this.goodsDesPicture = goodsDesPicture;
     }
 
-    public double getGoodsWeight() {
+    public Double getGoodsWeight() {
         return goodsWeight;
     }
 
-    public void setGoodsWeight(double goodsWeight) {
+    public void setGoodsWeight(Double goodsWeight) {
         this.goodsWeight = goodsWeight;
     }
 
@@ -56,17 +56,17 @@ public class goodsDes {
         this.goodsAttr = goodsAttr;
     }
 
-    public int getGoodsId() {
+    public Integer getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(int goodsId) {
+    public void setGoodsId(Integer goodsId) {
         this.goodsId = goodsId;
     }
 
     @Override
     public String toString() {
-        return "goodsDes{" +
+        return "GoodsDes{" +
                 "goodsDesId=" + goodsDesId +
                 ", goodsDesPicture='" + goodsDesPicture + '\'' +
                 ", goodsWeight=" + goodsWeight +

@@ -7,20 +7,20 @@ package com.team.facade.pojo;
  * @Version: 1.0
  */
 public class Goods {
-    private int goodsId;
+    private Integer goodsId;
     private String goodsName;
-    private double goodsShowPrice;
+    private Double goodsShowPrice;
     private String goodsShowPicture;
-    private int isPutaway;
-    private double goodsDiscount;
-    private double goodsRealPrice;
-    private int goodsTotal;
-    private int goodsTypeId;
+    private Integer isPutaway;
+    private Double goodsDiscount;
+    private Double goodsRealPrice;
+    private Integer goodsTotal;
+    private Integer goodsTypeId;
 
     public Goods() {
     }
 
-    public Goods(int goodsId, String goodsName, double goodsShowPrice, String goodsShowPicture, int isPutaway, double goodsDiscount, double goodsRealPrice, int goodsTotal, int goodsTypeId) {
+    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsTypeId) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsShowPrice = goodsShowPrice;
@@ -32,11 +32,11 @@ public class Goods {
         this.goodsTypeId = goodsTypeId;
     }
 
-    public int getGoodsId() {
+    public Integer getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(int goodsId) {
+    public void setGoodsId(Integer goodsId) {
         this.goodsId = goodsId;
     }
 
@@ -48,11 +48,11 @@ public class Goods {
         this.goodsName = goodsName;
     }
 
-    public double getGoodsShowPrice() {
+    public Double getGoodsShowPrice() {
         return goodsShowPrice;
     }
 
-    public void setGoodsShowPrice(double goodsShowPrice) {
+    public void setGoodsShowPrice(Double goodsShowPrice) {
         this.goodsShowPrice = goodsShowPrice;
     }
 
@@ -64,43 +64,43 @@ public class Goods {
         this.goodsShowPicture = goodsShowPicture;
     }
 
-    public int getIsPutaway() {
+    public Integer getIsPutaway() {
         return isPutaway;
     }
 
-    public void setIsPutaway(int isPutaway) {
+    public void setIsPutaway(Integer isPutaway) {
         this.isPutaway = isPutaway;
     }
 
-    public double getGoodsDiscount() {
+    public Double getGoodsDiscount() {
         return goodsDiscount;
     }
 
-    public void setGoodsDiscount(double goodsDiscount) {
+    public void setGoodsDiscount(Double goodsDiscount) {
         this.goodsDiscount = goodsDiscount;
     }
 
-    public double getGoodsRealPrice() {
+    public Double getGoodsRealPrice() {
         return goodsRealPrice;
     }
 
-    public void setGoodsRealPrice(double goodsRealPrice) {
+    public void setGoodsRealPrice(Double goodsRealPrice) {
         this.goodsRealPrice = goodsRealPrice;
     }
 
-    public int getGoodsTotal() {
+    public Integer getGoodsTotal() {
         return goodsTotal;
     }
 
-    public void setGoodsTotal(int goodsTotal) {
+    public void setGoodsTotal(Integer goodsTotal) {
         this.goodsTotal = goodsTotal;
     }
 
-    public int getGoodsTypeId() {
+    public Integer getGoodsTypeId() {
         return goodsTypeId;
     }
 
-    public void setGoodsTypeId(int goodsTypeId) {
+    public void setGoodsTypeId(Integer goodsTypeId) {
         this.goodsTypeId = goodsTypeId;
     }
 
