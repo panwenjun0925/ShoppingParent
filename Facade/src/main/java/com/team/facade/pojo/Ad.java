@@ -1,12 +1,15 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 22:36
  * @Description:
  * @Version: 1.0
  */
-public class Ad {
+public class Ad implements Serializable {
+    private static final long serialVersionUID = 6503722364997685178L;
     private int adId;
     private String adDes;
     private String adPicture;
