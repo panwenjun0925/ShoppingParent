@@ -1,7 +1,7 @@
-package com.team.shopping.adserver.mapper;
+package com.team.adserver.mapper;
 
+import com.team.adserver.vo.AdVo;
 import com.team.facade.pojo.Ad;
-import com.team.shopping.adserver.vo.AdVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
