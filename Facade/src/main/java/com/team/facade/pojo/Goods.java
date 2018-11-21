@@ -42,6 +42,11 @@ public class Goods implements Serializable {
      * 商品总数量
      */
     private Integer goodsTotal;
+
+    /**
+     * 商品销量
+     */
+    private Integer goodsSaleNum;
     /**
      * 这个商品所属的类别
      */
@@ -62,7 +67,7 @@ public class Goods implements Serializable {
     public Goods() {
     }
 
-    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsTypeId, Integer brandId, String goodsShelfTime, String goodsAttr) {
+    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsSaleNum, Integer goodsTypeId, Integer brandId, String goodsShelfTime, String goodsAttr) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsShowPrice = goodsShowPrice;
@@ -71,6 +76,7 @@ public class Goods implements Serializable {
         this.goodsDiscount = goodsDiscount;
         this.goodsRealPrice = goodsRealPrice;
         this.goodsTotal = goodsTotal;
+        this.goodsSaleNum = goodsSaleNum;
         this.goodsTypeId = goodsTypeId;
         this.brandId = brandId;
         this.goodsShelfTime = goodsShelfTime;
@@ -171,6 +177,14 @@ public class Goods implements Serializable {
 
     public void setGoodsAttr(String goodsAttr) {
         this.goodsAttr = goodsAttr;
+    }
+
+    public Integer getGoodsSaleNum() {
+        return goodsSaleNum;
+    }
+
+    public void setGoodsSaleNum(Integer goodsSaleNum) {
+        this.goodsSaleNum = goodsSaleNum;
     }
 
     @Override
