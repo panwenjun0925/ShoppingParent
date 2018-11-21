@@ -1,12 +1,15 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 23:02
  * @Description:
  * @Version: 1.0
  */
-public class GoodsType {
+public class GoodsType implements Serializable {
+    private static final long serialVersionUID = 4418855586782990389L;
     private int typeId;
     private String typeName;
     private String typeDes;

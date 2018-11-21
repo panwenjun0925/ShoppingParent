@@ -1,12 +1,12 @@
-package com.team.shopping.adserver;
+package com.team.shopping.adminserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+public class AdminServerApplication {
 
-public class AdServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AdServerApplication.class, args);
+        SpringApplication.run(AdminServerApplication.class, args);
     }
 }

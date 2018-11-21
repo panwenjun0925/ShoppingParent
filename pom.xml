@@ -19,6 +19,7 @@
 
     <modules>
         <module>AddressServer</module>
+        <module>AdminServer</module>
         <module>AdServer</module>
         <module>BrandServer</module>
         <module>Commons</module>

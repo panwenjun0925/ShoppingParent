@@ -8,7 +8,8 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
-public class Express{
+public class Express implements Serializable{
+    private static final long serialVersionUID = -1463063591878237385L;
     private int expressId;
     private String expressName;
     private String orderDescribe;
