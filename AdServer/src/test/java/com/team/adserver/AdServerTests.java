@@ -1,4 +1,4 @@
-package com.team.shopping.adserver;
+package com.team.adserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdServerApplicationTests {
+public class AdServerTests {
 
     @Test
     public void contextLoads() {

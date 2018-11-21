@@ -1,4 +1,4 @@
-package com.team.shopping.adserver.config;
+package com.team.adserver.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.ComponentScan;

@@ -1,9 +1,9 @@
-package com.team.shopping.adserver.serviceImpl;
+package com.team.adserver.serviceImpl;
 
+import com.team.adserver.mapper.AdMapper;
+import com.team.adserver.vo.AdVo;
 import com.team.facade.pojo.Ad;
-import com.team.shopping.adserver.mapper.AdMapper;
-import com.team.shopping.adserver.service.AdService;
-import com.team.shopping.adserver.vo.AdVo;
+import com.team.adserver.service.AdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
