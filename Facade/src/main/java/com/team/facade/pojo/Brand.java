@@ -10,24 +10,24 @@ import java.io.Serializable;
  */
 public class Brand implements Serializable {
     private static final long serialVersionUID = -7562132627683026247L;
-    private int brandId;
-    private String brandName;
-    private String brandLog;
+    private Integer brandId;            //品牌Id
+    private String brandName;       //品牌名字
+    private String brandLog;        //品牌图标
 
     public Brand() {
     }
 
-    public Brand(int brandId, String brandName, String brandLog) {
+    public Brand(Integer brandId, String brandName, String brandLog) {
         this.brandId = brandId;
         this.brandName = brandName;
         this.brandLog = brandLog;
     }
 
-    public int getBrandId() {
+    public Integer getBrandId() {
         return brandId;
     }
 
-    public void setBrandId(int brandId) {
+    public void setBrandId(Integer brandId) {
         this.brandId = brandId;
     }
 

@@ -6,22 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AddressServer" />
-        <module name="AdServer" />
-        <module name="BrandServer" />
-        <module name="Commons" />
+        <module name="ad-server" />
+        <module name="address-server" />
+        <module name="admin-server" />
+        <module name="brand-server" />
+        <module name="commons" />
         <module name="Facade" />
-        <module name="MapperCommons" />
-        <module name="NewsServer" />
-        <module name="OrderServer" />
-        <module name="ProductService" />
-        <module name="ProductTypeServer" />
-        <module name="ServiceCommons" />
-        <module name="UserService" />
+        <module name="mapper-commons" />
+        <module name="news-server" />
+        <module name="order-server" />
+        <module name="product-service" />
+        <module name="product-type-server" />
+        <module name="service-commons" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="GoodService" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

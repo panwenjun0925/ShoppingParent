@@ -5,17 +5,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/AdressServer/pom.xml" />
-        <option value="$PROJECT_DIR$/OrderServer/pom.xml" />
-        <option value="$PROJECT_DIR$/MapperCommons/pom.xml" />
-        <option value="$PROJECT_DIR$/ServiceCommons/pom.xml" />
-        <option value="$PROJECT_DIR$/Commons/pom.xml" />
-        <option value="$PROJECT_DIR$/UserService/pom.xml" />
-        <option value="$PROJECT_DIR$/ProductService/pom.xml" />
-        <option value="$PROJECT_DIR$/ProductTypeServer/pom.xml" />
-        <option value="$PROJECT_DIR$/AdServer/pom.xml" />
-        <option value="$PROJECT_DIR$/NewsServer/pom.xml" />
-        <option value="$PROJECT_DIR$/BrandServer/pom.xml" />
       </list>
     </option>
   </component>
