@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.product.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.team.facade.pojo.Goods">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="goodsId" jdbcType="INTEGER" property="goodsId" />
+    <result column="goodsName" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goodsShowPrice" jdbcType="REAL" property="goodsShowPrice" />
+    <result column="goodsShowPicture" jdbcType="VARCHAR" property="goodsShowPicture" />
+    <result column="isPutaway" jdbcType="INTEGER" property="isPutaway" />
+    <result column="goodsDiscount" jdbcType="REAL" property="goodsDiscount" />
+    <result column="goodsRealPrice" jdbcType="REAL" property="goodsRealPrice" />
+    <result column="goodsTotal" jdbcType="INTEGER" property="goodsTotal" />
+    <result column="goodsTypeId" jdbcType="INTEGER" property="goodsTypeId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">goodsId,goodsName,goodsShowPrice,goodsShowPicture,isPutaway,goodsDiscount,goodsRealPrice,goodsTotal,goodsTypeId</sql>
+
+  <select id="queryList" resultMap="BaseResultMap"  resultType="com.team.facade.pojo.Goods">
+    select <include refid="Base_Column_List"/> from goods
+  </select>
+
+  <select id="queryGoodsByExample" resultMap="BaseResultMap" parameterType="com.team.facade.pojo.Goods" >
+    select <include refid="Base_Column_List"/> from goods where 1=1
+    <if test="goodsId != null" >
+      and goodsId = #{goodsId,jdbcType=INTEGER}
+    </if>
+    <if test="goodsName != null and goodsName!=''" >
+      and goodsName like concat(concat ('%',#{goodsName,jdbcType=VARCHAR}),'%')
+    </if>
+    <if test="goodsShowPrice != null and goodsShowPrice!=''" >
+      and goodsShowPrice &lt;= #{goodsShowPrice,jdbcType=DOUBLE}
+    </if>
+
+    <if test="isPutaway != null and isPutaway!=''" >
+      and isPutaway = #{isPutaway,jdbcType=INTEGER}
+    </if>
+    <if test="goodsDiscount != null and goodsDiscount!=''" >
+      and goodsDiscount = #{goodsDiscount,jdbcType=DOUBLE}
+    </if>
+    <if test="goodsRealPrice != null and goodsRealPrice!=''" >
+      and goodsRealPrice &lt;= #{goodsRealPrice,jdbcType=DOUBLE}
+    </if>
+    <if test="goodsTypeId != null and goodsTypeId!=''" >
+      and goodsTypeId = #{goodsTypeId,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="queryByRealPrice" resultMap="BaseResultMap" parameterType="java.lang.Double" >
+    select
+    <include refid="Base_Column_List" />
+    from goods
+    where goodsRealPrice &lt;= #{goodsRealPrice,jdbcType=DOUBLE}
+  </select>
+
+  <select id="queryByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from goods
+    where goodsId = #{goodsId,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insertSelective" parameterType="com.team.facade.pojo.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        goodsId,
+      </if>
+      <if test="goodsName != null" >
+        goodsName,
+      </if>
+      <if test="goodsShowPrice != null" >
+        goodsShowPrice,
+      </if>
+      <if test="goodsShowPicture != null" >
+        goodsShowPicture,
+      </if>
+      <if test="isPutaway != null" >
+        isPutaway,
+      </if>
+      <if test="goodsDiscount != null" >
+        goodsDiscount,
+      </if>
+      <if test="goodsRealPrice != null" >
+        goodsRealPrice,
+      </if>
+      <if test="goodsTotal != null" >
+        goodsTotal,
+      </if>
+      <if test="goodsTypeId != null" >
+        goodsTypeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsShowPrice != null" >
+        #{goodsShowPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsShowPicture != null" >
+        #{goodsShowPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="isPutaway != null" >
+        #{isPutaway,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDiscount != null" >
+        #{goodsDiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsRealPrice != null" >
+        #{goodsRealPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsTotal != null" >
+        #{goodsTotal,jdbcType=INTEGER},
+      </if>
+      <if test="goodsTypeId != null" >
+        #{goodsTypeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where goodsId = #{goodsId,jdbcType=INTEGER}
+  </delete>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.team.facade.pojo.Goods" >
+    update t_user
+    <set >
+      <if test="userloginname != null" >
+        userLoginName = #{userloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        passWord = #{password,jdbcType=CHAR},
+      </if>
+      <if test="telnum != null" >
+        telNum = #{telnum,jdbcType=CHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="userrealname != null" >
+        userRealName = #{userrealname,jdbcType=VARCHAR},
+      </if>
+      <if test="delegationid != null" >
+        delegationId = #{delegationid,jdbcType=INTEGER},
+      </if>
+      <if test="staffid != null" >
+        staffId = #{staffid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=INTEGER}
+  </update>
+
+
+
+
+
+
+</mapper>
