@@ -1,26 +1,29 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 22:56
  * @Description:
  * @Version: 1.0
  */
-public class Goods {
-    private Integer goodsId;
+public class Goods implements Serializable {
+    private static final long serialVersionUID = 6244987807951023526L;
+    private int goodsId;
     private String goodsName;
-    private Double goodsShowPrice;
+    private double goodsShowPrice;
     private String goodsShowPicture;
-    private Integer isPutaway;
-    private Double goodsDiscount;
-    private Double goodsRealPrice;
-    private Integer goodsTotal;
-    private Integer goodsTypeId;
+    private int isPutaway;
+    private double goodsDiscount;
+    private double goodsRealPrice;
+    private int goodsTotal;
+    private int goodsTypeId;
 
     public Goods() {
     }
 
-    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsTypeId) {
+    public Goods(int goodsId, String goodsName, double goodsShowPrice, String goodsShowPicture, int isPutaway, double goodsDiscount, double goodsRealPrice, int goodsTotal, int goodsTypeId) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsShowPrice = goodsShowPrice;
@@ -32,11 +35,11 @@ public class Goods {
         this.goodsTypeId = goodsTypeId;
     }
 
-    public Integer getGoodsId() {
+    public int getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(Integer goodsId) {
+    public void setGoodsId(int goodsId) {
         this.goodsId = goodsId;
     }
 
@@ -48,11 +51,11 @@ public class Goods {
         this.goodsName = goodsName;
     }
 
-    public Double getGoodsShowPrice() {
+    public double getGoodsShowPrice() {
         return goodsShowPrice;
     }
 
-    public void setGoodsShowPrice(Double goodsShowPrice) {
+    public void setGoodsShowPrice(double goodsShowPrice) {
         this.goodsShowPrice = goodsShowPrice;
     }
 
@@ -64,43 +67,43 @@ public class Goods {
         this.goodsShowPicture = goodsShowPicture;
     }
 
-    public Integer getIsPutaway() {
+    public int getIsPutaway() {
         return isPutaway;
     }
 
-    public void setIsPutaway(Integer isPutaway) {
+    public void setIsPutaway(int isPutaway) {
         this.isPutaway = isPutaway;
     }
 
-    public Double getGoodsDiscount() {
+    public double getGoodsDiscount() {
         return goodsDiscount;
     }
 
-    public void setGoodsDiscount(Double goodsDiscount) {
+    public void setGoodsDiscount(double goodsDiscount) {
         this.goodsDiscount = goodsDiscount;
     }
 
-    public Double getGoodsRealPrice() {
+    public double getGoodsRealPrice() {
         return goodsRealPrice;
     }
 
-    public void setGoodsRealPrice(Double goodsRealPrice) {
+    public void setGoodsRealPrice(double goodsRealPrice) {
         this.goodsRealPrice = goodsRealPrice;
     }
 
-    public Integer getGoodsTotal() {
+    public int getGoodsTotal() {
         return goodsTotal;
     }
 
-    public void setGoodsTotal(Integer goodsTotal) {
+    public void setGoodsTotal(int goodsTotal) {
         this.goodsTotal = goodsTotal;
     }
 
-    public Integer getGoodsTypeId() {
+    public int getGoodsTypeId() {
         return goodsTypeId;
     }
 
-    public void setGoodsTypeId(Integer goodsTypeId) {
+    public void setGoodsTypeId(int goodsTypeId) {
         this.goodsTypeId = goodsTypeId;
     }
 

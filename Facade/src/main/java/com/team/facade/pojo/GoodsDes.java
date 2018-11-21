@@ -1,22 +1,25 @@
 package com.team.facade.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 23:00
  * @Description:
  * @Version: 1.0
  */
-public class GoodsDes {
-    private Integer goodsDesId;
+public class goodsDes implements Serializable {
+    private static final long serialVersionUID = 8345155532955847690L;
+    private int goodsDesId;
     private String goodsDesPicture;
-    private Double goodsWeight;
+    private double goodsWeight;
     private String goodsAttr;
-    private Integer goodsId;
+    private int goodsId;
 
-    public GoodsDes() {
+    public goodsDes() {
     }
 
-    public GoodsDes(Integer goodsDesId, String goodsDesPicture, Double goodsWeight, String goodsAttr, Integer goodsId) {
+    public goodsDes(int goodsDesId, String goodsDesPicture, double goodsWeight, String goodsAttr, int goodsId) {
         this.goodsDesId = goodsDesId;
         this.goodsDesPicture = goodsDesPicture;
         this.goodsWeight = goodsWeight;
@@ -24,11 +27,11 @@ public class GoodsDes {
         this.goodsId = goodsId;
     }
 
-    public Integer getGoodsDesId() {
+    public int getGoodsDesId() {
         return goodsDesId;
     }
 
-    public void setGoodsDesId(Integer goodsDesId) {
+    public void setGoodsDesId(int goodsDesId) {
         this.goodsDesId = goodsDesId;
     }
 
@@ -40,11 +43,11 @@ public class GoodsDes {
         this.goodsDesPicture = goodsDesPicture;
     }
 
-    public Double getGoodsWeight() {
+    public double getGoodsWeight() {
         return goodsWeight;
     }
 
-    public void setGoodsWeight(Double goodsWeight) {
+    public void setGoodsWeight(double goodsWeight) {
         this.goodsWeight = goodsWeight;
     }
 
@@ -56,17 +59,17 @@ public class GoodsDes {
         this.goodsAttr = goodsAttr;
     }
 
-    public Integer getGoodsId() {
+    public int getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(Integer goodsId) {
+    public void setGoodsId(int goodsId) {
         this.goodsId = goodsId;
     }
 
     @Override
     public String toString() {
-        return "GoodsDes{" +
+        return "goodsDes{" +
                 "goodsDesId=" + goodsDesId +
                 ", goodsDesPicture='" + goodsDesPicture + '\'' +
                 ", goodsWeight=" + goodsWeight +
