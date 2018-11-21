@@ -19,8 +19,17 @@
 
     <modules>
         <module>AddressServer</module>
-        <module>OrderServer</module>
+        <module>AdServer</module>
+        <module>BrandServer</module>
+        <module>Commons</module>
         <module>Facade</module>
+        <module>MapperCommons</module>
+        <module>NewsServer</module>
+        <module>OrderServer</module>
+        <module>ProductService</module>
+        <module>ProductTypeServer</module>
+        <module>ServiceCommons</module>
+        <module>UserService</module>
     </modules>
 
     <dependencies>
