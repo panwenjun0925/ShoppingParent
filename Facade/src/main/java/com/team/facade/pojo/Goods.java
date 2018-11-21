@@ -62,6 +62,20 @@ public class Goods implements Serializable {
     public Goods() {
     }
 
+    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsTypeId, Integer brandId, String goodsShelfTime, String goodsAttr) {
+        this.goodsId = goodsId;
+        this.goodsName = goodsName;
+        this.goodsShowPrice = goodsShowPrice;
+        this.goodsShowPicture = goodsShowPicture;
+        this.isPutaway = isPutaway;
+        this.goodsDiscount = goodsDiscount;
+        this.goodsRealPrice = goodsRealPrice;
+        this.goodsTotal = goodsTotal;
+        this.goodsTypeId = goodsTypeId;
+        this.brandId = brandId;
+        this.goodsShelfTime = goodsShelfTime;
+        this.goodsAttr = goodsAttr;
+    }
 
     public Integer getGoodsId() {
         return goodsId;
