@@ -1,9 +1,7 @@
-package com.team.address;
+package com.team.user;
 
-import com.team.address.mapper.AddressMapper;
-import com.team.address.vo.AddressVo;
-import com.team.address.vo.CustomAddress;
-import com.team.facade.pojo.Address;
+import com.team.facade.pojo.User;
+import com.team.user.mapper.UserMapper;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -22,39 +20,33 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.List;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = AddressStrat.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AddressMapperTest {
+@SpringBootTest
+public class UserMapperTest {
     @Autowired
-    private AddressMapper mapper;
+    private UserMapper mapper;
     @Autowired
     private DataSource dataSource;
+
 
     @Test
     public void testgetAll() throws Exception{
         backoneTable();
         insert();
-
-        CustomAddress customAddress = new CustomAddress();
-        customAddress.setAddressId(1);
-        customAddress.setPhone("cxcxc");
-
-        AddressVo addressVo = new AddressVo();
-        addressVo.setCustomAddress(customAddress);
-
-        List<Address> all = mapper.getAll(addressVo);
-        Assert.assertEquals(addressVo.getCustomAddress().getAddressId(),all.get(0).getAddressId());
+        User ecuser = new User();
+        ecuser.setUserId(1);
+        List<User> all = mapper.getAll(null);
+        Assert.assertEquals(ecuser.getUserId(),all.get(0).getUserId());
         recoveTable();
     }
+
     @Test
     public void testAdd() throws Exception{
         backoneTable();
         insert();
-        Address address = new Address(null, "qin",
-                "cd", "yidan", "123",
-                "456", "qq.com", "niu", "11:11", "1234", 1);
-        int state = mapper.add(address);
+        User user = new User(null, "5555", "杨", "159", "2019", "@sss",
+                "789654", "5564", "dsa");
+        int state = mapper.add(user);
         Assert.assertEquals(1,state);
         recoveTable();
     }
@@ -62,59 +54,63 @@ public class AddressMapperTest {
     public void testUpdate() throws Exception{
         backoneTable();
         insert();
-        Address address = new Address();
-        address.setBestDeliverTime("23:43");
-        address.setAddressId(1);
-        int state = mapper.update(address);
-        Assert.assertEquals(1,state);
+
+        User user = new User();
+        user.setUserId(1);
+        user.setEmail("12@qq.com");
+        int update = mapper.update(user);
+        Assert.assertEquals(1,update);
         recoveTable();
     }
+
     @Test
     public void testDeleteById() throws Exception{
         backoneTable();
         insert();
-        Address address = new Address();
-        address.setAddressId(1);
-        int state = mapper.deleteById(address);
+
+        User user = new User();
+        user.setUserId(1);
+        int state = mapper.deleteById(user);
         Assert.assertEquals(1,state);
         recoveTable();
     }
 
 
+
     /**
      * @param: []
      * @return: void
      * @auther: qin
-     * @date: 2018/11/21
-     * @Description:备份一张表的数据
+     * @date: 2018/11/22
+     * @Description:
      **/
     public void backoneTable() throws Exception{
         QueryDataSet queryDataSet = new QueryDataSet(new DatabaseConnection(dataSource.getConnection()));
-        queryDataSet.addTable("address");
-        FlatXmlDataSet.write(queryDataSet,new FileOutputStream(new File("D:\\yuan.xml")));
+        queryDataSet.addTable("user");
+        FlatXmlDataSet.write(queryDataSet,new FileOutputStream(new File("D:\\user.xml")));
 
     }
     /**
      * @param: []
      * @return: void
      * @auther: qin
-     * @date: 2018/11/21
-     * @Description:清空表数据，插入新的数据
+     * @date: 2018/11/22
+     * @Description:
      **/
 
     public void insert() throws Exception{
-        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource("abc.xml"));
+        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource("userTest.xml"));
         DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(dataSource.getConnection()),dataSet);
     }
     /**
      * @param: []
      * @return: void
      * @auther: qin
-     * @date: 2018/11/21
-     * @Description:恢复数据
+     * @date: 2018/11/22
+     * @Description:
      **/
     public void recoveTable() throws Exception{
-        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource(new FileInputStream(new File("D:\\yuan.xml"))));
+        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource(new FileInputStream(new File("D:\\user.xml"))));
         DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(dataSource.getConnection()),dataSet);
     }
 
