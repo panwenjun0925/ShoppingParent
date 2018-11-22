@@ -1,9 +1,11 @@
 package com.team.product.facadeImpl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IProductDesFacade;
 import com.team.facade.pojo.GoodsDes;
 import com.team.product.mapper.GoodsDesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -13,6 +15,8 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
+@Service
+@Component
 public class IProductDesFacadeImpl implements IProductDesFacade {
 
     @Autowired

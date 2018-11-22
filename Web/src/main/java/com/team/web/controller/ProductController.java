@@ -1,5 +1,6 @@
 package com.team.web.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequestMapping("product")
 public class ProductController {
 
+    @Reference
     private IProductFacade productFacade;
 
     @RequestMapping(value = "getAll", method = RequestMethod.GET)

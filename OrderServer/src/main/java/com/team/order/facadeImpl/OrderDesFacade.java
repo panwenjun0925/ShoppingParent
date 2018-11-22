@@ -1,9 +1,11 @@
-package com.team.order.FacadeImpl;
+package com.team.order.facadeImpl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IOrderDesFacade;
 import com.team.facade.pojo.OrderDes;
 import com.team.order.service.OrderDesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -13,6 +15,8 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
+@Service
+@Component
 public class OrderDesFacade implements IOrderDesFacade {
 
     @Autowired
