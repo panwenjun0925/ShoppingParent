@@ -10,20 +10,64 @@ import java.io.Serializable;
  */
 public class Goods implements Serializable {
     private static final long serialVersionUID = 6244987807951023526L;
-    private int goodsId;
+    /**
+     * 商品的ID
+     */
+    private Integer goodsId;
+    /**
+     * 商品的名字
+     */
     private String goodsName;
-    private double goodsShowPrice;
+    /**
+     * 商品的展示价格
+     */
+    private Double goodsShowPrice;
+    /**
+     * 商品展示的图片地址
+     */
     private String goodsShowPicture;
-    private int isPutaway;
-    private double goodsDiscount;
-    private double goodsRealPrice;
-    private int goodsTotal;
-    private int goodsTypeId;
+    /**
+     * 是否上架
+     */
+    private Integer isPutaway;
+    /**
+     * 商品折扣力度
+     */
+    private Double goodsDiscount;
+    /**
+     * 商品最后交易价格
+     */
+    private Double goodsRealPrice;
+    /**
+     * 商品总数量
+     */
+    private Integer goodsTotal;
+
+    /**
+     * 商品销量
+     */
+    private Integer goodsSaleNum;
+    /**
+     * 这个商品所属的类别
+     */
+    private Integer goodsTypeId;
+    /**
+     * 这个商品所属的品牌
+     */
+    private Integer brandId;
+    /**
+     * 这个商品所属的上架时间
+     */
+    private String goodsShelfTime;
+    /**
+     * 这个商品所属的所有属性
+     */
+    private String goodsAttr;
 
     public Goods() {
     }
 
-    public Goods(int goodsId, String goodsName, double goodsShowPrice, String goodsShowPicture, int isPutaway, double goodsDiscount, double goodsRealPrice, int goodsTotal, int goodsTypeId) {
+    public Goods(Integer goodsId, String goodsName, Double goodsShowPrice, String goodsShowPicture, Integer isPutaway, Double goodsDiscount, Double goodsRealPrice, Integer goodsTotal, Integer goodsSaleNum, Integer goodsTypeId, Integer brandId, String goodsShelfTime, String goodsAttr) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsShowPrice = goodsShowPrice;
@@ -32,14 +76,18 @@ public class Goods implements Serializable {
         this.goodsDiscount = goodsDiscount;
         this.goodsRealPrice = goodsRealPrice;
         this.goodsTotal = goodsTotal;
+        this.goodsSaleNum = goodsSaleNum;
         this.goodsTypeId = goodsTypeId;
+        this.brandId = brandId;
+        this.goodsShelfTime = goodsShelfTime;
+        this.goodsAttr = goodsAttr;
     }
 
-    public int getGoodsId() {
+    public Integer getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(int goodsId) {
+    public void setGoodsId(Integer goodsId) {
         this.goodsId = goodsId;
     }
 
@@ -51,11 +99,11 @@ public class Goods implements Serializable {
         this.goodsName = goodsName;
     }
 
-    public double getGoodsShowPrice() {
+    public Double getGoodsShowPrice() {
         return goodsShowPrice;
     }
 
-    public void setGoodsShowPrice(double goodsShowPrice) {
+    public void setGoodsShowPrice(Double goodsShowPrice) {
         this.goodsShowPrice = goodsShowPrice;
     }
 
@@ -67,44 +115,76 @@ public class Goods implements Serializable {
         this.goodsShowPicture = goodsShowPicture;
     }
 
-    public int getIsPutaway() {
+    public Integer getIsPutaway() {
         return isPutaway;
     }
 
-    public void setIsPutaway(int isPutaway) {
+    public void setIsPutaway(Integer isPutaway) {
         this.isPutaway = isPutaway;
     }
 
-    public double getGoodsDiscount() {
+    public Double getGoodsDiscount() {
         return goodsDiscount;
     }
 
-    public void setGoodsDiscount(double goodsDiscount) {
+    public void setGoodsDiscount(Double goodsDiscount) {
         this.goodsDiscount = goodsDiscount;
     }
 
-    public double getGoodsRealPrice() {
+    public Double getGoodsRealPrice() {
         return goodsRealPrice;
     }
 
-    public void setGoodsRealPrice(double goodsRealPrice) {
+    public void setGoodsRealPrice(Double goodsRealPrice) {
         this.goodsRealPrice = goodsRealPrice;
     }
 
-    public int getGoodsTotal() {
+    public Integer getGoodsTotal() {
         return goodsTotal;
     }
 
-    public void setGoodsTotal(int goodsTotal) {
+    public void setGoodsTotal(Integer goodsTotal) {
         this.goodsTotal = goodsTotal;
     }
 
-    public int getGoodsTypeId() {
+    public Integer getGoodsTypeId() {
         return goodsTypeId;
     }
 
-    public void setGoodsTypeId(int goodsTypeId) {
+    public void setGoodsTypeId(Integer goodsTypeId) {
         this.goodsTypeId = goodsTypeId;
+    }
+
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getGoodsShelfTime() {
+        return goodsShelfTime;
+    }
+
+    public void setGoodsShelfTime(String goodsShelfTime) {
+        this.goodsShelfTime = goodsShelfTime;
+    }
+
+    public String getGoodsAttr() {
+        return goodsAttr;
+    }
+
+    public void setGoodsAttr(String goodsAttr) {
+        this.goodsAttr = goodsAttr;
+    }
+
+    public Integer getGoodsSaleNum() {
+        return goodsSaleNum;
+    }
+
+    public void setGoodsSaleNum(Integer goodsSaleNum) {
+        this.goodsSaleNum = goodsSaleNum;
     }
 
     @Override
@@ -119,6 +199,9 @@ public class Goods implements Serializable {
                 ", goodsRealPrice=" + goodsRealPrice +
                 ", goodsTotal=" + goodsTotal +
                 ", goodsTypeId=" + goodsTypeId +
+                ", brandId=" + brandId +
+                ", goodsShelfTime='" + goodsShelfTime + '\'' +
+                ", goodsAttr='" + goodsAttr + '\'' +
                 '}';
     }
 }
