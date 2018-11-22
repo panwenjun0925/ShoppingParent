@@ -1,7 +1,7 @@
 package com.team.newsserver.service;
 
 import com.team.facade.pojo.News;
-import com.team.newsserver.vo.NewsVo;
+import com.team.facade.vo.NewsVo.NewsVo;
 
 import java.util.List;
 

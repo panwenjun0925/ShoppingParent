@@ -1,4 +1,4 @@
-package com.team.brandserver.vo;
+package com.team.facade.vo.BrandVo;
 
 /**
  * @Auther: daixiao

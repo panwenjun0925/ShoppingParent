@@ -1,10 +1,9 @@
 package com.team.adserver.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.team.adserver.mapper.AdMapper;
-import com.team.adserver.vo.AdVo;
 import com.team.facade.pojo.Ad;
 import com.team.adserver.service.AdService;
+import com.team.facade.vo.AdVo.AdVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,6 @@ import java.util.List;
  * @Version: 1.0
  */
 @Component
-@Service
 public class AdServiceImpl implements AdService {
 
     @Autowired

@@ -1,22 +1,17 @@
-package com.team.newsserver.mapper;
+package com.team.facade.IFacade;
 
 import com.team.facade.pojo.News;
 import com.team.facade.vo.NewsVo.NewsVo;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @Auther: daixiao
- * @Date: 2018/11/22 12:04
+ * @Date: 2018/11/22 19:42
  * @Description:
  * @Version: 1.0
  */
-@Repository
-@Mapper
-public interface NewsMapper {
-
+public interface INewsFacade {
     /**
      * 功能描述:
      *
@@ -27,7 +22,7 @@ public interface NewsMapper {
      **/
 
     void  add(News news);
-    
+
     /**
      * 功能描述:
      *
@@ -36,9 +31,9 @@ public interface NewsMapper {
      * @auther: daixiao
      * @date: 2018/11/22 12:09
      **/
-    
+
     List<News> findBy(NewsVo newsVo);
-    
+
     /**
      * 功能描述:
      *
@@ -47,8 +42,8 @@ public interface NewsMapper {
      * @auther: daixiao
      * @date: 2018/11/22 12:10
      **/
-    void delete(Integer id);
-    
+    void delete(News news);
+
     /**
      * 功能描述:
      *
@@ -57,6 +52,6 @@ public interface NewsMapper {
      * @auther: daixiao
      * @date: 2018/11/22 12:10
      **/
-    
+
     void update(News news);
 }

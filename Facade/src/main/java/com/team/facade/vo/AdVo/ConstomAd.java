@@ -1,4 +1,4 @@
-package com.team.adserver.vo;
+package com.team.facade.vo.AdVo;
 
 import com.team.facade.pojo.Ad;
 
