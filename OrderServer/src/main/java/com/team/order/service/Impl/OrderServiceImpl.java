@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @Auther: PWJ
  * @Date: 2018/11/20 20:24
- * @Description:
+ * @Description:订单的service实现类
  * @Version: 1.0
  */
 @Service
@@ -20,7 +20,22 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderMapper mapper;
     @Override
-    public List<Order> getAll() {
-        return mapper.getAll();
+    public List<Order> getOrderByCondition(Order order) {
+        return mapper.getOrderByCondition(order);
+    }
+
+    @Override
+    public int addOrder(Order order) {
+        return mapper.addOrder(order);
+    }
+
+    @Override
+    public int delOrderByOrderId(int id) {
+        return mapper.delOrderByOrderId(id);
+    }
+
+    @Override
+    public int updateOrder(Order order) {
+        return mapper.updateOrder(order);
     }
 }
