@@ -14,5 +14,6 @@ public class AddressStrat {
 
         SpringApplication.run(AddressStrat.class, args);
         logger.info("SpringBoot Start Success");
+
     }
 }
