@@ -3,9 +3,9 @@ package com.team.address.service.impl;
 import com.team.facade.pojo.Address;
 import com.team.address.mapper.AddressMapper;
 import com.team.address.service.AddressService;
-import com.team.address.vo.AddressVo;
+import com.team.facade.vo.addressVo.AddressVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-@Service
+@Component
 @Transactional
 public class AddressServiceImpl implements AddressService {
     @Autowired
@@ -30,16 +30,16 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public int update(Address address) {
-        return  0;
+        return  mapper.update(address);
     }
 
     @Override
     public int delete(Address address) {
-        return  0;
+        return  mapper.deleteById(address);
     }
 
     @Override
     public int add(Address address) {
-        return  0;
+        return  mapper.add(address);
     }
 }

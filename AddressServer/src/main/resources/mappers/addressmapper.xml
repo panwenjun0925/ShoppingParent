@@ -3,7 +3,7 @@
 <mapper namespace="com.team.address.mapper.AddressMapper">
 
 
-    <select id="getAll" parameterType="com.team.address.vo.AddressVo" resultType="Address">
+    <select id="getAll" parameterType="com.team.facade.vo.addressVo.AddressVo" resultType="Address">
         select * from address
         <where>
             <if  test="customAddress!=null">

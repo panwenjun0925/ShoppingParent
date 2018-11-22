@@ -1,9 +1,10 @@
 package com.team.address;
 
 import com.team.address.mapper.AddressMapper;
-import com.team.address.vo.AddressVo;
-import com.team.address.vo.CustomAddress;
 import com.team.facade.pojo.Address;
+import com.team.facade.vo.addressVo.AddressVo;
+import com.team.facade.vo.addressVo.CustomAddress;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -16,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.xml.sax.InputSource;
 
-import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

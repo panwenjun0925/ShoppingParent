@@ -1,4 +1,4 @@
-package com.team.user.vo;
+package com.team.facade.vo.userVo;
 
 /**
  * @Auther: qin
