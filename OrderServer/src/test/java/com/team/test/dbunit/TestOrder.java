@@ -1,6 +1,5 @@
 package com.team.test.dbunit;
 
-import com.team.facade.pojo.Order;
 import com.team.order.AppStart;
 import com.team.order.mapper.OrderDesMapper;
 import com.team.order.mapper.OrderMapper;
@@ -24,7 +23,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @Auther: PWJ
@@ -57,10 +55,8 @@ public class TestOrder {
     public void testOrder() throws Exception {
         backOneTable("orders");
         cleanAndInsertDate();
-        List<Order> orders = mapper.getAllOrder();
-        for (Order order : orders) {
-            System.out.println(order);
-        }
+
+
 
 
         resumeTable();
