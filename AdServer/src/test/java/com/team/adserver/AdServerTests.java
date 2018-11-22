@@ -98,6 +98,7 @@ public class AdServerTests {
 
         Assert.assertEquals("茶叶广告",list.get(0).getAdDes());
         Assert.assertEquals("123123",list.get(0).getAdPicture());
+
         resumeTable();
     }
 }
