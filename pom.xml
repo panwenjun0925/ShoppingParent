@@ -13,7 +13,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.0.RELEASE</version>
+        <version>2.1.0.RELEASE
+        </version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -82,6 +83,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.springtestdbunit</groupId>
+            <artifactId>spring-test-dbunit</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- 分页助手 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -94,6 +102,7 @@
             <version>0.9.1</version>
         </dependency>
         <!-- /分页助手 -->
+
 
 
         <!--导入dbunit的包 -->
@@ -117,16 +126,49 @@
             <version>1.2.47</version>
         </dependency>
 
+        <!--导入的是日志相关的包 -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-        <!--导入的是日志相关的包 -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
+        </dependency>
+
+
+
+        <!--导入dubbo的相关包 -->
+        <!--引入dubbo的相关的依赖 -->
+        <dependency>
+            <groupId>org.jboss.netty</groupId>
+            <artifactId>netty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!--因为你使用dubbo的时候我们的 dubbo要调用 zookeeper 所以这里要导入zookeeper的包 -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
         </dependency>
 
 
