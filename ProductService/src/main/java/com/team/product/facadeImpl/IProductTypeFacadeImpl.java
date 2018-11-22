@@ -1,5 +1,6 @@
 package com.team.product.facadeImpl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IProductTypeFacade;
 import com.team.facade.pojo.GoodsType;
 import com.team.product.mapper.GoodsTypeMapper;
@@ -13,6 +14,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
+@Service
 public class IProductTypeFacadeImpl implements IProductTypeFacade {
 
     @Autowired
