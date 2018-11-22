@@ -16,17 +16,39 @@ import java.util.List;
  * @Version: 1.0
  */
 @Controller
+@RequestMapping("/order")
 public class OrderController {
 
     @Reference
     IOrderFacade orderFacade;
 
-    @RequestMapping("/getAll")
+    @RequestMapping("/getAllOrder")
     @ResponseBody
-    public List<Order> getAll(){
-        Order order = new Order();
+    public List<Order> getAll(Order order){
         return orderFacade.getOrderByCondition(order);
     }
+
+    @RequestMapping("/addOrder")
+    public String addOrder(Order order){
+        orderFacade.addOrder(order);
+        return "";
+    }
+
+    @RequestMapping("/delOrder")
+    public String delOrder(int id){
+        orderFacade.delOrderByOrderId(id);
+        return  "";
+    }
+
+    @RequestMapping("/updateOrder")
+    public String updateOrder(Order order){
+        orderFacade.updateOrder(order);
+        return "";
+    }
+
+
+
+
 
 
 
