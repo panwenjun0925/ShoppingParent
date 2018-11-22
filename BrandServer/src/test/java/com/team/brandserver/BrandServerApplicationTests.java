@@ -1,9 +1,9 @@
 package com.team.brandserver;
 
 import com.team.brandserver.mapper.BrandMapper;
-import com.team.brandserver.vo.BrandVo;
-import com.team.brandserver.vo.ConstomBrand;
 import com.team.facade.pojo.Brand;
+import com.team.facade.vo.BrandVo.BrandVo;
+import com.team.facade.vo.BrandVo.ConstomBrand;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;

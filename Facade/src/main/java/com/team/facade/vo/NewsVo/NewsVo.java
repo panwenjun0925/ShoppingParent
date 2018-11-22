@@ -1,4 +1,4 @@
-package com.team.newsserver.vo;
+package com.team.facade.vo.NewsVo;
 
 /**
  * @Auther: daixiao

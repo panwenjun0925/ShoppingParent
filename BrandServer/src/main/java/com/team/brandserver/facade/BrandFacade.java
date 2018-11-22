@@ -1,43 +1,43 @@
-package com.team.brandserver.service.impl;
+package com.team.brandserver.facade;
 
-import com.team.brandserver.mapper.BrandMapper;
+import com.alibaba.dubbo.config.annotation.Service;
 import com.team.brandserver.service.BrandService;
+import com.team.facade.IFacade.IBrandFacade;
 import com.team.facade.pojo.Brand;
 import com.team.facade.vo.BrandVo.BrandVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * @Auther: daixiao
- * @Date: 2018/11/22 11:16
+ * @Date: 2018/11/22 20:29
  * @Description:
  * @Version: 1.0
  */
-@Component
-public class BrandServiceImpl implements BrandService{
+@Service
+public class BrandFacade implements IBrandFacade {
 
     @Autowired
-    BrandMapper brandMapper;
+    BrandService brandService;
 
     @Override
     public void add(Brand brand) {
-        brandMapper.add(brand);
+        brandService.add(brand);
     }
 
     @Override
     public List<Brand> findBy(BrandVo brandVo) {
-        return brandMapper.findBy(brandVo);
+        return brandService.findBy(brandVo);
     }
 
     @Override
     public void delete(Brand brand) {
-        brandMapper.delete(brand.getBrandId());
+        brandService.delete(brand);
     }
 
     @Override
     public void update(Brand brand) {
-        brandMapper.update(brand);
+        brandService.update(brand);
     }
 }

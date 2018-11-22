@@ -1,4 +1,4 @@
-package com.team.adserver.vo;
+package com.team.facade.vo.AdVo;
 
 /**
  * @Auther: daixiao
@@ -7,7 +7,7 @@ package com.team.adserver.vo;
  * @Version: 1.0
  */
 public class AdVo {
-    private  ConstomAd constomAd;
+    private ConstomAd constomAd;
 
     public ConstomAd getConstomAd() {
         return constomAd;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.adminserver.mapper.AdminMapper">
 
-    <select id="findBy" resultType="Admin" parameterType="com.team.adminserver.vo.AdminVo">
+    <select id="findBy" resultType="Admin" parameterType="com.team.facade.vo.AdminVo.AdminVo">
         select * from admin
       <where>
           <if test="constomAdmin != null">

@@ -1,7 +1,7 @@
 package com.team.adminserver.service;
 
-import com.team.adminserver.vo.AdminVo;
 import com.team.facade.pojo.Admin;
+import com.team.facade.vo.AdminVo.AdminVo;
 
 import java.util.List;
 

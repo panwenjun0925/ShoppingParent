@@ -1,7 +1,7 @@
 package com.team.brandserver.service;
 
-import com.team.brandserver.vo.BrandVo;
 import com.team.facade.pojo.Brand;
+import com.team.facade.vo.BrandVo.BrandVo;
 
 import java.util.List;
 
