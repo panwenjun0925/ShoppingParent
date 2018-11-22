@@ -7,27 +7,29 @@
 <select id="findBy" resultType="Ad" parameterType="com.team.adserver.vo.AdVo">
     select * from  ad
     <where>
-        <if test="constomAd.adId != null and constomAd.adId > 0">
-          and adId = #{constomAd.adId}
+        <if test="constomAd != null ">
+            <if test="constomAd.adId != null and constomAd.adId > 0">
+            and adId = #{constomAd.adId}
+             </if>
+            <if test="constomAd.adDes != null and constomAd.adDes !=''">
+                and adDes =#{constomAd.adDes}
+            </if>
+            <if test="constomAd.adPicture != null and constomAd.adPicture !=''">
+                and adPicture = #{constomAd.adPicture}
+            </if>
+            <if test="constomAd.adType != null and constomAd.adType != ''">
+                and adType =#{constomAd.adType}
+            </if>
         </if>
-        <if test="constomAd.adDes != null and constomAd.adDes !=''">
-            and adDes =#{constomAd.adDes}
-        </if>
-        <if test="constomAd.adPicture != null and constomAd.adPicture !=''">
-            and adPicture = #{constomAd.adPicture}
-        </if>
-        <if test="constomAd.adType != null and constomAd.adType != ''">
-            and adType =#{constomAd.adType}
-        </if>
-    </where>
+</where>
 </select>
 
 <insert id="add" parameterType="Ad">
     insert into ad (adId,adDes,adPicture,adType) values (null,#{adDes},#{adPicture},#{adType})
 </insert>
 
-<delete id="deleteById" >
-    delete from ad where adId in (#{id})
+<delete id="delete" >
+    delete from ad where adId = #{id}
 </delete>
 
 <update id="update" parameterType="Ad">

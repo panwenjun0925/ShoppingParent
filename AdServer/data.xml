@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <ad adId="1" adDes="蛋糕广告" adPicture="123456" adType="0"/>
+    <ad adId="2" adDes="茶叶广告" adPicture="123123" adType="1"/>
+</dataset>
