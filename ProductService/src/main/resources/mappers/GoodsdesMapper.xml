@@ -12,7 +12,7 @@
     <result column="goodsAttr" jdbcType="VARBINARY" property="goodsAttr" />
   </resultMap>
 
-  <sql id="Base_Column_List">goodsDesId,goodsDesPicture,goodsWeight,goodsId,goodsAttr</sql>
+  <sql id="Base_Column_List">goodsDesId,goodsDesPicture,goodsWeight,goodsId,goodsAttr,goodsCount</sql>
 
   <select id="queryList" resultMap="BaseResultMap"  resultType="com.team.facade.pojo.GoodsDes">
     select <include refid="Base_Column_List"/> from goodsDes
@@ -58,6 +58,9 @@
       <if test="goodsAttr != null" >
         goodsAttr,
       </if>
+      <if test="goodsCount != null" >
+        goodsCount,
+      </if>
 
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -75,6 +78,9 @@
       </if>
       <if test="goodsAttr != null" >
         #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCount != null" >
+        #{goodsCount,jdbcType=INTEGER},
       </if>
 
     </trim>
@@ -100,6 +106,9 @@
 
       <if test="goodsAttr != null" >
         goodsAttr = #{goodsAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCount != null" >
+        goodsCount = #{goodsCount,jdbcType=INTEGER},
       </if>
 
     </set>
