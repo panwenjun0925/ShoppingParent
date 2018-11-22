@@ -1,10 +1,11 @@
 package com.team.order.service.Impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.pojo.OrderDes;
 import com.team.order.mapper.OrderDesMapper;
 import com.team.order.service.OrderDesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Service
+@Component
 public class OrderDesServiceImpl implements OrderDesService {
 
     @Autowired
