@@ -65,7 +65,7 @@ public class AdminServerApplicationTests {
         List<Admin> list = adminMapper.findBy(adminVo);
 
         Assert.assertEquals("覃少1",list.get(0).getAdminName());
-        Assert.assertEquals("3211",list.get(0).getAdminPassword());
+        Assert.assertEquals("654",list.get(0).getAdminPassword());
         resumeTable();
     }
 
