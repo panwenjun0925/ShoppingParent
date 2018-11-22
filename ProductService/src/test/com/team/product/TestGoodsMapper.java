@@ -30,11 +30,11 @@ public class TestGoodsMapper {
 
     @Test
     //默认更新操作会回滚
-    @Rollback
-    public void update(){
-        Goods goods = new Goods(null, "恶魔剑", 900.0, "empty", 1, 10.0, 900.0, 4, 0, 9,
+    @Rollback(false)
+    public void insert(){
+        Goods goods = new Goods(null, "恶魔弓", 900.0, "empty", 1, 10.0, 900.0, 4, 0, 9,
                 9, "2018-09-01", "empty");
-        Integer integer = goodsMapper.updateByPrimaryKeySelective(goods);
+        Integer integer = goodsMapper.insertSelective(goods);
         System.out.println(integer);
 
 
