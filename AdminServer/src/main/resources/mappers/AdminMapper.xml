@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.adminserver.mapper.AdminMapper">
+
+    <select id="findBy" resultType="Admin" parameterType="com.team.adminserver.vo.AdminVo">
+        select * from admin
+      <where>
+          <if test="constomAdmin != null">
+              <if test="constomAdmin.adminId != null and constomAdmin.adminId !=''">
+                  and adminId =#{constomAdmin.adminId}
+              </if>
+              <if test="constomAdmin.adminName != null and constomAdmin.adminName != ''">
+                  and adminName =#{constomAdmin.adminName}
+              </if>
+              <if test="constomAdmin.adminPassword != null and constomAdmin.adminPassword !=''">
+                  and adminPassword =#{constomAdmin.adminPassword}
+              </if>
+          </if>
+      </where>
+    </select>
+
+    <insert id="add" parameterType="Admin" >
+        insert into admin (adminId,adminName,adminPassword) values (null,#{adminName},#{adminPassword})
+    </insert>
+
+    <delete id="delete" >
+        delete from admin where adminId = #{id}
+    </delete>
+
+    <update id="update" parameterType="Admin">
+        update admin
+        <set>
+            <if test="adminName != null and adminName !=''">
+                adminName = #{adminName},
+            </if>
+            <if test="adminPassword !=null and adminPassword !=''">
+                adminPassword =#{adminPassword},
+            </if>
+        </set>
+        where adminId = #{id}
+    </update>
+</mapper>

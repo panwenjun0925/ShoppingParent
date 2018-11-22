@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <brand brandId="1" brandName="耐克" brandLog="456"/>
+    <brand brandId="2" brandName="香奈儿" brandLog="654"/>
+</dataset>

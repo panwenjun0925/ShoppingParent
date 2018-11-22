@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.newsserver.mapper.NewsMapper">
+
+    <select id="findBy" resultType="News" parameterType="com.team.newsserver.vo.NewsVo">
+        select  * from news
+        <where>
+            <if test="constomNews != null">
+                <if test="constomNews.newsId != null and constomNews.newsId !=''">
+                    and newsId =#{constomNews.newsId}
+                </if>
+                <if test="constomNews.newsType != null and constomNews.newsType!=''">
+                    and newsType =#{constomNews.newsType}
+                </if>
+                <if test="constomNews.newsTitle != null and constomNews.newsTitle != ''">
+                    and newsTitle =#{constomNews.newsTitle}
+                </if>
+                <if test="constomNews.newsDes != null and constomNews.newsDes != ''">
+                    and newsDes =#{constomNews.newsDes}
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="newsId" parameterType="News">
+        insert into news (newsId,newsType,newsTitle,newsDes) values (null,#{newsType},#{newsTitle},#{newsDes})
+    </insert>
+
+    <delete id="delete">
+        delete from  news where newsId = #{id}
+    </delete>
+
+    <update id="update" parameterType="News">
+        update news
+        <set>
+            <if test="newsType != null and newsType != ''">
+                newsType =#{newsType},
+            </if>
+            <if test="newsTitle !=null and newTitle !=''">
+                newsTitle =#{newsTitle},
+            </if>
+            <if test="newsDes != null and newsDes != ''">
+                newsDes = #{newsDes},
+            </if>
+        </set>
+        where newsId= #{id}
+    </update>
+</mapper>

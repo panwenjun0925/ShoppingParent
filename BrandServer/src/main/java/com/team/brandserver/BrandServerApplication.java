@@ -1,12 +1,12 @@
-package com.team.shopping.newsserver;
+package com.team.brandserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NewsServerApplication {
+public class BrandServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NewsServerApplication.class, args);
+        SpringApplication.run(BrandServerApplication.class, args);
     }
 }
