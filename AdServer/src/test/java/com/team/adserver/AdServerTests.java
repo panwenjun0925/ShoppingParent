@@ -1,9 +1,9 @@
 package com.team.adserver;
 
 import com.team.adserver.mapper.AdMapper;
-import com.team.adserver.vo.AdVo;
-import com.team.adserver.vo.ConstomAd;
 import com.team.facade.pojo.Ad;
+import com.team.facade.vo.AdVo.AdVo;
+import com.team.facade.vo.AdVo.ConstomAd;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;

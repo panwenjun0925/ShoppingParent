@@ -1,4 +1,4 @@
-package com.team.adminserver.vo;
+package com.team.facade.vo.AdminVo;
 
 import com.team.facade.pojo.Admin;
 

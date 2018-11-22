@@ -4,7 +4,7 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.adserver.mapper.AdMapper">
 
-<select id="findBy" resultType="Ad" parameterType="com.team.adserver.vo.AdVo">
+<select id="findBy" resultType="Ad" parameterType="com.team.facade.vo.AdVo.AdVo">
     select * from  ad
     <where>
         <if test="constomAd != null ">

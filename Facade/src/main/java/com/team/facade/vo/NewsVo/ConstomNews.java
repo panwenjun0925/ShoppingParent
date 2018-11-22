@@ -1,4 +1,4 @@
-package com.team.newsserver.vo;
+package com.team.facade.vo.NewsVo;
 
 import com.team.facade.pojo.News;
 

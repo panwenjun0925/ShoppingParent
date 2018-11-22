@@ -1,22 +1,17 @@
-package com.team.brandserver.mapper;
+package com.team.facade.IFacade;
 
 import com.team.facade.pojo.Brand;
 import com.team.facade.vo.BrandVo.BrandVo;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @Auther: daixiao
- * @Date: 2018/11/22 11:18
+ * @Date: 2018/11/22 19:41
  * @Description:
  * @Version: 1.0
  */
-@Repository
-@Mapper
-public interface BrandMapper {
-
+public interface IBrandFacade {
     /**
      * 功能描述:
      *
@@ -48,7 +43,7 @@ public interface BrandMapper {
      * @date: 2018/11/22 11:22
      **/
 
-    void delete(Integer id);
+    void delete(Brand brand);
 
     /**
      * 功能描述:

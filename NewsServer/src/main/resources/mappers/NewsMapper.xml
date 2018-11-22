@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.newsserver.mapper.NewsMapper">
 
-    <select id="findBy" resultType="News" parameterType="com.team.newsserver.vo.NewsVo">
+    <select id="findBy" resultType="News" parameterType="com.team.facade.vo.NewsVo.NewsVo">
         select  * from news
         <where>
             <if test="constomNews != null">

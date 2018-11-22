@@ -1,22 +1,17 @@
-package com.team.adminserver.mapper;
+package com.team.facade.IFacade;
 
 import com.team.facade.pojo.Admin;
 import com.team.facade.vo.AdminVo.AdminVo;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @Auther: daixiao
- * @Date: 2018/11/21 17:56
+ * @Date: 2018/11/22 19:31
  * @Description:
  * @Version: 1.0
  */
-@Repository
-@Mapper
-public interface AdminMapper {
-
+public interface IAdminFacade {
     /**
      * 功能描述:增添
      *
@@ -48,7 +43,7 @@ public interface AdminMapper {
      * @date: 2018/11/21 17:59
      **/
 
-    void  delete(Integer id);
+    void  delete(Admin admin);
 
     /**
      * 功能描述:更新
