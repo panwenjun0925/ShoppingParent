@@ -14,4 +14,5 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.team.adminserver"})
 @MapperScan(basePackages = {"com.team.adminserver.mapper"})
 public class Appconfig {
+
 }
