@@ -9,6 +9,7 @@ import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.operation.DatabaseOperation;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,12 +77,27 @@ public class AdServerTests {
 
     @Test
     public  void  update() throws Exception{
-//        backOneTable();
-//        insertData();
-//        Ad ad = new Ad();
-//        ad.setAdDes("米酒广告");
-//        ad.setAdId(2);
-//        adMapper.update(ad);
+        backOneTable();
+        insertData();
+        Ad ad = new Ad();
+        ad.setAdDes("米酒广告");
+        ad.setAdId(2);
+        adMapper.update(ad);
+        resumeTable();
+    }
+
+    @Test
+    public void testGetById() throws Exception{
+        backOneTable();
+        insertData();
+        ConstomAd constomAd = new ConstomAd();
+        constomAd.setAdId(2);
+        AdVo adVo = new AdVo();
+        adVo.setConstomAd(constomAd);
+        List<Ad> list = adMapper.findBy(adVo);
+
+        Assert.assertEquals("茶叶广告",list.get(0).getAdDes());
+        Assert.assertEquals("123123",list.get(0).getAdPicture());
         resumeTable();
     }
 }

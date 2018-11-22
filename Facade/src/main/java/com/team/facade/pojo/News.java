@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public class News implements Serializable {
     private static final long serialVersionUID = 6063469296969549479L;
-    private Integer newId;          //新闻id
+    private Integer newsId;          //新闻id
     private Integer newsType;       //新闻类型
     private String newsTitle;   //新闻标题
     private String newsDes;     //新闻描述
@@ -18,19 +18,19 @@ public class News implements Serializable {
     public News() {
     }
 
-    public News(Integer newId, Integer newsType, String newsTitle, String newsDes) {
-        this.newId = newId;
+    public News(Integer newsId, Integer newsType, String newsTitle, String newsDes) {
+        this.newsId = newsId;
         this.newsType = newsType;
         this.newsTitle = newsTitle;
         this.newsDes = newsDes;
     }
 
-    public Integer getNewId() {
-        return newId;
+    public Integer getNewsId() {
+        return newsId;
     }
 
-    public void setNewId(Integer newId) {
-        this.newId = newId;
+    public void setNewsId(Integer newsId) {
+        this.newsId = newsId;
     }
 
     public Integer getNewsType() {
@@ -60,7 +60,7 @@ public class News implements Serializable {
     @Override
     public String toString() {
         return "News{" +
-                "newId=" + newId +
+                "newsId=" + newsId +
                 ", newsType=" + newsType +
                 ", newsTitle='" + newsTitle + '\'' +
                 ", newsDes='" + newsDes + '\'' +

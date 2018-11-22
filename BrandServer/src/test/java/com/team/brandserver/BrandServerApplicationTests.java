@@ -1,9 +1,8 @@
-package com.team.adminserver;
+package com.team.brandserver;
 
-import com.team.adminserver.mapper.AdminMapper;
-import com.team.adminserver.vo.AdminVo;
-import com.team.adminserver.vo.ConstomAdmin;
-import com.team.facade.pojo.Admin;
+import com.team.brandserver.mapper.BrandMapper;
+import com.team.brandserver.vo.BrandVo;
+import com.team.brandserver.vo.ConstomBrand;
 import com.team.facade.pojo.Brand;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
@@ -25,48 +24,47 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes= AdminServerApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes= BrandServerApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
-public class AdminServerApplicationTests {
+public class BrandServerApplicationTests {
 
     @Autowired
-    AdminMapper adminMapper;
+    BrandMapper brandMapper;
     @Autowired
     DataSource dataSource;
 
     @Test
-    public void backTable() throws Exception{
+    public void blackTable() throws Exception{
         QueryDataSet dataSet = new QueryDataSet(new DatabaseConnection(dataSource.getConnection()));
-        dataSet.addTable("admin");
-        FlatXmlDataSet.write(dataSet,new FileOutputStream(new File("F:\\admin.xml")));
+        dataSet.addTable("brand");
+        FlatXmlDataSet.write(dataSet,new FileOutputStream(new File("F:\\brand.xml")));
     }
 
     @Test
     public  void insertData() throws  Exception{
 
-        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource("admin1.xml"));
+        FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource("brand1.xml"));
         DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(dataSource.getConnection()), dataSet);
     }
 
     @Test
     public void resumeTable() throws  Exception{
-        IDataSet dataSet=new FlatXmlDataSet(new InputSource(new FileInputStream(new File("F:\\admin.xml"))));
+        IDataSet dataSet=new FlatXmlDataSet(new InputSource(new FileInputStream(new File("F:\\brand.xml"))));
         DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(dataSource.getConnection()), dataSet);
     }
 
     @Test
     public void  getByIdTest() throws Exception{
-        backTable();
+        blackTable();
         insertData();
-        ConstomAdmin constomAdmin = new ConstomAdmin();
-        constomAdmin.setAdminId(2);
-        AdminVo adminVo = new AdminVo();
-        adminVo.setConstomAdmin(constomAdmin);
-        List<Admin> list = adminMapper.findBy(adminVo);
+        ConstomBrand constomBrand = new ConstomBrand();
+        constomBrand.setBrandId(2);
+        BrandVo brandVo = new BrandVo();
+        brandVo.setConstomBrand(constomBrand);
+        List<Brand> list = brandMapper.findBy(brandVo);
 
-        Assert.assertEquals("覃少1",list.get(0).getAdminName());
-        Assert.assertEquals("3211",list.get(0).getAdminPassword());
+        Assert.assertEquals("香奈儿",list.get(0).getBrandName());
+        Assert.assertEquals("654",list.get(0).getBrandLog());
         resumeTable();
     }
-
 }
