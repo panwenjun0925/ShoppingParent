@@ -3,7 +3,6 @@ package com.team.product.controller;
 import com.team.product.service.ProductDesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 
 /**
  * @Auther: YouQi

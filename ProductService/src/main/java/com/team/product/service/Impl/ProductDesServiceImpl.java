@@ -1,7 +1,7 @@
 package com.team.product.service.Impl;
 
-import com.team.facade.pojo.GoodsDes;
 import com.team.product.mapper.GoodsDesMapper;
+import com.team.facade.pojo.GoodsDes;
 import com.team.product.service.ProductDesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
