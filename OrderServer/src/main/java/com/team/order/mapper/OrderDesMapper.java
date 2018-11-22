@@ -24,7 +24,7 @@ public interface OrderDesMapper {
      * @auther: PWJ
      * @date: 2018/11/21 23:25
      **/
-    List<OrderDes> getOrdersByConditon(OrderDes orderDes);
+    List<OrderDes> getOrderDesByConditon(OrderDes orderDes);
     /**
      * 功能描述:添加订单详情
      *
