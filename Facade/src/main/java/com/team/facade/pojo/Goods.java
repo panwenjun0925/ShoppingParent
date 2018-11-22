@@ -27,7 +27,7 @@ public class Goods implements Serializable {
      */
     private String goodsShowPicture;
     /**
-     * 是否上架
+     * 是否上架 0下架 1上架
      */
     private Integer isPutaway;
     /**

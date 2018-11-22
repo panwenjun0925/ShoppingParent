@@ -12,7 +12,6 @@ import java.util.List;
 public interface OrderMapper {
 
 
-    List<Order> getAllOrder();
     /**
      * 功能描述:通过条件查询订单
      *

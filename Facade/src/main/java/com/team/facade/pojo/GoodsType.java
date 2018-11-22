@@ -10,16 +10,16 @@ import java.io.Serializable;
  */
 public class GoodsType implements Serializable {
     private static final long serialVersionUID = 4418855586782990389L;
-    private int typeId;
+    private Integer typeId;
     private String typeName;
     private String typeDes;
-    private int typeParentId;
+    private Integer typeParentId;
     private String typePicture;
 
     public GoodsType() {
     }
 
-    public GoodsType(int typeId, String typeName, String typeDes, int typeParentId, String typePicture) {
+    public GoodsType(Integer typeId, String typeName, String typeDes, Integer typeParentId, String typePicture) {
         this.typeId = typeId;
         this.typeName = typeName;
         this.typeDes = typeDes;
@@ -27,11 +27,11 @@ public class GoodsType implements Serializable {
         this.typePicture = typePicture;
     }
 
-    public int getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(int typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 
@@ -51,11 +51,11 @@ public class GoodsType implements Serializable {
         this.typeDes = typeDes;
     }
 
-    public int getTypeParentId() {
+    public Integer getTypeParentId() {
         return typeParentId;
     }
 
-    public void setTypeParentId(int typeParentId) {
+    public void setTypeParentId(Integer typeParentId) {
         this.typeParentId = typeParentId;
     }
 

@@ -68,6 +68,7 @@
   </select>
 
   <insert id="insertSelective" parameterType="com.team.facade.pojo.Goods" >
+
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="goodsId != null" >
@@ -111,6 +112,7 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+
       <if test="goodsId != null" >
         #{goodsId,jdbcType=INTEGER},
       </if>
@@ -201,7 +203,7 @@
     where goodsId = #{goodsId,jdbcType=INTEGER}
   </update>
 
-  <select id="queryByIsPutaway" resultMap="BaseResultMap"  >
+  <select id="queryUnPutaway" resultMap="BaseResultMap"  >
     select
     <include refid="Base_Column_List" />
     from goods

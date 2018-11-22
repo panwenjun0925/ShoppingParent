@@ -19,6 +19,7 @@
         <module name="product-type-server" />
         <module name="service-commons" />
         <module name="user-service" />
+        <module name="web" />
       </profile>
     </annotationProcessing>
   </component>
