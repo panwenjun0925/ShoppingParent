@@ -5,6 +5,7 @@ import com.team.facade.IFacade.IProductTypeFacade;
 import com.team.facade.pojo.GoodsType;
 import com.team.product.mapper.GoodsTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Service
+@Component
 public class IProductTypeFacadeImpl implements IProductTypeFacade {
 
     @Autowired
