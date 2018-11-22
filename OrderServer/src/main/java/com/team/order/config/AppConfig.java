@@ -1,7 +1,13 @@
 package com.team.order.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 /**
  * @Auther: PWJ
@@ -12,5 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootConfiguration
 @ComponentScan(basePackages = {"com.team.order"})
 public class AppConfig {
+
+
 
 }

@@ -1,6 +1,6 @@
 package com.team.product.mapper;
 
-import com.team.facade.pojo.GoodsDes;
+import com.team.facade.pojo.GoodsType;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,13 +8,13 @@ import java.util.List;
 
 /**
  * @Auther: YouQi
- * @Date: 2018/11/21 13:35
+ * @Date: 2018/11/21 16:26
  * @Description:
  * @Version: 1.0
  */
 @Repository
 @Mapper
-public interface GoodsDesMapper {
+public interface GoodsTypeMapper {
     /**
      * 功能描述:查找所有商品详情
      *
@@ -23,7 +23,7 @@ public interface GoodsDesMapper {
      * @auther: YouQi
      * @date: 2018/11/21 14:50
      **/
-    List<GoodsDes> queryList();
+    List<GoodsType> queryList();
 
     /**
      * 功能描述:根据主键查找
@@ -33,7 +33,7 @@ public interface GoodsDesMapper {
      * @auther: YouQi
      * @date: 2018/11/21 10:53
      **/
-    GoodsDes queryByPrimaryKey(Integer Id);
+    GoodsType queryByPrimaryKey(Integer Id);
 
 
     /**
@@ -44,7 +44,7 @@ public interface GoodsDesMapper {
      * @auther: YouQi
      * @date: 2018/11/21 10:49
      **/
-    List<GoodsDes> queryGoodsDesByExample(GoodsDes goods);
+    List<GoodsType> queryGoodsTypeByExample(GoodsType goods);
 
 
     /**
@@ -55,7 +55,7 @@ public interface GoodsDesMapper {
      * @auther: YouQi
      * @date: 2018/11/21 10:52
      **/
-    Integer insertSelective(GoodsDes goods);
+    Integer insertSelective(GoodsType goods);
 
     /**
      * 功能描述:根据主键删除
@@ -75,7 +75,7 @@ public interface GoodsDesMapper {
      * @auther: YouQi
      * @date: 2018/11/21 10:56
      **/
-    Integer updateByPrimaryKeySelective(GoodsDes goods);
+    Integer updateByPrimaryKeySelective(GoodsType goods);
 
 
 }

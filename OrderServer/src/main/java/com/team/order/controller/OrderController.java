@@ -11,19 +11,21 @@ import java.util.List;
 
 /**
  * @Auther: PWJ
- * @Date: 2018/11/20 20:36
+ * @Date: 2018/11/21 12:05
  * @Description:
  * @Version: 1.0
  */
 @Controller
 public class OrderController {
-
     @Autowired
     OrderService service;
 
-    @RequestMapping("/list")
     @ResponseBody
-    public List<Order> getAll(){
-        return service.getAll();
+    @RequestMapping
+    public List<Order> getByCondition(){
+        Order order = new Order();
+        order.setOrderCreateTime("2018-08-21 12:20:00");
+
+        return service.getOrderByCondition(order);
     }
 }

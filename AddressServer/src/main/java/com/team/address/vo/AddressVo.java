@@ -1,5 +1,6 @@
 package com.team.address.vo;
 
+
 /**
  * @Auther: qin
  * @Date: 2018/11/21 10:28
@@ -9,6 +10,8 @@ package com.team.address.vo;
 public class AddressVo {
 
     private CustomAddress customAddress;
+
+
 
     public CustomAddress getCustomAddress() {
         return customAddress;

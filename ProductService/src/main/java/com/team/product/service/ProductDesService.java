@@ -1,20 +1,17 @@
-package com.team.product.mapper;
+package com.team.product.service;
 
 import com.team.facade.pojo.GoodsDes;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @Auther: YouQi
- * @Date: 2018/11/21 13:35
+ * @Date: 2018/11/21 16:10
  * @Description:
  * @Version: 1.0
  */
-@Repository
-@Mapper
-public interface GoodsDesMapper {
+public interface ProductDesService {
+
     /**
      * 功能描述:查找所有商品详情
      *
@@ -76,6 +73,5 @@ public interface GoodsDesMapper {
      * @date: 2018/11/21 10:56
      **/
     Integer updateByPrimaryKeySelective(GoodsDes goods);
-
 
 }

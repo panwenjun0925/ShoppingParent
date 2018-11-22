@@ -6,40 +6,41 @@
     <select id="getAll" parameterType="com.team.address.vo.AddressVo" resultType="Address">
         select * from address
         <where>
-            <if test="customAddress.addressId>0 and customAddress.addressId!=null">
-                and addressId=#{customAddress.addressId}
+            <if  test="customAddress!=null">
+                <if test="customAddress.addressId>0 and customAddress.addressId!=null">
+                    and addressId=#{customAddress.addressId}
+                </if>
+                <if test="customAddress.receiver!='' and customAddress.receiver!=null">
+                    and receiver=#{customAddress.receiver}
+                </if>
+                <if test="customAddress.deliveryAddress!='' and customAddress.deliveryAddress!=null">
+                    and deliveryAddress=#{customAddress.deliveryAddress}
+                </if>
+                <if test="customAddress.detailedAddress!='' and customAddress.detailedAddress!=null">
+                    and detailedAddress=#{customAddress.detailedAddress}
+                </if>
+                <if test="customAddress.phone!='' and customAddress.phone!=null">
+                    and phone=#{customAddress.phone}
+                </if>
+                <if test="customAddress.tel!='' and customAddress.tel!=null">
+                    and tel=#{customAddress.tel}
+                </if>
+                <if test="customAddress.email!='' and customAddress.email!=null">
+                    and email=#{customAddress.email}
+                </if>
+                <if test="customAddress.landmark!='' and customAddress.landmark!=null">
+                    and landmark=#{customAddress.landmark}
+                </if>
+                <if test="customAddress.bestDeliverTime!='' and customAddress.bestDeliverTime!=null">
+                    and bestDeliverTime=#{customAddress.bestDeliverTime}
+                </if>
+                <if test="customAddress.postcode!='' and customAddress.postcode!=null">
+                    and postcode=#{customAddress.postcode}
+                </if>
+                <if test="customAddress.userId>0 and customAddress.userId!=null">
+                    and userId=#{customAddress.userId}
+                </if>
             </if>
-            <if test="customAddress.receiver!='' and customAddress.receiver!=null">
-                and receiver=#{customAddress.receiver}
-            </if>
-            <if test="customAddress.deliveryAddress!='' and customAddress.deliveryAddress!=null">
-                and deliveryAddress=#{customAddress.deliveryAddress}
-            </if>
-            <if test="customAddress.detailedAddress!='' and customAddress.detailedAddress!=null">
-                and detailedAddress=#{customAddress.detailedAddress}
-            </if>
-            <if test="customAddress.phone!='' and customAddress.phone!=null">
-                and phone=#{customAddress.phone}
-            </if>
-            <if test="customAddress.tel!='' and customAddress.tel!=null">
-                and tel=#{customAddress.tel}
-            </if>
-            <if test="customAddress.email!='' and customAddress.email!=null">
-                and email=#{customAddress.email}
-            </if>
-            <if test="customAddress.landmark!='' and customAddress.landmark!=null">
-                and landmark=#{customAddress.landmark}
-            </if>
-            <if test="customAddress.bestDeliverTime!='' and customAddress.bestDeliverTime!=null">
-                and bestDeliverTime=#{customAddress.bestDeliverTime}
-            </if>
-            <if test="customAddress.postcode!='' and customAddress.postcode!=null">
-                and postcode=#{customAddress.postcode}
-            </if>
-            <if test="customAddress.userId>0 and customAddress.userId!=null">
-                and userId=#{customAddress.userId}
-            </if>
-
         </where>
 
     </select>
