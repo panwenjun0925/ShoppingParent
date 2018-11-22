@@ -15,8 +15,8 @@
         <module name="mapper-commons" />
         <module name="news-server" />
         <module name="order-server" />
-        <module name="product-service" />
         <module name="product-type-server" />
+        <module name="ProductService" />
         <module name="service-commons" />
         <module name="user-service" />
         <module name="web" />
