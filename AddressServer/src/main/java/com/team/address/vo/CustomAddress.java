@@ -9,5 +9,5 @@ import com.team.facade.pojo.Address;
  * @Version: 1.0
  */
 public class CustomAddress extends Address {
-
+    private static final long serialVersionUID = 3221721631190058750L;
 }

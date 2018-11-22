@@ -47,7 +47,7 @@ public interface AdMapper {
        * @date: 2018/11/21 11:28
        **/
 
-      void delete(Ad ad);
+      void delete(Integer id);
 
       /**
        * 功能描述:修改

@@ -1,4 +1,4 @@
-package com.team.shopping.adminserver;
+package com.team.adminserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

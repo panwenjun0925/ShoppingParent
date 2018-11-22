@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class AdServerApplication {
     public static void main(String[] args) {
+
         SpringApplication.run(AdServerApplication.class, args);
+
     }
 }

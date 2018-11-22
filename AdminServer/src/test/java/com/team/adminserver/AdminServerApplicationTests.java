@@ -1,4 +1,4 @@
-package com.team.shopping.adminserver;
+package com.team.adminserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
