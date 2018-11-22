@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.brandserver.mapper.BrandMapper">
+    <select id="findBy" resultType="Brand" parameterType="com.team.brandserver.vo.BrandVo">
+        select * from brand
+        <where>
+            <if test="constomBrand !=null">
+            <if test="constomBrand.brandId !=null and constomBrand.brandId !=''">
+                brandId =#{constomBrand.brandId}
+            </if>
+            <if test="constomBrand.brandName !=null and constomBrand.brandName !=''">
+                brandName =#{constomBrand.brandName}
+            </if>
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" >
+        insert  into  brand (brandId,brandName,brandLog) values (null,#{brandName},#{brandLog})
+    </insert>
+
+    <delete id="delete">
+        delete from brand where brandId=#{brandId}
+    </delete>
+
+    <update id="update">
+        update brand
+        <set>
+            <if test="brandLog !=null and brandLog !=''">
+                brandLog =#{brandLog}，
+            </if>
+            <if test="brandName != null and brandName !=''">
+                brandName =#{brandName}，
+            </if>
+        </set>
+        where brandId =#{brandId}
+    </update>
+</mapper>

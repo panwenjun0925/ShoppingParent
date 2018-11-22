@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <news newsId="1" newsType="11" newsTitle="锤子" newsDes="666"/>
+    <news newsId="2" newsType="22" newsTitle="屁" newsDes="999"/>
+</dataset>

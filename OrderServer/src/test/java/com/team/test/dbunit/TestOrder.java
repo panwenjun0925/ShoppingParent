@@ -2,15 +2,15 @@ package com.team.test.dbunit;
 
 import com.team.facade.pojo.Order;
 import com.team.order.AppStart;
-import com.team.order.mapper.OrderDesMapper;
 import com.team.order.mapper.OrderMapper;
-import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlProducer;
 import org.dbunit.operation.DatabaseOperation;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,6 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -37,8 +36,6 @@ import java.util.List;
 public class TestOrder {
     @Autowired
     OrderMapper mapper;
-    @Autowired
-    OrderDesMapper desMapper;
 
     @Autowired
     DataSource dataSource;
@@ -46,23 +43,45 @@ public class TestOrder {
     private DatabaseConnection connection = null;
     private String backXmlName = "orderBackSource.xml";
     private String testXmlName = "ordersSource.xml";
+    private Order exOrder = null;
 
     @Before
-    public void init() throws DatabaseUnitException, SQLException {
+    public void init() throws Exception {
+       exOrder = new Order(1,"10",2,"2018-09-21 10:50:24","2018.11.20",1,120.0,1,1);
         //这个里面的参数就是实际上连接数据库的这个参数
         connection = new DatabaseConnection(dataSource.getConnection());
+        backOneTable("orders");
+        cleanAndInsertDate();
     }
 
     @Test
-    public void testOrder() throws Exception {
-        backOneTable("orders");
-        cleanAndInsertDate();
-        List<Order> orders = mapper.getAllOrder();
-        for (Order order : orders) {
-            System.out.println(order);
+    public void testGetOrderByCondition() throws Exception {
+        Order order = new Order();
+        List<Order> orderList = mapper.getOrderByCondition(order);
+        for (Order order1 : orderList) {
+            Assert.assertEquals(exOrder.getOrderId(),order1.getOrderId());
         }
+    }
+    @Test
+    public void testAddOrder() throws Exception {
+        int i = mapper.addOrder(exOrder);
+        Assert.assertEquals(1,i);
+    }
 
+    @Test
+    public void testDelOrderByIf() throws Exception {
+        int i = mapper.delOrderByOrderId(1);
+        Assert.assertEquals(1,i);
+    }
 
+    @Test
+    public void testUpdateOrder() throws Exception {
+        int i = mapper.updateOrder(exOrder);
+        Assert.assertEquals(1,i);
+    }
+
+    @After
+    public void after() throws Exception {
         resumeTable();
     }
 

@@ -3,13 +3,14 @@ package com.team.test.dbunit;
 import com.team.facade.pojo.OrderDes;
 import com.team.order.AppStart;
 import com.team.order.mapper.OrderDesMapper;
-import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlProducer;
 import org.dbunit.operation.DatabaseOperation;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,6 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -44,25 +44,47 @@ public class TestOrderDes {
     private DatabaseConnection connection = null;
     private String backXmlName = "orderDesBackSource.xml";
     private String testXmlName = "orderDesSource.xml";
+    private OrderDes exOrderDes = null;
 
     @Before
-    public void init() throws DatabaseUnitException, SQLException {
+    public void init() throws Exception {
+        exOrderDes = new OrderDes(1,10,"2018001",1,1);
         //这个里面的参数就是实际上连接数据库的这个参数
         connection = new DatabaseConnection(dataSource.getConnection());
+        backOneTable("orderDes");
+        cleanAndInsertDate();
     }
 
     @Test
-    public void testOrder() throws Exception {
-        backOneTable("orderDes");
-        cleanAndInsertDate();
+    public void testGetOrderDesByCondition() throws Exception {
         OrderDes orderDes = new OrderDes();
         List<OrderDes> desList = desMapper.getOrderDesByConditon(orderDes);
         for (OrderDes des : desList) {
             System.out.println(des);
         }
-        resumeTable();
+    }
+    @Test
+    public void testAddOrderDes() throws Exception {
+        int i = desMapper.addOrderDes(exOrderDes);
+        Assert.assertEquals(1,i);
     }
 
+    @Test
+    public void testDelOrderDes() throws Exception {
+        int i = desMapper.delOrderDesByDesId(1);
+        Assert.assertEquals(1,1);
+    }
+
+    @Test
+    public void testUpdateOrderDes() throws Exception {
+        int i = desMapper.updateOrderDes(exOrderDes);
+        Assert.assertEquals(1,i);
+    }
+
+    @After
+    public void after() throws Exception {
+        resumeTable();
+    }
 
     /**
      * 备份数据可以指定一张表格的数据
