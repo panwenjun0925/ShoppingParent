@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.xml.sax.InputSource;
 
@@ -45,34 +44,40 @@ public class AddressMapperTest {
         addressVo.setCustomAddress(customAddress);
 
         List<Address> all = mapper.getAll(addressVo);
-        for (Address address:all) {
-            Assert.assertEquals(address,address);
-        }
-
+        Assert.assertEquals(addressVo.getCustomAddress().getAddressId(),all.get(0).getAddressId());
         recoveTable();
     }
     @Test
-    public void testAdd(){
+    public void testAdd() throws Exception{
+        backoneTable();
+        insert();
         Address address = new Address(null, "qin",
                 "cd", "yidan", "123",
                 "456", "qq.com", "niu", "11:11", "1234", 1);
         int state = mapper.add(address);
-        System.out.println(state);
+        Assert.assertEquals(1,state);
+        recoveTable();
     }
     @Test
-    public void testUpdate(){
+    public void testUpdate() throws Exception{
+        backoneTable();
+        insert();
         Address address = new Address();
         address.setBestDeliverTime("23:43");
-        address.setAddressId(3);
-
+        address.setAddressId(1);
         int state = mapper.update(address);
-        System.out.println(state);
+        Assert.assertEquals(1,state);
+        recoveTable();
     }
     @Test
-    public void testDeleteById(){
+    public void testDeleteById() throws Exception{
+        backoneTable();
+        insert();
         Address address = new Address();
-        address.setAddressId(4);
-        mapper.deleteById(address);
+        address.setAddressId(1);
+        int state = mapper.deleteById(address);
+        Assert.assertEquals(1,state);
+        recoveTable();
     }
 
 
@@ -96,7 +101,7 @@ public class AddressMapperTest {
      * @date: 2018/11/21
      * @Description:清空表数据，插入新的数据
      **/
-    @Test
+
     public void insert() throws Exception{
         FlatXmlDataSet dataSet=new FlatXmlDataSet(new InputSource("abc.xml"));
         DatabaseOperation.CLEAN_INSERT.execute(new DatabaseConnection(dataSource.getConnection()),dataSet);

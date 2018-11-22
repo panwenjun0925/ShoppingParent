@@ -26,4 +26,29 @@ public class ProductServiceImpl implements ProductService {
     public List<Goods> getList() {
         return goodsMapper.queryList();
     }
+
+    @Override
+    public Integer insertSlective(Goods goods) {
+        return goodsMapper.insertSelective(goods);
+    }
+
+    @Override
+    public List<Goods> queryGoodsByExample(Goods goods) {
+        return goodsMapper.queryGoodsByExample(goods);
+    }
+
+    @Override
+    public Integer deleteByPrimaryKey(Integer id) {
+        return goodsMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Integer updateByPrimaryKeySelective(Goods goods) {
+        return goodsMapper.updateByPrimaryKeySelective(goods);
+    }
+
+    @Override
+    public List<Goods> queryUnPutaway() {
+        return goodsMapper.queryUnPutaway();
+    }
 }

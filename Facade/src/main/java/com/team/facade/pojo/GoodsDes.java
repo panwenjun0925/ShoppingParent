@@ -30,15 +30,20 @@ public class GoodsDes implements Serializable {
      * 商品id
      */
     private Integer goodsId;
+    /**
+     *  该特定属性商品的数量
+     */
+    private Integer goodsCount;
 
     public GoodsDes(){}
 
-    public GoodsDes(Integer goodsDesId, String goodsDesPicture, Double goodsWeight, String goodsAttr, Integer goodsId) {
+    public GoodsDes(Integer goodsDesId, String goodsDesPicture, Double goodsWeight, String goodsAttr, Integer goodsId, Integer goodsCount) {
         this.goodsDesId = goodsDesId;
         this.goodsDesPicture = goodsDesPicture;
         this.goodsWeight = goodsWeight;
         this.goodsAttr = goodsAttr;
         this.goodsId = goodsId;
+        this.goodsCount = goodsCount;
     }
 
     public Integer getGoodsDesId() {
@@ -81,14 +86,23 @@ public class GoodsDes implements Serializable {
         this.goodsId = goodsId;
     }
 
+    public Integer getGoodsCount() {
+        return goodsCount;
+    }
+
+    public void setGoodsCount(Integer goodsCount) {
+        this.goodsCount = goodsCount;
+    }
+
     @Override
     public String toString() {
-        return "goodsDes{" +
+        return "GoodsDes{" +
                 "goodsDesId=" + goodsDesId +
                 ", goodsDesPicture='" + goodsDesPicture + '\'' +
                 ", goodsWeight=" + goodsWeight +
                 ", goodsAttr='" + goodsAttr + '\'' +
                 ", goodsId=" + goodsId +
+                ", goodsCount=" + goodsCount +
                 '}';
     }
 }

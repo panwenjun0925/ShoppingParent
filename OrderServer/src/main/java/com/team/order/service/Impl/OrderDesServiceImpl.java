@@ -21,8 +21,8 @@ public class OrderDesServiceImpl implements OrderDesService {
     OrderDesMapper orderDesMapper;
 
     @Override
-    public List<OrderDes> getOrdersByConditon(OrderDes orderDes) {
-        return orderDesMapper.getOrdersByConditon(orderDes);
+    public List<OrderDes> getOrderDesByConditon(OrderDes orderDes) {
+        return orderDesMapper.getOrderDesByConditon(orderDes);
     }
 
     @Override

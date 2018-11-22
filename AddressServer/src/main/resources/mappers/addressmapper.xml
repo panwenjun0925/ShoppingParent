@@ -44,7 +44,7 @@
         </where>
 
     </select>
-    <insert id="add" parameterType="Address">
+    <insert id="add" parameterType="Address" keyProperty="addressId" useGeneratedKeys="true">
         insert into address values(null,#{receiver},#{deliveryAddress},#{detailedAddress},#{phone},#{tel},#{email},
         #{landmark},#{bestDeliverTime},#{postcode},#{userId})
     </insert>

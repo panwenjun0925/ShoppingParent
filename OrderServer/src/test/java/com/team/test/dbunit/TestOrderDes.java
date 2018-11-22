@@ -56,11 +56,10 @@ public class TestOrderDes {
         backOneTable("orderDes");
         cleanAndInsertDate();
         OrderDes orderDes = new OrderDes();
-        List<OrderDes> desList = desMapper.getOrdersByConditon(orderDes);
+        List<OrderDes> desList = desMapper.getOrderDesByConditon(orderDes);
         for (OrderDes des : desList) {
             System.out.println(des);
         }
-
         resumeTable();
     }
 

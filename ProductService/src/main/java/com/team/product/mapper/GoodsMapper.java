@@ -89,10 +89,10 @@ public interface GoodsMapper {
     /**
      * 功能描述:查询所有的已下架商品
      *
-     * @param: []
+     * @param: []0是下架 1是上架
      * @return: java.util.List<com.team.facade.pojo.Goods>
      * @auther: YouQi
      * @date: 2018/11/21 14:01
      **/
-    List<Goods> queryByIsPutaway();
+    List<Goods> queryUnPutaway();
 }

@@ -29,7 +29,7 @@ public class TestOrderDes {
         OrderDes orderDes = new OrderDes();
         orderDes.setGoodsId(1);
         orderDes.setOrderDesId(1);
-        List<OrderDes> desList = mapper.getOrdersByConditon(orderDes);
+        List<OrderDes> desList = mapper.getOrderDesByConditon(orderDes);
         for (OrderDes des : desList) {
             System.out.println(des);
         }
