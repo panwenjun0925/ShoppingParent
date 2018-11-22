@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.user.mapper.UserMapper">
+
+    <select id="getAll" parameterType="com.team.user.vo.UserVo" resultType="User">
+        select * from user
+        <where>
+            <if test="customUser!=null">
+                <if test="customUser.userId!=null adn customUser.userId>0">
+                    and userId=#{customUser.userId}
+                </if>
+
+                <if test="customUser.userNumber!=null adn customUser.userNumber!=''">
+                    and userNumber=#{customUser.userNumber}
+                </if>
+
+                <if test="customUser.userName!=null adn customUser.userName!=''">
+                    and userName=#{customUser.userName}
+                </if>
+
+                <if test="customUser.phone!=null adn customUser.phone!=''">
+                    and phone=#{customUser.phone}
+                </if>
+
+                <if test="customUser.registerTime!=null adn customUser.registerTime!=''">
+                    and registerTime=#{customUser.registerTime}
+                </if>
+
+                <if test="customUser.email!=null adn customUser.email!=''">
+                    and email=#{customUser.email}
+                </if>
+
+                <if test="customUser.idCard!=null adn customUser.idCard!=''">
+                    and idCard=#{customUser.idCard}
+                </if>
+
+                <if test="customUser.inviterId!=null adn customUser.inviterId!=''">
+                    and inviterId=#{customUser.inviterId}
+                </if>
+
+                <if test="customUser.password!=null adn customUser.password!=''">
+                    and password=#{customUser.password}
+                </if>
+
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+        insert into user values (null,#{userNumber},#{userName},#{phone},#{registerTime},
+        #{email},#{idCard},#{inviterId},#{password})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update user
+        <set>
+            <if test="userNumber!=null and userNumber!=''">
+                userNumber=#{userNumber},
+            </if>
+
+            <if test="userName!=null and userName!=''">
+                userName=#{userName},
+            </if>
+
+            <if test="phone!=null and phone!=''">
+                phone=#{phone},
+            </if>
+
+            <if test="registerTime!=null and registerTime!=''">
+                registerTime=#{registerTime},
+            </if>
+
+            <if test="email!=null and email!=''">
+                email=#{email},
+            </if>
+
+            <if test="idCard!=null and idCard!=''">
+                idCard=#{idCard},
+            </if>
+
+            <if test="inviterId!=null and inviterId!=''">
+                inviterId=#{inviterId},
+            </if>
+
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+        </set>
+        where userId=#{userId}
+    </update>
+
+    <delete id="deleteById" parameterType="User">
+        delete from user where userId=#{userId}
+    </delete>
+
+
+
+</mapper>
