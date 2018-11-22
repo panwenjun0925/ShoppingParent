@@ -14,5 +14,4 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.team.user"})
 @MapperScan(basePackages = {"com.team.user.mapper"})
 public class AppConfig {
-
 }
