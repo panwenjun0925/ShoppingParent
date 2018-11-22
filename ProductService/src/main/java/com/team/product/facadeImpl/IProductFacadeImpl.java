@@ -1,25 +1,22 @@
-package com.team.product.service.Impl;
+package com.team.product.facadeImpl;
 
-import com.team.product.mapper.GoodsMapper;
-import com.team.product.service.ProductService;
+import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
-
+import com.team.product.mapper.GoodsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @Auther: YouQi
- * @Date: 2018/11/20 19:01
+ * @Date: 2018/11/22 12:42
  * @Description:
  * @Version: 1.0
  */
-@Service
-public class ProductServiceImpl implements ProductService {
+public class IProductFacadeImpl implements IProductFacade {
 
     @Autowired
-   private GoodsMapper goodsMapper;
+    private GoodsMapper goodsMapper;
 
 
     @Override
@@ -51,4 +48,5 @@ public class ProductServiceImpl implements ProductService {
     public List<Goods> queryUnPutaway() {
         return goodsMapper.queryUnPutaway();
     }
+
 }
