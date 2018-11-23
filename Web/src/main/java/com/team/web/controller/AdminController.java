@@ -35,7 +35,7 @@ public class AdminController {
     @RequestMapping("/add")
     public String addAd(Admin admin){
         adminFacade.add(admin);
-        return "";
+        return "a";
     }
 
     @RequestMapping("/delete")
