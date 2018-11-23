@@ -20,7 +20,8 @@ import java.util.List;
 public class OrderController {
 
     @Reference
-    IOrderFacade orderFacade;
+    private IOrderFacade orderFacade;
+
 
     @RequestMapping("/getAllOrder")
     @ResponseBody
