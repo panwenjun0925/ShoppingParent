@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IOrderFacade;
 import com.team.facade.pojo.Order;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,8 +36,8 @@ public class OrderController {
         return "";
     }
 
-    @RequestMapping("/delOrder")
-    public String delOrder(int id){
+    @RequestMapping("/delOrderById/{id}")
+    public String delOrderById(@PathVariable("id") int id){
         orderFacade.delOrderByOrderId(id);
         return  "";
     }
@@ -46,6 +47,8 @@ public class OrderController {
         orderFacade.updateOrder(order);
         return "";
     }
+
+
 
 
 
