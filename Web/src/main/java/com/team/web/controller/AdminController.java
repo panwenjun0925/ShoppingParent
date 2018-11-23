@@ -49,5 +49,9 @@ public class AdminController {
         return  "";
     }
 
+    @RequestMapping("/login")
+    public String login(){
 
+        return "";
+    }
 }
