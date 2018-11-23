@@ -19,6 +19,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Controller
+@RequestMapping("/address")
 public class AddessController {
     @Reference
     private IAddressFacade facade;

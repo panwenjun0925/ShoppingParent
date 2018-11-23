@@ -7,6 +7,7 @@ import com.team.facade.vo.AdminVo.AdminVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -20,15 +21,15 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Reference(timeout = 10000)
+    @Reference
     private IAdminFacade adminFacade;
 
     @RequestMapping("/list")
-    public String getAll(AdminVo adminVo, Model model){
-        List<Admin> adList = adminFacade.findBy(adminVo);
-        model.addAttribute("admins",adList);
-        return "";
-
+    @ResponseBody
+    public List<Admin> getAll(AdminVo adminVo, Model model){
+        List<Admin> adminList = adminFacade.findBy(adminVo);
+        model.addAttribute("admins",adminList);
+        return  adminList;
     }
 
     @RequestMapping("/add")
