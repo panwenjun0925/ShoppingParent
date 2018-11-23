@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IOrderDesFacade;
 import com.team.facade.pojo.OrderDes;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -26,5 +27,24 @@ public class OrderDesController {
         List<OrderDes> orderDesByConditon = orderDesFacade.getOrderDesByConditon(orderDes);
         return "";
     }
+
+    @RequestMapping("/addOrderDes")
+    public String addOrderDes(OrderDes orderDes){
+        orderDesFacade.addOrderDes(orderDes);
+        return "";
+    }
+
+    @RequestMapping("/delOrderDesById/{id}")
+    public String delOrderDesById(@PathVariable("id") int id){
+        orderDesFacade.delOrderDesByDesId(id);
+        return "";
+    }
+
+    @RequestMapping("/updateOrderDes")
+    public String updateOrderDes(OrderDes orderDes){
+        orderDesFacade.updateOrderDes(orderDes);
+        return "";
+    }
+
 
 }
