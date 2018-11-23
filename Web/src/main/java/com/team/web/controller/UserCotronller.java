@@ -24,8 +24,7 @@ public class UserCotronller {
     @Reference
     private IUserFacade facade;
 
-    @PostMapping("/login")
-    @ResponseBody
+    @RequestMapping("/login")
     public String login(UserVo userVo){
         List<User> all = facade.getAll(userVo);
         if(null!=all.get(0)){
@@ -36,10 +35,11 @@ public class UserCotronller {
     }
 
     @RequestMapping("/getAll")
-    public String getALl(UserVo userVo, Model model){
+    @ResponseBody
+    public List<User> getALl(UserVo userVo, Model model){
         List<User> all = facade.getAll(userVo);
-        model.addAttribute("users",all);
-        return "";
+//        model.addAttribute("users",all);
+        return all;
     }
     @PostMapping("/addUser")
     public String addUser(User user){

@@ -20,7 +20,7 @@ import java.util.List;
 public class OrderDesController {
 
     @Reference
-    IOrderDesFacade orderDesFacade;
+    private IOrderDesFacade orderDesFacade;
 
     @RequestMapping("/getAllOrderDes")
     public String getAllOrderDes(OrderDes orderDes){

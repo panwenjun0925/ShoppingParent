@@ -1,7 +1,6 @@
 package com.team.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.sun.xml.internal.ws.api.addressing.AddressingPropertySet;
 import com.team.facade.IFacade.IAddressFacade;
 import com.team.facade.pojo.Address;
 import com.team.facade.vo.addressVo.AddressVo;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -25,10 +25,11 @@ public class AddessController {
     private IAddressFacade facade;
 
     @RequestMapping("/getAllAddress")
-    public String getAll(AddressVo addressVo, Model model){
+    @ResponseBody
+    public List<Address> getAll(AddressVo addressVo, Model model){
         List<Address> all = facade.getAll(addressVo);
-        model.addAttribute("addresses",addressVo);
-        return "";
+//        model.addAttribute("addresses",addressVo);
+        return all;
     }
 
     @PostMapping("/addAddress")
@@ -47,5 +48,7 @@ public class AddessController {
         facade.update(address);
         return "";
     }
+
+
 
 }
