@@ -1,7 +1,7 @@
 package com.team.address.service;
 
 import com.team.facade.pojo.Address;
-import com.team.address.vo.AddressVo;
+import com.team.facade.vo.addressVo.AddressVo;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public interface AddressService {
      * @return: int
      * @auther: qin
      * @date: 2018/11/21
-     * @Description:
+     * @Description:跟新
      **/
 
 
@@ -37,7 +37,7 @@ public interface AddressService {
      * @return: int
      * @auther: qin
      * @date: 2018/11/21
-     * @Description:
+     * @Description:根据id删除
      **/
 
 
@@ -47,7 +47,7 @@ public interface AddressService {
      * @return: int
      * @auther: qin
      * @date: 2018/11/21
-     * @Description:
+     * @Description:添加
      **/
 
 

@@ -1,7 +1,7 @@
 package com.team.address.mapper;
 
-import com.team.address.vo.AddressVo;
 import com.team.facade.pojo.Address;
+import com.team.facade.vo.addressVo.AddressVo;
 
 import java.util.List;
 

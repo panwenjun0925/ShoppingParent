@@ -2,6 +2,7 @@ package com.team.user;
 
 import com.team.facade.pojo.User;
 import com.team.user.mapper.UserMapper;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -14,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.xml.sax.InputSource;
 
-import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
