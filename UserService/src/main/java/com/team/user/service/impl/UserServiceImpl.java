@@ -1,11 +1,11 @@
 package com.team.user.service.impl;
 
 import com.team.facade.pojo.User;
+import com.team.facade.vo.userVo.UserVo;
 import com.team.user.mapper.UserMapper;
 import com.team.user.service.UserService;
-import com.team.user.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-@Service
+@Component
 @Transactional
 public class UserServiceImpl implements UserService {
     @Autowired

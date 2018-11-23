@@ -1,7 +1,7 @@
 package com.team.user.mapper;
 
 import com.team.facade.pojo.User;
-import com.team.user.vo.UserVo;
+import com.team.facade.vo.userVo.UserVo;
 
 import java.util.List;
 
