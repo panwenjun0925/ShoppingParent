@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.brandserver.mapper.BrandMapper">
-    <select id="findBy" resultType="Brand" parameterType="com.team.brandserver.vo.BrandVo">
+    <select id="findBy" resultType="Brand" parameterType="com.team.facade.vo.BrandVo.BrandVo">
         select * from brand
         <where>
             <if test="constomBrand !=null">

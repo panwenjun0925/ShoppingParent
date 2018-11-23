@@ -2,10 +2,10 @@ package com.team.adminserver.service.impl;
 
 import com.team.adminserver.mapper.AdminMapper;
 import com.team.adminserver.service.AdminService;
-import com.team.adminserver.vo.AdminVo;
 import com.team.facade.pojo.Admin;
+import com.team.facade.vo.AdminVo.AdminVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-@Service
+@Component
 public class AdminServiceImpl implements AdminService{
     @Autowired
     AdminMapper adminMapper;

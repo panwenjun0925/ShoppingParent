@@ -1,7 +1,7 @@
 package com.team.brandserver.mapper;
 
-import com.team.brandserver.vo.BrandVo;
 import com.team.facade.pojo.Brand;
+import com.team.facade.vo.BrandVo.BrandVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

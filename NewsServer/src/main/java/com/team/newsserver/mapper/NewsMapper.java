@@ -1,7 +1,7 @@
 package com.team.newsserver.mapper;
 
 import com.team.facade.pojo.News;
-import com.team.newsserver.vo.NewsVo;
+import com.team.facade.vo.NewsVo.NewsVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

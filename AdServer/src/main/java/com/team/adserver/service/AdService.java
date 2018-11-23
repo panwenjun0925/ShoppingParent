@@ -1,7 +1,7 @@
 package com.team.adserver.service;
 
-import com.team.adserver.vo.AdVo;
 import com.team.facade.pojo.Ad;
+import com.team.facade.vo.AdVo.AdVo;
 
 import java.util.List;
 

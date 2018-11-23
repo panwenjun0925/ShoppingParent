@@ -1,7 +1,7 @@
 package com.team.adminserver.mapper;
 
-import com.team.adminserver.vo.AdminVo;
 import com.team.facade.pojo.Admin;
+import com.team.facade.vo.AdminVo.AdminVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

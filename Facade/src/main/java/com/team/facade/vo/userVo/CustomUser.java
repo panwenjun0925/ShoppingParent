@@ -1,4 +1,4 @@
-package com.team.user.vo;
+package com.team.facade.vo.userVo;
 
 import com.team.facade.pojo.User;
 

@@ -1,9 +1,9 @@
 package com.team.newsserver;
 
 import com.team.facade.pojo.News;
+import com.team.facade.vo.NewsVo.ConstomNews;
+import com.team.facade.vo.NewsVo.NewsVo;
 import com.team.newsserver.mapper.NewsMapper;
-import com.team.newsserver.vo.ConstomNews;
-import com.team.newsserver.vo.NewsVo;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;

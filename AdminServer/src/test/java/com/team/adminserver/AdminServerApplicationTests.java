@@ -1,10 +1,9 @@
 package com.team.adminserver;
 
 import com.team.adminserver.mapper.AdminMapper;
-import com.team.adminserver.vo.AdminVo;
-import com.team.adminserver.vo.ConstomAdmin;
 import com.team.facade.pojo.Admin;
-import com.team.facade.pojo.Brand;
+import com.team.facade.vo.AdminVo.AdminVo;
+import com.team.facade.vo.AdminVo.ConstomAdmin;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;

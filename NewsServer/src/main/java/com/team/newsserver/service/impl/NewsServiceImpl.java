@@ -1,11 +1,11 @@
 package com.team.newsserver.service.impl;
 
 import com.team.facade.pojo.News;
+import com.team.facade.vo.NewsVo.NewsVo;
 import com.team.newsserver.mapper.NewsMapper;
 import com.team.newsserver.service.NewsService;
-import com.team.newsserver.vo.NewsVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-@Service
+@Component
 public class NewsServiceImpl implements NewsService {
 
     @Autowired
@@ -30,6 +30,7 @@ public class NewsServiceImpl implements NewsService {
     public List<News> findBy(NewsVo newsVo) {
         return newsMapper.findBy(newsVo);
     }
+
 
     @Override
     public void delete(News news) {

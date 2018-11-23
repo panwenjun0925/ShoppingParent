@@ -2,10 +2,10 @@ package com.team.brandserver.service.impl;
 
 import com.team.brandserver.mapper.BrandMapper;
 import com.team.brandserver.service.BrandService;
-import com.team.brandserver.vo.BrandVo;
 import com.team.facade.pojo.Brand;
+import com.team.facade.vo.BrandVo.BrandVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,8 +15,7 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-
-@Service
+@Component
 public class BrandServiceImpl implements BrandService{
 
     @Autowired
