@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +23,14 @@ public class ProductController {
     @Reference
     private IProductFacade productFacade;
 
-    @RequestMapping(value = "getAll", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Goods> getList() {
-        return productFacade.getList();
+    @RequestMapping(value = "getList", method = RequestMethod.GET)
+    public
+    String getList(Model model) {
+
+        List<Goods> list = productFacade.getList();
+        model.addAttribute("name","游奇");
+        model.addAttribute("list",list);
+        return "index";
     }
 
     @RequestMapping(value = "insertGoods", method = RequestMethod.POST)

@@ -26,8 +26,8 @@
         <module>MapperCommons</module>
         <module>NewsServer</module>
         <module>OrderServer</module>
-        <module>ProductService</module>
-        <module>ProductTypeServer</module>
+        <module>product-service</module>
+        <module>product-type-server</module>
         <module>ServiceCommons</module>
         <module>UserService</module>
         <module>Web</module>
