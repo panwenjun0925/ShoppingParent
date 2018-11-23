@@ -20,12 +20,11 @@ import java.util.List;
 @RequestMapping("product")
 public class ProductController {
 
-    @Reference
+    @Reference(timeout = 10000)
     private IProductFacade productFacade;
 
     @RequestMapping(value = "getList", method = RequestMethod.GET)
-    public
-    String getList(Model model) {
+    public String getList(Model model) {
 
         List<Goods> list = productFacade.getList();
         model.addAttribute("name","游奇");
