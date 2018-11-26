@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -35,11 +34,10 @@ public class UserCotronller {
     }
 
     @RequestMapping("/getAll")
-    @ResponseBody
-    public List<User> getALl(UserVo userVo, Model model){
+    public String getALl(UserVo userVo, Model model){
         List<User> all = facade.getAll(userVo);
-//        model.addAttribute("users",all);
-        return all;
+        model.addAttribute("users",all);
+        return "user_list";
     }
     @PostMapping("/addUser")
     public String addUser(User user){

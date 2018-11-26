@@ -25,11 +25,10 @@ public class AddessController {
     private IAddressFacade facade;
 
     @RequestMapping("/getAllAddress")
-    @ResponseBody
-    public List<Address> getAll(AddressVo addressVo, Model model){
+    public String getAll(AddressVo addressVo, Model model){
         List<Address> all = facade.getAll(addressVo);
-//        model.addAttribute("addresses",addressVo);
-        return all;
+        model.addAttribute("addresses",all);
+        return "address";
     }
 
     @PostMapping("/addAddress")
