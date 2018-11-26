@@ -16,7 +16,7 @@
 	</select>
 
 	<insert id="addOrder" >
-		insert into orders values(null,#{orderNum},#{orderState},#{orderCreateTime},#{orderPayTime},#{orderPayMode},#{paymentMoney}，#{deliverMode}，#{orderRemark},#{userId},#{adressId})
+		insert into orders values(null,#{orderNum},#{orderState},#{orderCreateTime},#{orderPayTime},#{orderPayMode},#{paymentMoney}，#{deliverMode}，#{orderRemark},#{userId},#{userName},#{addressDes},#{adressId})
 	</insert>
 
 	<delete id="delOrderByOrderId">
@@ -24,7 +24,7 @@
 	</delete>
 
 	<update id="updateOrder">
-		update orders set orderNum = #{orderNum},orderState = #{orderState},orderCreateTime = #{orderCreateTime},orderPayTime = #{orderPayTime},orderPayMode = #{orderPayMode},paymentMoney = #{paymentMoney},deliverMode=#{deliverMode},orderRemark=#{orderRemark},userId = #{userId},adressId = #{adressId} where orderId = #{orderId}
+		update orders set orderNum = #{orderNum},orderState = #{orderState},orderCreateTime = #{orderCreateTime},orderPayTime = #{orderPayTime},orderPayMode = #{orderPayMode},paymentMoney = #{paymentMoney},deliverMode=#{deliverMode},orderRemark=#{orderRemark},userId = #{userId},userName=#{userName},adressId = #{adressId},addressDes=#{addressDes} where orderId = #{orderId}
 	</update>
 
 	<sql id="findSql">
@@ -34,7 +34,7 @@
 		<if test="null != orderNum and '' != orderNum">
 			and orderNum = #{orderNum}
 		</if>
-		<if test="null != orderState and '' != orderState">
+		<if test="null != orderState and '' != orderState and 0 != orderState">
 			and orderState = #{orderState}
 		</if>
 		<if test="null != orderCreateTime and '' != orderCreateTime">
@@ -51,6 +51,9 @@
 		</if>
 		<if test="null != userId and '' != userId">
 			and userId = #{userId}
+		</if>
+		<if test="null != userName and '' != userName">
+			and userName like "%"#{userName}"%"
 		</if>
 		<if test="null != adressId and '' != adressId">
 			and adressId = #{adressId}

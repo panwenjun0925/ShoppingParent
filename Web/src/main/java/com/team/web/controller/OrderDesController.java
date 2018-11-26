@@ -25,37 +25,33 @@ public class OrderDesController {
     private IOrderDesFacade orderDesFacade;
 
     @RequestMapping("/getAllOrderDes")
-    public String getAllOrderDes(OrderDes orderDes, Model model){
+    public String getAllOrderDes(OrderDes orderDes, Model model) {
         List<OrderDes> desList = orderDesFacade.getOrderDesByConditon(orderDes);
-        model.addAttribute("orderDesList",desList);
+        model.addAttribute("orderDesList", desList);
         return "Order/order_detail";
     }
 
     @RequestMapping("/getOrderDesByOrderId/{id}")
     @ResponseBody
-    public List<OrderDes> getOrderDesByOrderId(@PathVariable("id") int id){
-        System.out.println("传进来的ID是"+id);
+    public List<OrderDes> getOrderDesByOrderId(@PathVariable("id") int id) {
         List<OrderDes> orderDesList = orderDesFacade.getOrderDesByOrderId(id);
-        for (OrderDes orderDes : orderDesList) {
-            System.out.println("啦啦啦啦啦啦啦："+orderDes);
-        }
         return orderDesList;
     }
 
     @RequestMapping("/addOrderDes")
-    public String addOrderDes(OrderDes orderDes){
+    public String addOrderDes(OrderDes orderDes) {
         orderDesFacade.addOrderDes(orderDes);
         return "";
     }
 
     @RequestMapping("/delOrderDesById/{id}")
-    public String delOrderDesById(@PathVariable("id") int id){
+    public String delOrderDesById(@PathVariable("id") int id) {
         orderDesFacade.delOrderDesByDesId(id);
         return "";
     }
 
     @RequestMapping("/updateOrderDes")
-    public String updateOrderDes(OrderDes orderDes){
+    public String updateOrderDes(OrderDes orderDes) {
         orderDesFacade.updateOrderDes(orderDes);
         return "";
     }

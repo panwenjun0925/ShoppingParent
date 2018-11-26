@@ -111,23 +111,26 @@
             <a class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <section class="mtb">
-           <!-- <form th:action="@{order/getAllOrder}"  method="post">
+            <form action="/order/getAllOrder" method="post">
                 <select class="select" name="orderState">
-                    <option th:value="">订单状态</option>
-                    <option th:value="1">待付款</option>
-                    <option th:value="2">待发货</option>
-                    <option th:value="3">已完成</option>
+                    <option value="0" th:selected="${order.getOrderState() == 0}">订单状态</option>
+                    <option value="1" th:selected="${order.getOrderState() == 1}">待付款</option>
+                    <option value="2" th:selected="${order.getOrderState() == 2}">待发货</option>
+                    <option value="3" th:selected="${order.getOrderState() == 3}">已完成</option>
                 </select>
-                <input type="text" class="textbox textbox_225" placeholder="输入订单编号或收件人姓名/电话..."/>
+                <input type="text" class="textbox textbox_225" th:value="${order.getOrderNum()}" name="orderNum"
+                       placeholder="输入订单编号"/>
+                <input type="text" class="textbox textbox_225" th:value="${order.getUserName()}" name="userName"
+                       placeholder="输入付款人姓名"/>
                 <input type="submit" value="查询" class="group_btn"/>
-            </form>-->
+            </form>
         </section>
         <table class="table">
             <tr>
                 <th>订单编号</th>
                 <th>订单状态</th>
                 <th>订单金额</th>
-                <th>订单支付人</th>
+                <th>订单付款人</th>
                 <th>订单地址</th>
                 <th>操作</th>
             </tr>
@@ -138,8 +141,8 @@
                 <td th:if="${orders.getOrderState()== 2}" th:text="待发货"></td>
                 <td th:if="${orders.getOrderState()== 3}" th:text="已完成"></td>
                 <td th:text="${orders.getPaymentMoney()}"></td>
-                <td th:text="${orders.getUserId()}"></td>
-                <td th:text="${orders.getAdressId()}"></td>
+                <td th:text="${orders.getUserName()}"></td>
+                <td th:text="${orders.getAddressDes()}"></td>
                 <td class="center">
                     <a th:href="@{/order/getById(id=${orders.orderId})}"
                        title="查看订单" class="link_icon" target="_blank">&#118;</a>
