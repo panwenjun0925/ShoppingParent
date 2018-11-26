@@ -54,4 +54,9 @@ public class IProductFacadeImpl implements IProductFacade {
         return productService.queryUnPutaway();
     }
 
+    @Override
+    public Goods queryByPrimaryKey(Integer id) {
+        return productService.queryByPrimaryKey(id);
+    }
+
 }

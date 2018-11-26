@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>更新售出商品详情</title>
+</head>
+<body>
+<div>
+    <form action="/productDes/update" method="post">
+        <label class="#">货号</label>
+        <input type="text"  name="goodsId" th:value="${productDes.goodsId}">
+        <br/>
+
+        <label class="#">重量</label>
+        <input type="text"  name="goodsWeight" th:value="${productDes.goodsWeight}">
+        <br/>
+
+        <label class="#">属性(单)</label>
+        <input type="text"  name="goodsAttr" th:value="${productDes.goodsAttr}">
+        <br/>
+
+        <label class="#">同属性 售出多少件</label>
+        <input type="text"  name="goodsCount" th:value="${productDes.goodsCount}">
+        <br/>
+    </form>
+</div>
+
+</body>
+</html>

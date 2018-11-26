@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+</head>
+<body>
+
+<span>添加商品</span>
+<div>
+    <form action="/product/insertGoods" method="post">
+        <label class="#">商品名</label>
+        <input type="text"  name="goodsName">
+        <br/>
+
+        <label class="#">货号</label>
+        <input type="text"  name="goodsId">
+        <br/>
+
+        <label class="#">标价</label>
+        <input type="text"  name="goodsShowPrice">
+        <br/>
+
+        <label class="#">售价</label>
+        <input type="text"  name="goodsRealPrice">
+        <br/>
+
+        <label class="#">库存</label>
+        <input type="text"  name="goodsTotal">
+        <br/>
+
+        <label class="#">是否上架</label>
+        <input type="text"  name="isPutaway">
+        <br/>
+
+        <label class="#">商品类别</label>
+        <input type="text"  name="goodsTypeId">
+        <br/>
+
+        <label class="#">商品品牌</label>
+        <input type="text"  name="brandId">
+        <br/>
+
+        <label class="#">商品属性</label>
+        <input type="text"  name="goodsAttr">
+        <br/>
+
+        <label class="#">展示图片</label>
+        <input type="text"  name="goodsShowPicture">
+        <br/>
+
+        <button type="submit" class="#">添  加</button>
+
+    </form>
+</div>
+
+</body>
+</html>

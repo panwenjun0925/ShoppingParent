@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品类别列表</title>
+</head>
+<body>
+
+<table class="#" border="2" id="productType_table" >
+
+    <tr>
+        <th>类别号</th>
+        <th >类别名</th>
+        <th >类别描述</th>
+        <th >父类别号</th>
+        <th>分类图片</th>
+
+
+
+        <th >操作</th>
+    </tr>
+
+    <tbody>
+    <tr class="gradeX" th:each="productType : ${productTypeList}">
+        <th th:text="${productType.typeId}">类别号</th>
+        <th th:text="${productType.typeName}">类别名</th>
+        <th th:text="${productType.typeDes}">类别描述</th>
+        <th th:text="${productType.typeParentId}">父类别号</th>
+
+        <th th:text="${productType.typePicture}">分类图片</th>
+
+        <th >
+            <a th:href="@{/product/jumpUpdateById/( id = ${productType.typeId})}" title="编辑" >编辑</a>
+            <a th:href="@{/product/delete/( id = ${productType.typeId})}" title="删除">删除</a>
+        </th>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

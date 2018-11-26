@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品展示列表</title>
+</head>
+<body>
+
+<table class="#" border="2" id="product_table" >
+
+    <tr>
+        <th>商品名</th>
+        <th >货号</th>
+        <th >单价</th>
+        <th >(实际)售价</th>
+        <th>折扣</th>
+        <th >库存</th>
+        <th >已售</th>
+        <th >是否上架</th>
+        <th >商品类别</th>
+        <th >商品品牌</th>
+        <th >商品属性</th>
+        <th >展示图片</th>
+
+        <th >操作</th>
+    </tr>
+
+    <tbody>
+    <tr class="gradeX" th:each="product : ${productList}">
+        <th th:text="${product.goodsName}">商品名</th>
+        <th th:text="${product.goodsId}">货号</th>
+        <th th:text="${product.goodsShowPrice}">单价</th>
+        <th th:text="${product.goodsRealPrice}">(实际)售价</th>
+        <th th:text="${product.goodsDiscount}">折扣力度</th>
+        <th th:text="${product.goodsTotal}">库存</th>
+        <th th:text="${product.goodsSaleNum}">已售</th>
+        <th th:text="${product.isPutaway}">是否上架</th>
+        <th th:text="${product.goodsTypeId}">商品类别</th>
+        <th th:text="${product.brandId}">商品品牌</th>
+        <th th:text="${product.goodsAttr}">商品属性</th>
+        <th th:text="${product.goodsShowPicture}">展示图片</th>
+        <th >
+            <a th:href="@{/product/jumpUpdateById/( id = ${product.goodsId})}" title="编辑" >编辑</a>
+            <a th:href="@{/product/delete/( id = ${product.goodsId})}" title="删除">删除</a>
+        </th>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品分类</title>
+</head>
+<body>
+
+<span>添加商品分类</span>
+<div>
+    <form action="/productType/insert" method="post">
+
+        <label class="#">父类别</label>
+        <input type="text"  name="typeParentId">
+        <br/>
+
+
+        <label class="#">类别名</label>
+        <input type="text"  name="typeName">
+        <br/>
+
+        <label class="#">类别描述</label>
+        <input type="text"  name="typeDes">
+        <br/>
+
+
+        <label class="#">类别展示图</label>
+        <input type="text"  name="typePicture">
+        <br/>
+    </form>
+</div>
+
+
+</body>
+</html>

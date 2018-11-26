@@ -4,9 +4,12 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IProductTypeFacade;
 import com.team.facade.pojo.GoodsType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * @Auther: YouQi
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Version: 1.0
  */
 @Controller
+@RequestMapping("productType")
 public class ProductTypeController {
 
     @Reference
@@ -26,8 +30,8 @@ public class ProductTypeController {
         return "";
     }
 
-    @RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
-    public String deleteProductDes(@PathVariable Integer id){
+    @RequestMapping(value = "delete",method = RequestMethod.GET)
+    public String deleteProductDes( Integer id){
         productTypeFacade.deleteByPrimaryKey(id);
         return "";
     }
@@ -39,15 +43,18 @@ public class ProductTypeController {
     }
 
     @RequestMapping(value = "queryByExample",method = RequestMethod.POST)
-    public String queryByExample(GoodsType goodsType){
-        productTypeFacade.queryGoodsTypeByExample(goodsType);
-        return "";
+    public String queryByExample(GoodsType goodsType, Model model){
+        List<GoodsType> goodsTypes = productTypeFacade.queryGoodsTypeByExample(goodsType);
+        model.addAttribute("productTypeList",goodsType);
+
+        return "productType_table";
     }
 
-    @RequestMapping(value = "queryById/{id}",method = RequestMethod.GET)
-    public String queryById(@PathVariable Integer id){
-        productTypeFacade.queryByPrimaryKey(id);
-        return "";
+    @RequestMapping(value = "updateById",method = RequestMethod.GET)
+    public String queryById(Integer id,Model model){
+        GoodsType goodsType = productTypeFacade.queryByPrimaryKey(id);
+        model.addAttribute("productType",goodsType);
+        return "update_productType";
     }
 
     @RequestMapping(value = "list",method = RequestMethod.GET)

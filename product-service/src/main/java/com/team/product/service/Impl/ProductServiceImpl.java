@@ -51,4 +51,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Goods> queryUnPutaway() {
         return goodsMapper.queryUnPutaway();
     }
+
+    @Override
+    public Goods queryByPrimaryKey(Integer id) {
+        return goodsMapper.queryByPrimaryKey(id);
+    }
 }
