@@ -28,6 +28,11 @@ public class OrderDesFacade implements IOrderDesFacade {
     }
 
     @Override
+    public List<OrderDes> getOrderDesByOrderId(int id) {
+        return service.getOrderDesByOrderId(id);
+    }
+
+    @Override
     public int addOrderDes(OrderDes orderDes) {
         return service.addOrderDes(orderDes);
     }

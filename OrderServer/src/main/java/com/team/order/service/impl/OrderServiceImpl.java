@@ -19,11 +19,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderMapper mapper;
+
+
     @Override
     public List<Order> getOrderByCondition(Order order) {
         return mapper.getOrderByCondition(order);
     }
 
+    @Override
+    public Order getOrderById(int id) {
+        return mapper.getOrderById(id);
+    }
     @Override
     public int addOrder(Order order) {
         return mapper.addOrder(order);

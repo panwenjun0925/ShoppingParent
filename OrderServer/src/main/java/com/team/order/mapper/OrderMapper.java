@@ -22,6 +22,16 @@ public interface OrderMapper {
      **/
     List<Order> getOrderByCondition(Order order);
     /**
+     * 功能描述:通过ID查询订单
+     *
+     * @param: [id]
+     * @return: com.team.facade.pojo.Order
+     * @auther: PWJ
+     * @date: 2018/11/26 12:22
+     **/
+    Order getOrderById(int id);
+
+    /**
      * 功能描述:添加订单
      *
      * @param: [order]
