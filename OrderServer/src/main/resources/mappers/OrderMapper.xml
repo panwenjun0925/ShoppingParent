@@ -11,12 +11,12 @@
 		</where>
   	</select>
 
-	<select id="getAllOrder" resultType="Order">
-		select * from orders
+	<select id="getOrderById" resultType="Order">
+		select * from orders where orderId = #{orderId}
 	</select>
 
 	<insert id="addOrder" >
-		insert into orders values(null,#{orderNum},#{orderState},#{orderCreateTime},#{orderPayTime},#{orderPayMode},#{paymentMoney},#{userId},#{adressId})
+		insert into orders values(null,#{orderNum},#{orderState},#{orderCreateTime},#{orderPayTime},#{orderPayMode},#{paymentMoney}，#{deliverMode}，#{orderRemark},#{userId},#{adressId})
 	</insert>
 
 	<delete id="delOrderByOrderId">
@@ -24,7 +24,7 @@
 	</delete>
 
 	<update id="updateOrder">
-		update orders set orderNum = #{orderNum},orderState = #{orderState},orderCreateTime = #{orderCreateTime},orderPayTime = #{orderPayTime},orderPayMode = #{orderPayMode},paymentMoney = #{paymentMoney},userId = #{userId},adressId = #{adressId} where orderId = #{orderId}
+		update orders set orderNum = #{orderNum},orderState = #{orderState},orderCreateTime = #{orderCreateTime},orderPayTime = #{orderPayTime},orderPayMode = #{orderPayMode},paymentMoney = #{paymentMoney},deliverMode=#{deliverMode},orderRemark=#{orderRemark},userId = #{userId},adressId = #{adressId} where orderId = #{orderId}
 	</update>
 
 	<sql id="findSql">
@@ -45,6 +45,9 @@
 		</if>
 		<if test="null != orderPayMode and '' != orderPayMode">
 			and orderPayMode = #{orderPayMode}
+		</if>
+		<if test="null != deliverMode and '' != deliverMode">
+			and deliverMode = #{deliverMode}
 		</if>
 		<if test="null != userId and '' != userId">
 			and userId = #{userId}

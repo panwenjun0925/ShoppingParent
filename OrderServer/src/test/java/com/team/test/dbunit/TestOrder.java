@@ -47,7 +47,7 @@ public class TestOrder {
 
     @Before
     public void init() throws Exception {
-       exOrder = new Order(1,"10",2,"2018-09-21 10:50:24","2018.11.20",1,120.0,1,1);
+       exOrder = new Order(1,"10",2,"2018-09-21 10:50:24","2018.11.20",1,120.0,1,"aa",1,1);
         //这个里面的参数就是实际上连接数据库的这个参数
         connection = new DatabaseConnection(dataSource.getConnection());
         backOneTable("orders");

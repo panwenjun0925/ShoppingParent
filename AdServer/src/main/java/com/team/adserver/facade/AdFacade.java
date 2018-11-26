@@ -15,9 +15,8 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-
 @Service
-public class Facade implements IAdFacade {
+public class AdFacade implements IAdFacade {
 
     @Autowired
     AdService adService;

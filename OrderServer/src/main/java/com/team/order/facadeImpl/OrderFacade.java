@@ -27,6 +27,11 @@ public class OrderFacade implements IOrderFacade {
     }
 
     @Override
+    public Order getOrderById(int id) {
+        return service.getOrderById(id);
+    }
+
+    @Override
     public int addOrder(Order order) {
         return service.addOrder(order);
     }
