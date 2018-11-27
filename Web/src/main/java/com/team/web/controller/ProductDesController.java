@@ -33,26 +33,26 @@ public class ProductDesController {
     @RequestMapping(value = "insert",method = RequestMethod.POST)
     public String insertProductDes(GoodsDes goodsDes){
         productDesFacade.insertSelective(goodsDes);
-        return "productDes_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "delete",method = RequestMethod.GET)
     public String deleteProductDes( Integer id){
         productDesFacade.deleteByPrimaryKey(id);
-        return "productDes_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "update",method = RequestMethod.POST)
     public String updateProductDes(GoodsDes goodsDes){
         productDesFacade.updateByPrimaryKeySelective(goodsDes);
-        return "productDes_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "queryByExample",method = RequestMethod.POST)
     public String queryByExample(GoodsDes goodsDes,Model model){
         List<GoodsDes> list = productDesFacade.queryGoodsDesByExample(goodsDes);
         model.addAttribute("productDesList",list);
-        return "productDes_table";
+        return "redirect:productDes/list";
     }
 
     @RequestMapping(value = "updateById",method = RequestMethod.GET)

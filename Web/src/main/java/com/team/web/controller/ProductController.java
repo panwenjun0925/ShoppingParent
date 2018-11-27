@@ -38,39 +38,38 @@ public class ProductController {
     @RequestMapping(value = "insertGoods", method = RequestMethod.POST)
     public String insert(@RequestParam Goods goods) {
         productFacade.insertSlective(goods);
-        return "product_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     public String deleteById( Integer id) {
 
         productFacade.deleteByPrimaryKey(id);
-        return "product_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String updateById(Goods goods) {
         productFacade.updateByPrimaryKeySelective(goods);
-        return "product_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "queryByExample", method = RequestMethod.POST)
     public String queryByExample(Goods example,Model model) {
         List<Goods> goods = productFacade.queryGoodsByExample(example);
         model.addAttribute("product",goods);
-        return "product_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "getUnPutList", method = RequestMethod.GET)
     public String queryUnPutaway(Model model) {
         List<Goods> goods = productFacade.queryUnPutaway();
         model.addAttribute("productList", goods);
-        return "product_table";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "jumpUpdateById", method = RequestMethod.GET)
     public String showUpdate(Integer id, Model model) {
-        System.out.println(id);
         Goods goods = productFacade.queryByPrimaryKey(id);
         model.addAttribute("product", goods);
         return "update_product";

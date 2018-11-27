@@ -21,25 +21,25 @@ import java.util.List;
 @RequestMapping("productType")
 public class ProductTypeController {
 
-    @Reference
+    @Reference(timeout = 10000)
     private IProductTypeFacade productTypeFacade;
 
     @RequestMapping(value = "insert",method = RequestMethod.POST)
     public String insertProductDes(GoodsType goodsType){
         productTypeFacade.insertSelective(goodsType);
-        return "";
+        return "redirect:productType/list";
     }
 
     @RequestMapping(value = "delete",method = RequestMethod.GET)
     public String deleteProductDes( Integer id){
         productTypeFacade.deleteByPrimaryKey(id);
-        return "";
+        return "redirect:productType/list";
     }
 
     @RequestMapping(value = "update",method = RequestMethod.POST)
     public String updateProductDes(GoodsType goodsType){
         productTypeFacade.updateByPrimaryKeySelective(goodsType);
-        return "";
+        return "redirect:productType/list";
     }
 
     @RequestMapping(value = "queryByExample",method = RequestMethod.POST)
@@ -47,7 +47,7 @@ public class ProductTypeController {
         List<GoodsType> goodsTypes = productTypeFacade.queryGoodsTypeByExample(goodsType);
         model.addAttribute("productTypeList",goodsType);
 
-        return "productType_table";
+        return "redirect:productType/list";
     }
 
     @RequestMapping(value = "updateById",method = RequestMethod.GET)
@@ -58,8 +58,9 @@ public class ProductTypeController {
     }
 
     @RequestMapping(value = "list",method = RequestMethod.GET)
-    public String queryAll(){
-        productTypeFacade.queryList();
-        return "";
+    public String queryAll(Model model){
+        List<GoodsType> goodsTypes = productTypeFacade.queryList();
+        model.addAttribute("productTypeList",goodsTypes);
+        return "productType_table";
     }
 }

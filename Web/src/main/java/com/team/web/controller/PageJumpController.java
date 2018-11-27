@@ -23,4 +23,9 @@ public class PageJumpController {
         return "left";
     }
 
+    @RequestMapping("index")
+    public String jumpIndex(){
+        return "pagejump";
+    }
+
 }

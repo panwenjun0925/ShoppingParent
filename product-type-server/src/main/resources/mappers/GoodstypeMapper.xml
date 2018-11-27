@@ -39,7 +39,7 @@
             and typePicture = #{typePicture,jdbcType=VARCHAR}
         </if>
         <if test="typeDes != null and typeDes!=''">
-            and typeDes = #{typeDes,jdbcType=VARCHAR}
+            and typeDes = #{typeDes,jdbcType=VARBINARY}
         </if>
     </select>
 
@@ -83,7 +83,7 @@
                 #{typePicture,jdbcType=VARCHAR},
             </if>
             <if test="typeDes != null">
-                #{typeDes,jdbcType=VARCHAR},
+                #{typeDes,jdbcType=VARBINARY},
             </if>
 
         </trim>
@@ -108,12 +108,19 @@
             </if>
 
             <if test="typeDes != null">
-                typeDes = #{typeDes,jdbcType=VARCHAR},
+                typeDes = #{typeDes,jdbcType=VARBINARY},
             </if>
 
         </set>
         where typeId = #{typeId,jdbcType=INTEGER}
     </update>
+
+    <select id="selectByParentId" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from goodsType
+        where typeParentId = #{typeParentId,jdbcType=INTEGER}
+    </select>
 
 
 </mapper>

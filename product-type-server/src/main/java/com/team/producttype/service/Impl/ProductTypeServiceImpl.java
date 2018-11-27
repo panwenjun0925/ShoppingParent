@@ -46,11 +46,26 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 
     @Override
     public Integer deleteByPrimaryKey(Integer id) {
+
+        List<GoodsType> goodsTypes = selectByParentId(id);
+        if (goodsTypes.size()>0){
+            for (GoodsType goodsType : goodsTypes) {
+                deleteByPrimaryKey(goodsType.getTypeId());
+            }
+        }else {
+            goodsTypeMapper.deleteByPrimaryKey(id);
+        }
+
         return goodsTypeMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public Integer updateByPrimaryKeySelective(GoodsType goods) {
         return goodsTypeMapper.updateByPrimaryKeySelective(goods);
+    }
+
+    @Override
+    public List<GoodsType> selectByParentId(Integer id) {
+        return goodsTypeMapper.selectByParentId(id);
     }
 }
