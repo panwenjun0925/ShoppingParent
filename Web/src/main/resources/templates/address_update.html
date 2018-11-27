@@ -35,51 +35,51 @@
         <form id="form1" action="/address/updateAddress" method="post">
             <ul class="ulColumn2">
                 <li>
-                    <input type="hidden" name="addressId" th:text="${address.addressId}"/>
-                    <input type="hidden" name="orderId" th:text="${orderId}"/>
-                    <input type="hidden" name="userId" th:text="${address.userId}"/>
+                    <input type="hidden" name="addressId" th:value="${address.addressId}"/>
+                    <input type="hidden" name="orderId" th:value="${orderId}"/>
+                    <input type="hidden" name="userId" th:value="${address.userId}"/>
                     <span class="item_name" style="width:120px;">收货人姓名：</span>
-                    <input type="text" class="textbox textbox_225" th:text="${address.receiver}" name="receiver"/>
+                    <input type="text" class="textbox textbox_225" th:value="${address.receiver}" name="receiver"/>
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">手机号码：</span>
-                    <input type="text" class="textbox textbox_225" name="phone" th:text="${address.phone}"/>
+                    <input type="text" class="textbox textbox_225" name="phone" th:value="${address.phone}"/>
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">座机号码：</span>
-                    <input type="tel" class="textbox textbox_225" name="tel" th:text="${address.tel}" />
+                    <input type="tel" class="textbox textbox_225" name="tel" th:value="${address.tel}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">电子邮件：</span>
-                    <input type="text" class="textbox textbox_225" name="email" th:text="${address.email}" />
+                    <input type="text" class="textbox textbox_225" name="email" th:value="${address.email}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">标志性建筑：</span>
-                    <input type="text" class="textbox textbox_225" name="landmark" th:text="${address.landmark}" />
+                    <input type="text" class="textbox textbox_225" name="landmark" th:value="${address.landmark}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">最佳送货时间：</span>
-                    <input type="text" class="textbox textbox_225" name="bestDeliverTime" th:text="${address.bestDeliverTime}" />
+                    <input type="text" class="textbox textbox_225" name="bestDeliverTime" th:value="${address.bestDeliverTime}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">邮政编码：</span>
-                    <input type="text" class="textbox textbox_225" name="postcode" th:text="${address.postcode}" />
+                    <input type="text" class="textbox textbox_225" name="postcode" th:value="${address.postcode}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">配送区域：</span>
-                    <input type="text" class="textbox textbox_225" name="deliveryAddress" th:text="${address.deliveryAddress}" />
+                    <input type="text" class="textbox textbox_225" name="deliveryAddress" th:value="${address.deliveryAddress}" />
                 </li>
 
                 <li>
                     <span class="item_name" style="width:120px;">详细地址：</span>
-                    <input type="text" class="textbox textbox_225" name="detailedAddress" th:text="${address.detailedAddress}" />
+                    <input type="text" class="textbox textbox_225" name="detailedAddress" th:value="${address.detailedAddress}" />
                 </li>
 
                 <li>

@@ -86,7 +86,7 @@ public class AddessController {
     @RequestMapping("/updateAddress")
     public String updateAddress(Address address,@RequestParam("orderId") Integer orderId){
         facade.update(address);
-        return "redirect:/order/getById"+orderId;
+        return "redirect:/order/getById/"+orderId;
     }
 
 
