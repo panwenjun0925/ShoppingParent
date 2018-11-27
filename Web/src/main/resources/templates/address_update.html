@@ -1,0 +1,94 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>后台管理系统</title>
+    <meta name="author" content="DeathGhost" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" th:href="@{/css/style.css}">
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js" th:src="@{/js/html5.js}"></script>
+    <![endif]-->
+    <script src="../js/jquery.js" th:src="@{/js/jquery.js}" src=""></script>
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js" th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+</head>
+<body>
+<!--header-->
+<header>
+    <h1><img th:src="@{/images/admin_logo.png}" /></h1>
+    <ul class="rt_nav">
+        <li><a href="http://www.aspku.com" target="_blank" class="website_icon">站点首页</a></li>
+        <li><a href="#" class="clear_icon">清除缓存</a></li>
+        <li><a href="#" class="admin_icon">DeathGhost</a></li>
+        <li><a href="#" class="set_icon">账号设置</a></li>
+        <li><a href="login.html" class="quit_icon">安全退出</a></li>
+    </ul>
+</header>
+<!--aside nav-->
+<!--aside nav-->
+
+
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+        <div class="page_title">
+            <h2 class="fl">修改地址</h2>
+        </div>
+        <form id="form1" action="/address/updateAddress" method="post">
+            <ul class="ulColumn2">
+                <li>
+                    <input type="hidden" name="addressId" th:text="${address.addressId}"/>
+                    <input type="hidden" name="orderId" th:text="${orderId}"/>
+                    <input type="hidden" name="userId" th:text="${address.userId}"/>
+                    <span class="item_name" style="width:120px;">收货人姓名：</span>
+                    <input type="text" class="textbox textbox_225" th:text="${address.receiver}" name="receiver"/>
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">手机号码：</span>
+                    <input type="text" class="textbox textbox_225" name="phone" th:text="${address.phone}"/>
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">座机号码：</span>
+                    <input type="tel" class="textbox textbox_225" name="tel" th:text="${address.tel}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">电子邮件：</span>
+                    <input type="text" class="textbox textbox_225" name="email" th:text="${address.email}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">标志性建筑：</span>
+                    <input type="text" class="textbox textbox_225" name="landmark" th:text="${address.landmark}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">最佳送货时间：</span>
+                    <input type="text" class="textbox textbox_225" name="bestDeliverTime" th:text="${address.bestDeliverTime}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">邮政编码：</span>
+                    <input type="text" class="textbox textbox_225" name="postcode" th:text="${address.postcode}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">配送区域：</span>
+                    <input type="text" class="textbox textbox_225" name="deliveryAddress" th:text="${address.deliveryAddress}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;">详细地址：</span>
+                    <input type="text" class="textbox textbox_225" name="detailedAddress" th:text="${address.detailedAddress}" />
+                </li>
+
+                <li>
+                    <span class="item_name" style="width:120px;"></span>
+                    <input type="submit" class="link_btn" value="修改"/>
+                </li>
+            </ul>
+        </form>
+    </div>
+</section>
+</body>
+</html>
