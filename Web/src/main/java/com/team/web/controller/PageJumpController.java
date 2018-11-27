@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Version: 1.0
  */
 @Controller
-@RequestMapping("page")
+@RequestMapping(value = {"","page"})
 public class PageJumpController {
 
     @RequestMapping("pubTop")
@@ -23,9 +23,9 @@ public class PageJumpController {
         return "left";
     }
 
-    @RequestMapping("index")
+    @RequestMapping(value = {"index"})
     public String jumpIndex(){
-        return "pagejump";
+        return "index";
     }
 
 }

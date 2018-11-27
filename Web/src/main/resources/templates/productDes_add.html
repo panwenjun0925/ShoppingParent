@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<a th:href="@{page/index}" href="pagejump.html"> 回到首页</a><br/>
+<a  href="../index.html"> 回到首页</a><br/>
 <span>添加售出商品</span>
 <div>
     <form action="/productDes/insert" method="post">
@@ -24,6 +24,8 @@
         <label class="#">同属性 售出多少件</label>
         <input type="text"  name="goodsCount">
         <br/>
+
+        <button type="submit" class="#">添  加</button>
     </form>
 </div>
 </body>

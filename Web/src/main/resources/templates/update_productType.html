@@ -6,10 +6,12 @@
 </head>
 <body>
 
-<a th:href="@{page/index}" href="pagejump.html"> 回到首页</a><br/>
-
+<a  href="../index.html"> 回到首页</a><br/>
     <div>
     <form action="/productType/update" method="post">
+
+        <input type="hidden" name="typeId" th:value="${productType.typeId}"/>
+
         <label class="#">父类别</label>
         <input type="text"  name="typeParentId" th:value="${productType.typeParentId}">
         <br/>
@@ -27,6 +29,7 @@
         <label class="#">类别展示图</label>
         <input type="text"  name="typePicture" th:value="${productType.typePicture}">
         <br/>
+        <button type="submit" class="#">确  定</button>
     </form>
 </div>
 

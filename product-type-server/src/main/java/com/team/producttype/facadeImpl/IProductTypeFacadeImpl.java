@@ -54,4 +54,6 @@ public class IProductTypeFacadeImpl implements IProductTypeFacade {
         return productTypeService.updateByPrimaryKeySelective(goods);
     }
 
+
+
 }

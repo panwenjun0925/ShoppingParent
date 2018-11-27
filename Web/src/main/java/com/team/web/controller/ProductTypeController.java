@@ -18,46 +18,47 @@ import java.util.List;
  * @Version: 1.0
  */
 @Controller
-@RequestMapping("productType")
+
 public class ProductTypeController {
 
     @Reference(timeout = 10000)
     private IProductTypeFacade productTypeFacade;
 
-    @RequestMapping(value = "insert",method = RequestMethod.POST)
+    @RequestMapping(value = "productType/insert",method = RequestMethod.POST)
     public String insertProductDes(GoodsType goodsType){
         productTypeFacade.insertSelective(goodsType);
-        return "redirect:productType/list";
+        return "redirect:/productType/list";
     }
 
-    @RequestMapping(value = "delete",method = RequestMethod.GET)
+    @RequestMapping(value = "productType/delete",method = RequestMethod.GET)
     public String deleteProductDes( Integer id){
         productTypeFacade.deleteByPrimaryKey(id);
-        return "redirect:productType/list";
+        return "redirect:/productType/list";
     }
 
-    @RequestMapping(value = "update",method = RequestMethod.POST)
+    @RequestMapping(value = "productType/update",method = RequestMethod.POST)
     public String updateProductDes(GoodsType goodsType){
+        System.out.println(goodsType);
         productTypeFacade.updateByPrimaryKeySelective(goodsType);
-        return "redirect:productType/list";
+        return "redirect:/productType/list";
     }
 
-    @RequestMapping(value = "queryByExample",method = RequestMethod.POST)
+    @RequestMapping(value = "productType/queryByExample",method = RequestMethod.POST)
     public String queryByExample(GoodsType goodsType, Model model){
         List<GoodsType> goodsTypes = productTypeFacade.queryGoodsTypeByExample(goodsType);
         model.addAttribute("productTypeList",goodsType);
 
-        return "redirect:productType/list";
+        return "redirect:/productType/list";
     }
 
-    @RequestMapping(value = "updateById",method = RequestMethod.GET)
+    @RequestMapping(value = "productType/jumpUpdateById",method = RequestMethod.GET)
     public String queryById(Integer id,Model model){
         GoodsType goodsType = productTypeFacade.queryByPrimaryKey(id);
         model.addAttribute("productType",goodsType);
         return "update_productType";
     }
 
-    @RequestMapping(value = "list",method = RequestMethod.GET)
+    @RequestMapping(value = "productType/list",method = RequestMethod.GET)
     public String queryAll(Model model){
         List<GoodsType> goodsTypes = productTypeFacade.queryList();
         model.addAttribute("productTypeList",goodsTypes);

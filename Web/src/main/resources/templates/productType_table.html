@@ -5,7 +5,7 @@
     <title>商品类别列表</title>
 </head>
 <body>
-<a th:href="@{page/index}" href="pagejump.html"> 回到首页</a><br/>
+<a  href="../index.html"> 回到首页</a><br/>
 <table class="#" border="2" id="productType_table" >
 
     <tr>
@@ -30,8 +30,8 @@
         <th th:text="${productType.typePicture}">分类图片</th>
 
         <th >
-            <a th:href="@{/product/jumpUpdateById/( id = ${productType.typeId})}" title="编辑" >编辑</a>
-            <a th:href="@{/product/delete/( id = ${productType.typeId})}" title="删除">删除</a>
+            <a th:href="@{/productType/jumpUpdateById/( id = ${productType.typeId})}" title="编辑" >编辑</a>
+            <a th:href="@{/productType/delete/( id = ${productType.typeId})}" title="删除">删除</a>
         </th>
     </tr>
     </tbody>
