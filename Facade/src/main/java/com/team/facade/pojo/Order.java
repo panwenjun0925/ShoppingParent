@@ -16,7 +16,7 @@ public class Order implements Serializable {
     private String orderCreateTime; //订单的创建的时间
     private String orderPayTime;    //订单的支付时间
     private Integer orderPayMode;       //订单的支付方式
-    private double paymentMoney;    //订单的付款金额
+    private Double paymentMoney;    //订单的付款金额
     private Integer deliverMode;        //配送方式
     private String orderRemark;     //订单备注
     private Integer userId;             //订单的付款人
@@ -27,7 +27,7 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(Integer orderId, String orderNum, Integer orderState, String orderCreateTime, String orderPayTime, Integer orderPayMode, double paymentMoney, Integer deliverMode, String orderRemark, Integer userId, String userName, Integer adressId, String addressDes) {
+    public Order(Integer orderId, String orderNum, Integer orderState, String orderCreateTime, String orderPayTime, Integer orderPayMode, Double paymentMoney, Integer deliverMode, String orderRemark, Integer userId, String userName, Integer adressId, String addressDes) {
         this.orderId = orderId;
         this.orderNum = orderNum;
         this.orderState = orderState;
@@ -123,11 +123,11 @@ public class Order implements Serializable {
         this.orderPayMode = orderPayMode;
     }
 
-    public double getPaymentMoney() {
+    public Double getPaymentMoney() {
         return paymentMoney;
     }
 
-    public void setPaymentMoney(double paymentMoney) {
+    public void setPaymentMoney(Double paymentMoney) {
         this.paymentMoney = paymentMoney;
     }
 

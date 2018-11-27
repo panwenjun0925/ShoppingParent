@@ -24,7 +24,46 @@
 	</delete>
 
 	<update id="updateOrder">
-		update orders set orderNum = #{orderNum},orderState = #{orderState},orderCreateTime = #{orderCreateTime},orderPayTime = #{orderPayTime},orderPayMode = #{orderPayMode},paymentMoney = #{paymentMoney},deliverMode=#{deliverMode},orderRemark=#{orderRemark},userId = #{userId},userName=#{userName},adressId = #{adressId},addressDes=#{addressDes} where orderId = #{orderId}
+		update orders
+		<set>
+			<if test="null != orderNum and '' != orderNum">
+				orderNum = #{orderNum}
+			</if>
+			<if test="null != orderState and '' != orderState">
+				orderState = #{orderState}
+			</if>
+			<if test="null != orderCreateTime and '' != orderCreateTime">
+				orderCreateTime = #{orderCreateTime}
+			</if>
+			<if test="null != orderPayTime and '' != orderPayTime">
+				orderPayTime = #{orderPayTime}
+			</if>
+			<if test="null != orderPayMode and '' != orderPayMode">
+				orderPayMode = #{orderPayMode}
+			</if>
+			<if test="null != paymentMoney and '' != paymentMoney">
+				paymentMoney = #{paymentMoney}
+			</if>
+			<if test="null != deliverMode and '' != deliverMode">
+				deliverMode = #{deliverMode}
+			</if>
+			<if test="null != orderRemark and '' != orderRemark">
+				orderRemark = #{orderRemark}
+			</if>
+			<if test="null != userId and '' != userId">
+				userId = #{userId}
+			</if>
+			<if test="null != userName and '' != userName">
+				userName = #{userName}
+			</if>
+			<if test="null != adressId and '' != adressId">
+				adressId = #{adressId}
+			</if>
+			<if test="null != addressDes and '' != addressDes">
+				addressDes = #{addressDes}
+			</if>
+		</set>
+		where orderId = #{orderId}
 	</update>
 
 	<sql id="findSql">

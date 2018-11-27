@@ -16,6 +16,9 @@
             function del(id) {
                 window.location.href = "/order/delOrderById/"+id;
             }
+            function getById(id) {
+                window.location.href = "/order/getById/"+id;
+            }
 
 
         (function ($) {
@@ -121,6 +124,7 @@
                     <option value="1" th:selected="${order.getOrderState() == 1}">待付款</option>
                     <option value="2" th:selected="${order.getOrderState() == 2}">待发货</option>
                     <option value="3" th:selected="${order.getOrderState() == 3}">已完成</option>
+                    <option value="3" th:selected="${order.getOrderState() == 4}">运输中</option>
                 </select>
                 <input type="text" class="textbox textbox_225" th:value="${order.getOrderNum()}" name="orderNum"
                        placeholder="输入订单编号"/>
@@ -144,11 +148,12 @@
                 <td th:if="${orders.getOrderState()== 1}" th:text="待付款"></td>
                 <td th:if="${orders.getOrderState()== 2}" th:text="待发货"></td>
                 <td th:if="${orders.getOrderState()== 3}" th:text="已完成"></td>
+                <td th:if="${orders.getOrderState()== 4}" th:text="运输中"></td>
                 <td th:text="${orders.getPaymentMoney()}"></td>
                 <td th:text="${orders.getUserName()}"></td>
                 <td th:text="${orders.getAddressDes()}"></td>
                 <td class="center">
-                    <a th:href="@{/order/getById(id=${orders.orderId})}"
+                    <a th:onclick="'javascript:getById(\''+${orders.getOrderId()}+'\')'"
                        title="查看订单" class="link_icon" target="_blank">&#118;</a>
                     <a th:onclick="'javascript:del(\''+${orders.getOrderId()}+'\')'" title="删除" class="link_icon">&#100;</a>
                 </td>
