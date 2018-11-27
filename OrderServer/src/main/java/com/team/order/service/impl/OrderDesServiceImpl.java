@@ -41,6 +41,11 @@ public class OrderDesServiceImpl implements OrderDesService {
     }
 
     @Override
+    public int delOrderDesByOrderId(int id) {
+        return orderDesMapper.delOrderDesByOrderId(id);
+    }
+
+    @Override
     public int updateOrderDes(OrderDes orderDes) {
         return orderDesMapper.updateOrderDes(orderDes);
     }

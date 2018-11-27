@@ -20,7 +20,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserCotronller {
-    @Reference
+    @Reference(timeout = 10000)
     private IUserFacade facade;
 
     @RequestMapping("/login")
@@ -42,19 +42,19 @@ public class UserCotronller {
     @PostMapping("/addUser")
     public String addUser(User user){
         facade.add(user);
-        return "";
+        return "redirect:/user/getAll";
     }
 
     @PostMapping("updateUser")
     public String updateUser(User user){
         facade.update(user);
-        return "";
+        return "redirect:/user/getAll";
     }
 
     @PostMapping("/delete")
     public String deleteById(User user){
         facade.deleteById(user);
-        return "";
+        return "redirect:/user/getAll";
     }
 
 }

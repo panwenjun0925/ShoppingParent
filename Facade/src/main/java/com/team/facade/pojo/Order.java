@@ -20,12 +20,14 @@ public class Order implements Serializable {
     private Integer deliverMode;        //配送方式
     private String orderRemark;     //订单备注
     private Integer userId;             //订单的付款人
+    private String userName;            //订单付款人名字
     private Integer adressId;           //收货的地址
+    private String addressDes;          //订单的详细地址
 
     public Order() {
     }
 
-    public Order(Integer orderId, String orderNum, Integer orderState, String orderCreateTime, String orderPayTime, Integer orderPayMode, double paymentMoney, Integer deliverMode, String orderRemark, Integer userId, Integer adressId) {
+    public Order(Integer orderId, String orderNum, Integer orderState, String orderCreateTime, String orderPayTime, Integer orderPayMode, double paymentMoney, Integer deliverMode, String orderRemark, Integer userId, String userName, Integer adressId, String addressDes) {
         this.orderId = orderId;
         this.orderNum = orderNum;
         this.orderState = orderState;
@@ -36,7 +38,25 @@ public class Order implements Serializable {
         this.deliverMode = deliverMode;
         this.orderRemark = orderRemark;
         this.userId = userId;
+        this.userName = userName;
         this.adressId = adressId;
+        this.addressDes = addressDes;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getAddressDes() {
+        return addressDes;
+    }
+
+    public void setAddressDes(String addressDes) {
+        this.addressDes = addressDes;
     }
 
     public Integer getDeliverMode() {
@@ -137,8 +157,12 @@ public class Order implements Serializable {
                 ", orderPayTime='" + orderPayTime + '\'' +
                 ", orderPayMode=" + orderPayMode +
                 ", paymentMoney=" + paymentMoney +
+                ", deliverMode=" + deliverMode +
+                ", orderRemark='" + orderRemark + '\'' +
                 ", userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", adressId=" + adressId +
+                ", addressDes='" + addressDes + '\'' +
                 '}';
     }
 }

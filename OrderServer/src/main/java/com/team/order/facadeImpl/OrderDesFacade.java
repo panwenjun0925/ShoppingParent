@@ -43,6 +43,11 @@ public class OrderDesFacade implements IOrderDesFacade {
     }
 
     @Override
+    public int delOrderDesByOrderId(int id) {
+        return service.delOrderDesByOrderId(id);
+    }
+
+    @Override
     public int updateOrderDes(OrderDes orderDes) {
 
         return service.updateOrderDes(orderDes);

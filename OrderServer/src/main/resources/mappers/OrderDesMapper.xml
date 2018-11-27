@@ -23,6 +23,10 @@
         delete from orderDes where orderDesId = #{id}
     </delete>
 
+    <delete id="delOrderDesByOrderId">
+        delete from orderDes where orderId = #{id}
+    </delete>
+
     <update id="updateOrderDes">
         update orderDes set goodsNum = #{goodsNum},orderNumber = #{orderNumber},orderId = #{orderId},goodsId = #{goodsId} where orderDesId = #{orderDesId}
     </update>

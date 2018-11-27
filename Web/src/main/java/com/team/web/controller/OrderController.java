@@ -26,6 +26,7 @@ public class OrderController {
 
     @RequestMapping("/getAllOrder")
     public String getAll(Order order, Model model){
+        model.addAttribute("order",order);
         List<Order> orderList = orderFacade.getOrderByCondition(order);
         model.addAttribute("orderList",orderList);
         return "Order/order_list";
@@ -44,8 +45,8 @@ public class OrderController {
         return "";
     }
 
-    @RequestMapping("/delOrderById")
-    public String delOrderById(int id){
+    @RequestMapping("/delOrderById/{id}")
+    public String delOrderById(@PathVariable("id") int id){
         orderFacade.delOrderByOrderId(id);
         return  "redirect:/order/getAllOrder";
     }

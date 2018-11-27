@@ -15,7 +15,6 @@
         $(function(){
             var orderId = [[${order.orderId}]];
             var adressId = [[${order.adressId}]];
-            alert(adressId);
             $.ajax({
                 url:"/orderDes/getOrderDesByOrderId/"+orderId,
                 type:"post",
@@ -41,7 +40,7 @@
                 }
             });
             $.ajax({
-                url:"/address/getOrderDesByOrderId/"+adressId,
+                url:"/address/getAddressById/"+adressId,
                 type:"post",
                 dataType:"json",
                 success:function(result){
@@ -155,9 +154,9 @@
         </div>
         <table class="table">
             <tr>
-                <td id="receiver"></td>
-                <td id="phone"></td>
-                <td id="addressDes"></td>
+                <td id="receiver">收件人：</td>
+                <td id="phone">电话：</td>
+                <td id="addressDes">详细地址：</td>
                 <td th:if="${order.getOrderState()== 1}" th:text="|订单状态: 待付款|"></td>
                 <td th:if="${order.getOrderState()== 2}" th:text="|订单状态: 待发货|"></td>
                 <td th:if="${order.getOrderState()== 3}" th:text="|订单状态: 已完成|"></td>
@@ -165,6 +164,9 @@
             <tr>
                 <td th:text="'下单时间：'+${order.getOrderCreateTime()}"></td>
                 <td th:text="'付款时间：'+${order.getOrderPayTime()}"></td>
+                <td th:if="${order.getOrderPayMode()== 1}" th:text="|支付方式: 支付宝|"></td>
+                <td th:if="${order.getOrderPayMode()== 2}" th:text="|支付方式: 微信|"></td>
+                <td th:if="${order.getOrderPayMode()== 3}" th:text="|支付方式: 银行卡|"></td>
                 <td th:text="'订单备注：'+${order.getOrderRemark()}"></td>
             </tr>
         </table>
