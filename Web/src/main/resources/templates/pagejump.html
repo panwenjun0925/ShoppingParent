@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>商品管理</li>
+    <li><a th:href="@{/product/getList}">商品列表</a></li>
+    <li><a href="product_add.html">添加商品</a></li>
+    <li><a th:href="@{/product/getUnPutList}">管理下架商品</a></li>
+</ul>
+<br/>
+<ul>
+    <li>已售出商品管理</li>
+    <li><a th:href="@{/productDes/list}">售出商品列表</a></li>
+    <li><a href="product_add.html">增加售出商品</a></li>
+    <li><a href="#">售出商品统计信息</a></li>
+</ul>
+
+<br/>
+<ul>
+    <li>商品类别管理</li>
+    <li><a th:href="@{/productType/list}">商品分类列表</a></li>
+    <li><a href="product_add.html">添加商品类别</a></li>
+    <li><a href="#">删除商品分类树</a></li>
+</ul>
+
+</body>
+</html>

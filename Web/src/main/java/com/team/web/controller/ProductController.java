@@ -5,7 +5,10 @@ import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -27,39 +30,49 @@ public class ProductController {
     public String getList(Model model) {
 
         List<Goods> list = productFacade.getList();
-        model.addAttribute("name","游奇");
-        model.addAttribute("list",list);
-        return "index";
+
+        model.addAttribute("productList", list);
+        return "product_table";
     }
 
     @RequestMapping(value = "insertGoods", method = RequestMethod.POST)
     public String insert(@RequestParam Goods goods) {
         productFacade.insertSlective(goods);
-        return "";
+        return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String deleteById(@PathVariable Integer id) {
+    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    public String deleteById( Integer id) {
+
         productFacade.deleteByPrimaryKey(id);
-        return "";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String updateById(Goods goods) {
         productFacade.updateByPrimaryKeySelective(goods);
-        return "";
+        return "redirect:product/getList";
     }
 
     @RequestMapping(value = "queryByExample", method = RequestMethod.POST)
-    public String queryByExample(Goods example) {
-        productFacade.queryGoodsByExample(example);
-        return "";
+    public String queryByExample(Goods example,Model model) {
+        List<Goods> goods = productFacade.queryGoodsByExample(example);
+        model.addAttribute("product",goods);
+        return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "queryun", method = RequestMethod.POST)
-    public String queryUnPutaway() {
-        productFacade.queryUnPutaway();
-        return "";
+    @RequestMapping(value = "getUnPutList", method = RequestMethod.GET)
+    public String queryUnPutaway(Model model) {
+        List<Goods> goods = productFacade.queryUnPutaway();
+        model.addAttribute("productList", goods);
+        return "redirect:product/getList";
+    }
+
+    @RequestMapping(value = "jumpUpdateById", method = RequestMethod.GET)
+    public String showUpdate(Integer id, Model model) {
+        Goods goods = productFacade.queryByPrimaryKey(id);
+        model.addAttribute("product", goods);
+        return "update_product";
     }
 
 

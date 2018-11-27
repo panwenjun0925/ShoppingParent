@@ -7,7 +7,7 @@
     -->
     <id column="goodsDesId" jdbcType="INTEGER" property="goodsDesId" />
     <result column="goodsDesPicture" jdbcType="VARCHAR" property="goodsDesPicture" />
-    <result column="goodsWeight" jdbcType="REAL" property="goodsWeight" />
+    <result column="goodsWeight" jdbcType="DOUBLE" property="goodsWeight" />
     <result column="goodsId" jdbcType="INTEGER" property="goodsId" />
     <result column="goodsAttr" jdbcType="VARBINARY" property="goodsAttr" />
   </resultMap>
@@ -25,7 +25,7 @@
     </if>
 
     <if test="goodsAttr != null and goodsAttr!=''" >
-      and goodsAttr = #{goodsDiscount,jdbcType=VARCHAR}
+      and goodsAttr = #{goodsAttr,jdbcType=VARCHAR}
     </if>
 
     <if test="goodsId != null and goodsId!=''" >

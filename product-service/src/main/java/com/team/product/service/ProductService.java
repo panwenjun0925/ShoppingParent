@@ -55,4 +55,6 @@ public interface ProductService {
      * @date: 2018/11/21 14:01
      **/
     List<Goods> queryUnPutaway();
+
+    Goods queryByPrimaryKey(Integer id);
 }

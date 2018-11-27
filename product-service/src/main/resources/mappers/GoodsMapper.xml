@@ -7,11 +7,11 @@
     -->
     <id column="goodsId" jdbcType="INTEGER" property="goodsId" />
     <result column="goodsName" jdbcType="VARCHAR" property="goodsName" />
-    <result column="goodsShowPrice" jdbcType="REAL" property="goodsShowPrice" />
+    <result column="goodsShowPrice" jdbcType="DOUBLE" property="goodsShowPrice" />
     <result column="goodsShowPicture" jdbcType="VARCHAR" property="goodsShowPicture" />
     <result column="isPutaway" jdbcType="INTEGER" property="isPutaway" />
-    <result column="goodsDiscount" jdbcType="REAL" property="goodsDiscount" />
-    <result column="goodsRealPrice" jdbcType="REAL" property="goodsRealPrice" />
+    <result column="goodsDiscount" jdbcType="DOUBLE" property="goodsDiscount" />
+    <result column="goodsRealPrice" jdbcType="DOUBLE" property="goodsRealPrice" />
     <result column="goodsTotal" jdbcType="INTEGER" property="goodsTotal" />
     <result column="goodsTypeId" jdbcType="INTEGER" property="goodsTypeId" />
     <result column="goodsAttr" jdbcType="VARCHAR" property="goodsAttr" />

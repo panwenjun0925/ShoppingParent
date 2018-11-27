@@ -32,8 +32,8 @@ public class OrderController {
         return "Order/order_list";
     }
 
-    @RequestMapping("/getById")
-    public String getOrderById(Integer id,Model model){
+    @RequestMapping("/getById/{id}")
+    public String getOrderById(@PathVariable("id") Integer id,Model model){
         Order order = orderFacade.getOrderById(id);
         model.addAttribute("order",order);
         return "Order/order_detail";
@@ -53,8 +53,9 @@ public class OrderController {
 
     @RequestMapping("/updateOrder")
     public String updateOrder(Order order){
+        int orderId = order.getOrderId();
         orderFacade.updateOrder(order);
-        return "";
+        return "redirect:/order/getById/"+orderId;
     }
 
 
