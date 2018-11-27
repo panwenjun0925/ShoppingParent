@@ -70,6 +70,7 @@ public class AddessController {
         customAddress.setAddressId(id);
         addressVo.setCustomAddress(customAddress);
         List<Address> all = facade.getAll(addressVo);
+
         return all.get(0);
     }
 
