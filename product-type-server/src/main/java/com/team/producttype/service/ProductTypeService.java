@@ -73,4 +73,14 @@ public interface ProductTypeService {
      * @date: 2018/11/21 10:56
      **/
     Integer updateByPrimaryKeySelective(GoodsType goods);
+
+    /**
+     * 功能描述:根据父类ID找类型
+     *
+     * @param: [id]
+     * @return: java.util.List<com.team.facade.pojo.GoodsType>
+     * @auther: YouQi
+     * @date: 2018/11/27 11:27
+     **/
+    List<GoodsType> selectByParentId(Integer id);
 }
