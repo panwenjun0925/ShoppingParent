@@ -9,8 +9,10 @@ import com.team.facade.utils.ProductUtil;
 import com.team.facade.vo.ProductVo.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Controller
-@RequestMapping("productDes")
+
 public class ProductDesController {
 
     @Reference
@@ -30,48 +32,48 @@ public class ProductDesController {
     @Reference
     private IProductFacade productFacade;
 
-    @RequestMapping(value = "insert",method = RequestMethod.POST)
+    @RequestMapping(value = "productDes/insert",method = RequestMethod.POST)
     public String insertProductDes(GoodsDes goodsDes){
         productDesFacade.insertSelective(goodsDes);
-        return "redirect:product/getList";
+        return "redirect:/product/getList";
     }
 
-    @RequestMapping(value = "delete",method = RequestMethod.GET)
+    @RequestMapping(value = "productDes/delete",method = RequestMethod.GET)
     public String deleteProductDes( Integer id){
         productDesFacade.deleteByPrimaryKey(id);
-        return "redirect:product/getList";
+        return "redirect:/product/getList";
     }
 
-    @RequestMapping(value = "update",method = RequestMethod.POST)
+    @RequestMapping(value = "productDes/update",method = RequestMethod.POST)
     public String updateProductDes(GoodsDes goodsDes){
         productDesFacade.updateByPrimaryKeySelective(goodsDes);
-        return "redirect:product/getList";
+        return "redirect:/product/getList";
     }
 
-    @RequestMapping(value = "queryByExample",method = RequestMethod.POST)
+    @RequestMapping(value = "productDes/queryByExample",method = RequestMethod.POST)
     public String queryByExample(GoodsDes goodsDes,Model model){
         List<GoodsDes> list = productDesFacade.queryGoodsDesByExample(goodsDes);
         model.addAttribute("productDesList",list);
-        return "redirect:productDes/list";
+        return "redirect:/productDes/list";
     }
 
-    @RequestMapping(value = "updateById",method = RequestMethod.GET)
+    @RequestMapping(value = "productDes/updateById",method = RequestMethod.GET)
     public String queryById(Integer id,Model model){
         GoodsDes goodsDes = productDesFacade.queryByPrimaryKey(id);
         model.addAttribute("productDes",goodsDes);
         return "update_productDes";
     }
 
-    @RequestMapping(value = "list",method = RequestMethod.GET)
+    @RequestMapping(value = "productDes/list",method = RequestMethod.GET)
     public String queryAll(Model model){
         List<GoodsDes> goodsDes = productDesFacade.queryList();
         model.addAttribute("productDesList",goodsDes);
         return "productDes_table";
     }
 
-    @RequestMapping(value = "getDefiniteProduct",method = RequestMethod.POST)
-    public ProductDTO getDefiniteProductInfo(Integer productDesId){
-
+    @RequestMapping(value = "productDes/getDefiniteProduct/{productDesId}",method = RequestMethod.POST)
+    public @ResponseBody ProductDTO getDefiniteProductInfo(@PathVariable Integer productDesId){
+        System.out.println(productDesId);
         GoodsDes productDes = productDesFacade.queryByPrimaryKey(productDesId);
         Goods goods = productFacade.queryByPrimaryKey(productDes.getGoodsId());
         ProductDTO productDTO = ProductUtil.packageProductDTO(goods, productDes);

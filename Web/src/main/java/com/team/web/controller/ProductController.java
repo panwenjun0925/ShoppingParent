@@ -1,6 +1,8 @@
 package com.team.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
 import org.springframework.stereotype.Controller;
@@ -20,55 +22,55 @@ import java.util.List;
  * @Version: 1.0
  */
 @Controller
-@RequestMapping("product")
 public class ProductController {
 
     @Reference(timeout = 10000)
     private IProductFacade productFacade;
 
-    @RequestMapping(value = "getList", method = RequestMethod.GET)
-    public String getList(Model model) {
-
+    @RequestMapping(value = "product/getList", method = RequestMethod.GET)
+    public String getList(Model model,@RequestParam Integer pageNum) {
+        PageHelper.startPage(pageNum,3);
         List<Goods> list = productFacade.getList();
-
+        PageInfo<Goods> goodsPageInfo = new PageInfo<>(list);
+        model.addAttribute("pageInfo",goodsPageInfo);
         model.addAttribute("productList", list);
         return "product_table";
     }
 
-    @RequestMapping(value = "insertGoods", method = RequestMethod.POST)
+    @RequestMapping(value = "product/insertGoods", method = RequestMethod.POST)
     public String insert(@RequestParam Goods goods) {
         productFacade.insertSlective(goods);
         return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    @RequestMapping(value = "product/delete", method = RequestMethod.GET)
     public String deleteById( Integer id) {
 
         productFacade.deleteByPrimaryKey(id);
         return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "update", method = RequestMethod.POST)
+    @RequestMapping(value = "product/update", method = RequestMethod.POST)
     public String updateById(Goods goods) {
         productFacade.updateByPrimaryKeySelective(goods);
         return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "queryByExample", method = RequestMethod.POST)
+    @RequestMapping(value = "product/queryByExample", method = RequestMethod.POST)
     public String queryByExample(Goods example,Model model) {
         List<Goods> goods = productFacade.queryGoodsByExample(example);
         model.addAttribute("product",goods);
         return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "getUnPutList", method = RequestMethod.GET)
+    @RequestMapping(value = "product/getUnPutList", method = RequestMethod.GET)
     public String queryUnPutaway(Model model) {
         List<Goods> goods = productFacade.queryUnPutaway();
         model.addAttribute("productList", goods);
         return "redirect:product/getList";
     }
 
-    @RequestMapping(value = "jumpUpdateById", method = RequestMethod.GET)
+    @RequestMapping(value = "product/jumpUpdateById", method = RequestMethod.GET)
     public String showUpdate(Integer id, Model model) {
         Goods goods = productFacade.queryByPrimaryKey(id);
         model.addAttribute("product", goods);
