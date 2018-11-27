@@ -164,9 +164,9 @@
             <tr>
                 <td th:text="'下单时间：'+${order.getOrderCreateTime()}"></td>
                 <td th:text="'付款时间：'+${order.getOrderPayTime()}"></td>
-                <td th:if="${order.getOrderPayMode()== 1}" th:text="支付宝"></td>
-                <td th:if="${order.getOrderPayMode()== 2}" th:text="微信"></td>
-                <td th:if="${order.getOrderPayMode()== 3}" th:text="银行卡"></td>
+                <td th:if="${order.getOrderPayMode()== 1}" th:text="|支付方式: 支付宝|"></td>
+                <td th:if="${order.getOrderPayMode()== 2}" th:text="|支付方式: 微信|"></td>
+                <td th:if="${order.getOrderPayMode()== 3}" th:text="|支付方式: 银行卡|"></td>
                 <td th:text="'订单备注：'+${order.getOrderRemark()}"></td>
             </tr>
         </table>
