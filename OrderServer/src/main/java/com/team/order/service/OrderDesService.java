@@ -20,6 +20,16 @@ public interface OrderDesService {
      * @date: 2018/11/21 23:25
      **/
     List<OrderDes> getOrderDesByConditon(OrderDes orderDes);
+
+    /**
+     * 功能描述:通过订单ID查询订单详情
+     *
+     * @param: [id]
+     * @return: java.util.List<com.team.facade.pojo.OrderDes>
+     * @auther: PWJ
+     * @date: 2018/11/26 17:39
+     **/
+    List<OrderDes> getOrderDesByOrderId(int id);
     /**
      * 功能描述:添加订单详情
      *
@@ -38,6 +48,16 @@ public interface OrderDesService {
      * @date: 2018/11/21 23:27
      **/
     int delOrderDesByDesId(int id);
+
+    /**
+     * 功能描述:通过订单ID删除订单详情
+     *
+     * @param: [id]
+     * @return: int
+     * @auther: PWJ
+     * @date: 2018/11/27 10:11
+     **/
+    int delOrderDesByOrderId(int id);
     /**
      * 功能描述:修改订单详情
      *

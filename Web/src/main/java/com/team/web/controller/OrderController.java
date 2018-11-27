@@ -4,9 +4,9 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IOrderFacade;
 import com.team.facade.pojo.Order;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -25,9 +25,18 @@ public class OrderController {
 
 
     @RequestMapping("/getAllOrder")
-    @ResponseBody
-    public List<Order> getAll(Order order){
-        return orderFacade.getOrderByCondition(order);
+    public String getAll(Order order, Model model){
+        model.addAttribute("order",order);
+        List<Order> orderList = orderFacade.getOrderByCondition(order);
+        model.addAttribute("orderList",orderList);
+        return "Order/order_list";
+    }
+
+    @RequestMapping("/getById")
+    public String getOrderById(Integer id,Model model){
+        Order order = orderFacade.getOrderById(id);
+        model.addAttribute("order",order);
+        return "Order/order_detail";
     }
 
     @RequestMapping("/addOrder")
@@ -39,7 +48,7 @@ public class OrderController {
     @RequestMapping("/delOrderById/{id}")
     public String delOrderById(@PathVariable("id") int id){
         orderFacade.delOrderByOrderId(id);
-        return  "";
+        return  "redirect:/order/getAllOrder";
     }
 
     @RequestMapping("/updateOrder")

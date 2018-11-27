@@ -10,20 +10,24 @@ import java.io.Serializable;
  */
 public class Order implements Serializable {
     private static final long serialVersionUID = -7011898217831806483L;
-    private int orderId;    //订单的id
+    private Integer orderId;    //订单的id
     private String orderNum;    //订单的编号
-    private int orderState;     //订单的状态
+    private Integer orderState;     //订单的状态
     private String orderCreateTime; //订单的创建的时间
     private String orderPayTime;    //订单的支付时间
-    private int orderPayMode;       //订单的支付方式
+    private Integer orderPayMode;       //订单的支付方式
     private double paymentMoney;    //订单的付款金额
-    private int userId;             //订单的付款人
-    private int adressId;           //收货的地址
+    private Integer deliverMode;        //配送方式
+    private String orderRemark;     //订单备注
+    private Integer userId;             //订单的付款人
+    private String userName;            //订单付款人名字
+    private Integer adressId;           //收货的地址
+    private String addressDes;          //订单的详细地址
 
     public Order() {
     }
 
-    public Order(int orderId, String orderNum, int orderState, String orderCreateTime, String orderPayTime, int orderPayMode, double paymentMoney, int userId, int adressId) {
+    public Order(Integer orderId, String orderNum, Integer orderState, String orderCreateTime, String orderPayTime, Integer orderPayMode, double paymentMoney, Integer deliverMode, String orderRemark, Integer userId, String userName, Integer adressId, String addressDes) {
         this.orderId = orderId;
         this.orderNum = orderNum;
         this.orderState = orderState;
@@ -31,15 +35,51 @@ public class Order implements Serializable {
         this.orderPayTime = orderPayTime;
         this.orderPayMode = orderPayMode;
         this.paymentMoney = paymentMoney;
+        this.deliverMode = deliverMode;
+        this.orderRemark = orderRemark;
         this.userId = userId;
+        this.userName = userName;
         this.adressId = adressId;
+        this.addressDes = addressDes;
     }
 
-    public int getOrderId() {
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getAddressDes() {
+        return addressDes;
+    }
+
+    public void setAddressDes(String addressDes) {
+        this.addressDes = addressDes;
+    }
+
+    public Integer getDeliverMode() {
+        return deliverMode;
+    }
+
+    public void setDeliverMode(Integer deliverMode) {
+        this.deliverMode = deliverMode;
+    }
+
+    public String getOrderRemark() {
+        return orderRemark;
+    }
+
+    public void setOrderRemark(String orderRemark) {
+        this.orderRemark = orderRemark;
+    }
+
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
@@ -51,11 +91,11 @@ public class Order implements Serializable {
         this.orderNum = orderNum;
     }
 
-    public int getOrderState() {
+    public Integer getOrderState() {
         return orderState;
     }
 
-    public void setOrderState(int orderState) {
+    public void setOrderState(Integer orderState) {
         this.orderState = orderState;
     }
 
@@ -75,11 +115,11 @@ public class Order implements Serializable {
         this.orderPayTime = orderPayTime;
     }
 
-    public int getOrderPayMode() {
+    public Integer getOrderPayMode() {
         return orderPayMode;
     }
 
-    public void setOrderPayMode(int orderPayMode) {
+    public void setOrderPayMode(Integer orderPayMode) {
         this.orderPayMode = orderPayMode;
     }
 
@@ -91,19 +131,19 @@ public class Order implements Serializable {
         this.paymentMoney = paymentMoney;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public int getAdressId() {
+    public Integer getAdressId() {
         return adressId;
     }
 
-    public void setAdressId(int adressId) {
+    public void setAdressId(Integer adressId) {
         this.adressId = adressId;
     }
 
@@ -117,8 +157,12 @@ public class Order implements Serializable {
                 ", orderPayTime='" + orderPayTime + '\'' +
                 ", orderPayMode=" + orderPayMode +
                 ", paymentMoney=" + paymentMoney +
+                ", deliverMode=" + deliverMode +
+                ", orderRemark='" + orderRemark + '\'' +
                 ", userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", adressId=" + adressId +
+                ", addressDes='" + addressDes + '\'' +
                 '}';
     }
 }

@@ -11,12 +11,20 @@
         </where>
     </select>
 
+    <select id="getOrderDesByOrderId" resultType="OrderDes">
+        select * from orderDes where orderId = #{id}
+    </select>
+
     <insert id="addOrderDes">
         insert into orderDes values (null,#{goodsNum},#{orderNumber},#{orderId},#{goodsId})
     </insert>
 
     <delete id="delOrderDesByDesId">
         delete from orderDes where orderDesId = #{id}
+    </delete>
+
+    <delete id="delOrderDesByOrderId">
+        delete from orderDes where orderId = #{id}
     </delete>
 
     <update id="updateOrderDes">
