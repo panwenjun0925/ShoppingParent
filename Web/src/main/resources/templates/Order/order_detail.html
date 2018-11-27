@@ -44,6 +44,7 @@
                                 $("#gName").append("<span>"+result.goodsName+"</span>");
                                 $("#gNumber").append("<span>"+result.goodsId+"</span>");
                                 $("#gSpec").append("<span>"+result.goodsAttr+"</span>");
+                                $("#realprice").append("<span>"+result.goodsRealPrice+"</span>")
                             }
                         });
                     }
@@ -163,7 +164,7 @@
             <h2 class="fl">订单详情</h2>
             <a class="fr top_rt_btn" onclick="updateAddress()">修改地址</a>
         </div>
-        <form action="/address/getAddressById2/" method="post" id="form2">
+        <form action="/address/getAddressById2" method="post" id="form2">
             <input type="hidden" name="orderId" th:value="${order.getOrderId()}">
             <input type="hidden" name="addressId" th:value="${order.getAdressId()}">
         </form>
@@ -203,7 +204,7 @@
                 <td class="center" id="gSpec">
                 </td>
                 <td class="center" id="gNum"></td>
-                <td class="center"><strong class="rmb_icon">59.00</strong></td>
+                <td class="center"><strong class="rmb_icon" id="realprice"></strong></td>
             </tr>
 
         </table>
