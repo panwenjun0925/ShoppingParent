@@ -5,6 +5,7 @@ import com.team.facade.IFacade.IOrderFacade;
 import com.team.facade.pojo.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -25,7 +26,6 @@ public class OrderController {
 
     @RequestMapping("/getAllOrder")
     public String getAll(Order order, Model model){
-        System.out.println("传进来的订单参数为："+order);
         model.addAttribute("order",order);
         List<Order> orderList = orderFacade.getOrderByCondition(order);
         model.addAttribute("orderList",orderList);
@@ -45,8 +45,8 @@ public class OrderController {
         return "";
     }
 
-    @RequestMapping("/delOrderById")
-    public String delOrderById(int id){
+    @RequestMapping("/delOrderById/{id}")
+    public String delOrderById(@PathVariable("id") int id){
         orderFacade.delOrderByOrderId(id);
         return  "redirect:/order/getAllOrder";
     }

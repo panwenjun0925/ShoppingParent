@@ -13,6 +13,10 @@
     <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
     <script>
 
+            function del(id) {
+                window.location.href = "/order/delOrderById/"+id;
+            }
+
 
         (function ($) {
             $(window).load(function () {
@@ -146,7 +150,7 @@
                 <td class="center">
                     <a th:href="@{/order/getById(id=${orders.orderId})}"
                        title="查看订单" class="link_icon" target="_blank">&#118;</a>
-                    <a th:href="@{/order/delOrderById(id=${orders.orderId})}" title="删除" class="link_icon">&#100;</a>
+                    <a th:onclick="'javascript:del(\''+${orders.getOrderId()}+'\')'" title="删除" class="link_icon">&#100;</a>
                 </td>
             </tr>
             </tbody>

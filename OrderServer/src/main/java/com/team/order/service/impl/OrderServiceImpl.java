@@ -1,7 +1,9 @@
 package com.team.order.service.impl;
 
 import com.team.facade.pojo.Order;
+import com.team.order.mapper.OrderDesMapper;
 import com.team.order.mapper.OrderMapper;
+import com.team.order.service.OrderDesService;
 import com.team.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderMapper mapper;
+    @Autowired
+    OrderDesService desService;
 
 
     @Override
@@ -37,6 +41,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int delOrderByOrderId(int id) {
+        desService.delOrderDesByOrderId(id);
         return mapper.delOrderByOrderId(id);
     }
 

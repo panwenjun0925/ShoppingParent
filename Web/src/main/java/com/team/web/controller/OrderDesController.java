@@ -49,6 +49,10 @@ public class OrderDesController {
         orderDesFacade.delOrderDesByDesId(id);
         return "";
     }
+    @RequestMapping("/delOrderDesByOrderId/{id}")
+    public void delOrderDesByOrderId(@PathVariable("id") int id){
+        orderDesFacade.delOrderDesByOrderId(id);
+    }
 
     @RequestMapping("/updateOrderDes")
     public String updateOrderDes(OrderDes orderDes) {
