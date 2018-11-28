@@ -33,12 +33,13 @@ public class AdFacade implements IAdFacade {
 
 
     @Override
-    public void deleteAd(Ad ad) {
-        adService.deleteAd(ad);
+    public void deleteAd(Integer id) {
+        adService.deleteAd(id);
     }
 
     @Override
     public void updateAd(Ad ad) {
+        System.out.println("service");
             adService.updateAd(ad);
     }
 }

@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
 <title>后台管理系统</title>
 <meta name="author" content="DeathGhost" />
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{/css/style.css}">
 <!--[if lt IE 9]>
-<script src="js/html5.js"></script>
+<script src="js/html5.js" th:src="@{/js/html5.js}"></script>
 <![endif]-->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script>
+<script src="js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js" th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+ <script src="js/amcharts.js"  th:src="@{/js/amcharts.js}"></script>
+ <script src="js/serial.js"  th:src="@{/js/serial.js}"></script>
+ <script src="js/pie.js"  th:src="@{/js/pie.js}"></script>
+ <script>
 
 	(function($){
 		$(window).load(function(){
@@ -37,9 +40,9 @@
 <body>
 <!--header-->
 <header>
- <h1><img src="images/admin_logo.png"/></h1>
+ <h1><img src="images/admin_logo.png" th:src="@{/images/admin_logo.png}"/></h1>
  <ul class="rt_nav">
-  <li><a href="#" class="website_icon">站点首页</a></li>
+  <li><a href="index.html" class="website_icon">站点首页</a></li>
   <li><a href="#" class="clear_icon">清除缓存</a></li>
   <li><a href="#" class="admin_icon">DeathGhost</a></li>
   <li><a href="#" class="set_icon">账号设置</a></li>
@@ -74,6 +77,31 @@
     <dd><a href="user_detail.html">添加会员（详情）示例</a></dd>
     <dd><a href="user_rank.html">会员等级示例</a></dd>
     <dd><a href="adjust_funding.html">会员资金管理示例</a></dd>
+   </dl>
+  </li>
+  <li>
+   <dl>
+    <dt>管理员管理</dt>
+    <dd><a th:href="@{/admin/list}">管理员列表</a></dd>
+   </dl>
+  </li>
+  <li>
+   <dl>
+    <dt>广告管理</dt>
+    <dd><a th:href="@{/ad/list}" href="/ad/list">广告列表</a></dd>
+    <dd><a th:href="@{../ad_detail.html}" href="/ad_detail.html">添加广告</a></dd>
+   </dl>
+  </li>
+  <li>
+   <dl>
+    <dt>品牌管理</dt>
+    <dd><a href="/brand/list">品牌列表示例</a></dd>
+   </dl>
+  </li>
+  <li>
+   <dl>
+    <dt>新闻管理</dt>
+    <dd><a href="/news/list">新闻列表示例</a></dd>
    </dl>
   </li>
   <li>
@@ -417,9 +445,7 @@
 
  </div>
 </section>
-<script src="js/amcharts.js" type="text/javascript"></script>
-<script src="js/serial.js" type="text/javascript"></script>
-<script src="js/pie.js" type="text/javascript"></script>
+
 <script type="text/javascript">
     $(document).ready(function (e) {
         GetSerialChart();

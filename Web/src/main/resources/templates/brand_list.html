@@ -26,39 +26,25 @@
 
  <div class="rt_content">
       <div class="page_title">
-       <h2 class="fl">会员列表</h2>
-       <a href="user_detail.html" class="fr top_rt_btn add_icon">添加新会员</a>
+       <h2 class="fl">品牌列表</h2>
+       <a href="user_detail.html" class="fr top_rt_btn add_icon">添加新品牌</a>
       </div>
       <section class="mtb">
-       <input type="text" class="textbox textbox_225" placeholder="输入会员号/手机/电子邮件查询..."/>
+       <input type="text" class="textbox textbox_225" placeholder="输入品牌名字"/>
        <input type="button" value="查询" class="group_btn"/>
       </section>
       <table class="table">
        <tr>
-        <th>会员编号</th>
-        <th>会员名字</th>
-        <th>手机号码</th>
-        <th>电子邮件</th>
-        <th>身份证</th>
-        <th>注册时间</th>
-        <th>邀请人编号</th>
-        <th>地址详情</th>
+        <th>品牌图片</th>
+        <th>品牌名字</th>
         <th>操作</th>
        </tr>
 
-       <tr th:each="user:${users}">
-        <td class="center" th:text="${user.userNumber}">666</td>
-        <td class="center" th:text="${user.userName}">666</td>
-        <td class="center" th:text="${user.phone}">666</td>
-        <td class="center" th:text="${user.email}">6666</td>
-        <td class="center" th:text="${user.idCard}">6666</td>
-        <td class="center" th:text="${user.registerTime}">6666</td>
-        <td class="center" th:text="${user.inviterId}">6666</td>
+       <tr th:each="brand:${brands}">
+        <td class="center" th:text="${brand.brandLog}">666</td>
+        <td class="center" th:text="${brand.brandName}">666</td>
         <td class="center">
-          <a th:href="@{'http//localhost:8080/address/getAllAddress/'+${user.userId}}"></a>
-        </td>
-        <td class="center">
-         <a href="../user_detail.html" title="编辑" class="link_icon">&#101;</a>
+         <a th:href="@{'http//localhost:8080/brand/findById'+${brand.brandId}}" title="编辑" class="link_icon">&#101;</a>
          <a href="#" title="删除" class="link_icon">&#100;</a>
         </td>
        </tr>

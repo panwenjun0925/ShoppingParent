@@ -38,12 +38,13 @@ public class AdServiceImpl implements AdService {
     }
 
     @Override
-    public void deleteAd(Ad ad) {
-        adMapper.delete(ad.getAdId());
+    public void deleteAd(Integer id) {
+        adMapper.delete(id);
     }
 
     @Override
     public void updateAd(Ad ad) {
-
+        System.out.println(ad);
+            adMapper.update(ad);
     }
 }
