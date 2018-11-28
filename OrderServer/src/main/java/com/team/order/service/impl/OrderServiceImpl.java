@@ -1,7 +1,9 @@
 package com.team.order.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.team.facade.pojo.Order;
-import com.team.order.mapper.OrderDesMapper;
+import com.team.facade.dto.PageHelpDto;
 import com.team.order.mapper.OrderMapper;
 import com.team.order.service.OrderDesService;
 import com.team.order.service.OrderService;
@@ -26,8 +28,13 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public List<Order> getOrderByCondition(Order order) {
-        return mapper.getOrderByCondition(order);
+    public PageHelpDto<Order,Order> getOrderByCondition(Order order, Integer pageIndex, Integer pageSize) {
+        Page page = PageHelper.startPage(pageIndex, pageSize,"orderId desc");
+        List<Order> orderList = mapper.getOrderByCondition(order);
+        int totalCount = Integer.parseInt(page.getTotal()+"");//数据总条数
+        int pageCount = page.getPages();//总页数
+        PageHelpDto<Order, Order> p = new PageHelpDto<Order, Order>(pageIndex, totalCount, pageSize, pageCount, orderList,order);
+        return p;
     }
 
     @Override
