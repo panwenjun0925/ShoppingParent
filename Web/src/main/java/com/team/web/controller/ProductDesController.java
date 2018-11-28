@@ -73,7 +73,7 @@ public class ProductDesController {
 
     @RequestMapping(value = "productDes/getDefiniteProduct/{productDesId}",method = RequestMethod.POST)
     public @ResponseBody ProductDTO getDefiniteProductInfo(@PathVariable Integer productDesId){
-        System.out.println(productDesId);
+
         GoodsDes productDes = productDesFacade.queryByPrimaryKey(productDesId);
         Goods goods = productFacade.queryByPrimaryKey(productDes.getGoodsId());
         ProductDTO productDTO = ProductUtil.packageProductDTO(goods, productDes);

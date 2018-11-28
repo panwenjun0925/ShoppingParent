@@ -3,7 +3,6 @@ package com.team.product.facadeImpl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
-import com.team.product.mapper.GoodsMapper;
 import com.team.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,9 +1,8 @@
 package com.team.product.service.Impl;
 
+import com.team.facade.pojo.Goods;
 import com.team.product.mapper.GoodsMapper;
 import com.team.product.service.ProductService;
-import com.team.facade.pojo.Goods;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +18,13 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-   private GoodsMapper goodsMapper;
+    private GoodsMapper goodsMapper;
 
 
     @Override
     public List<Goods> getList() {
+
+
         return goodsMapper.queryList();
     }
 
