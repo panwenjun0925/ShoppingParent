@@ -34,6 +34,13 @@ public class TestOrderDes {
             System.out.println(des);
         }
     }
+    @Test
+    public void testName() throws Exception {
+        List<OrderDes> orderDesList = mapper.getOrderDesByOrderId(2);
+        for (OrderDes orderDes : orderDesList) {
+            System.out.println(orderDes);
+        }
+    }
 
     @Test
     public void testAddOrderDes() throws Exception {

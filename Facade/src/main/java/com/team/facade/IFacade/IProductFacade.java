@@ -3,6 +3,7 @@ package com.team.facade.IFacade;
 import com.team.facade.pojo.Goods;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Auther: YouQi
@@ -54,4 +55,6 @@ public interface IProductFacade {
      * @date: 2018/11/21 14:01
      **/
     List<Goods> queryUnPutaway();
+
+    Goods queryByPrimaryKey(Integer id);
 }

@@ -19,4 +19,5 @@ public class AppWebStart {
     public static void main(String[] args) {
         SpringApplication.run(AppWebStart.class, args);
     }
+
 }

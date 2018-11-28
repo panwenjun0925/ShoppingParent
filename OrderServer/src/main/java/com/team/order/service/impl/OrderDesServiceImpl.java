@@ -26,6 +26,11 @@ public class OrderDesServiceImpl implements OrderDesService {
     }
 
     @Override
+    public List<OrderDes> getOrderDesByOrderId(int id) {
+        return orderDesMapper.getOrderDesByOrderId(id);
+    }
+
+    @Override
     public int addOrderDes(OrderDes orderDes) {
         return orderDesMapper.addOrderDes(orderDes);
     }
@@ -33,6 +38,11 @@ public class OrderDesServiceImpl implements OrderDesService {
     @Override
     public int delOrderDesByDesId(int id) {
         return orderDesMapper.delOrderDesByDesId(id);
+    }
+
+    @Override
+    public int delOrderDesByOrderId(int id) {
+        return orderDesMapper.delOrderDesByOrderId(id);
     }
 
     @Override

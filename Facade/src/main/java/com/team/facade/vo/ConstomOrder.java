@@ -9,4 +9,5 @@ import com.team.facade.pojo.Order;
  * @Version: 1.0
  */
 public class ConstomOrder extends Order {
+
 }

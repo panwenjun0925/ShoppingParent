@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a  href="../index.html"> 回到首页</a><br/>
+<span>添加售出商品</span>
+<div>
+    <form action="/productDes/insert" method="post">
+        <label class="#">货号</label>
+        <input type="text"  name="goodsId">
+        <br/>
+
+        <label class="#">重量</label>
+        <input type="text"  name="goodsWeight">
+        <br/>
+
+        <label class="#">属性</label>
+        <input type="text"  name="goodsAttr">
+        <br/>
+
+        <label class="#">同属性 售出多少件</label>
+        <input type="text"  name="goodsCount">
+        <br/>
+
+        <button type="submit" class="#">添  加</button>
+    </form>
+</div>
+</body>
+</html>

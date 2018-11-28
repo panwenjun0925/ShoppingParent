@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>更新商品信息</title>
+</head>
+<body>
+<a  href="../index.html"> 回到首页</a><br/>
+<span>更新商品</span>
+<div>
+    <form action="/product/update" method="post">
+
+        <input type="hidden" name="goodsId" th:value="${product.goodsId}"/>
+
+        <label class="#">商品名</label>
+        <input type="text" th:value="${product.goodsName}" th:placeholder="${product.goodsName}" name="goodsName" />
+        <br/>
+
+        <label class="#">货号</label>
+        <input type="text" th:value="${product.goodsId}" name="goodsId">
+        <br/>
+
+        <label class="#">标价</label>
+        <input type="text" th:value="${product.goodsShowPrice}" name="goodsShowPrice">
+        <br/>
+
+        <label class="#">售价</label>
+        <input type="text" th:value="${product.goodsRealPrice}" name="goodsRealPrice">
+        <br/>
+
+        <label class="#">库存</label>
+        <input type="text" th:value="${product.goodsTotal}" name="goodsTotal">
+        <br/>
+
+        <label class="#">已售数量</label>
+        <input type="text" th:value="${product.goodsSaleNum}" name="goodsSaleNum">
+        <br/>
+
+        <label class="#">是否上架</label>
+        <input type="text" th:value="${product.isPutaway}" name="isPutaway">
+        <br/>
+
+        <label class="#">商品类别</label>
+        <input type="text" th:value="${product.goodsTypeId}" name="goodsTypeId">
+        <br/>
+
+        <label class="#">商品品牌</label>
+        <input type="text" th:value="${product.brandId}" name="brandId">
+        <br/>
+
+        <label class="#">商品属性</label>
+        <input type="text" th:value="${product.goodsAttr}" name="goodsAttr">
+        <br/>
+
+        <label class="#">展示图片</label>
+        <input type="text" th:value="${product.goodsShowPicture}" name="goodsShowPicture">
+        <br/>
+
+        <button type="submit" class="#">确  定</button>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,8 +1,7 @@
 package com.team.order.service;
 
 import com.team.facade.pojo.Order;
-
-import java.util.List;
+import com.team.facade.dto.PageHelpDto;
 
 /**
  * @Auther: PWJ
@@ -19,7 +18,16 @@ public interface OrderService {
      * @auther: PWJ
      * @date: 2018/11/21 11:14
      **/
-    List<Order> getOrderByCondition(Order order);
+    PageHelpDto<Order,Order> getOrderByCondition(Order order, Integer pageIndex, Integer pageSize);
+    /**
+     * 功能描述:通过ID查询订单
+     *
+     * @param: [id]
+     * @return: com.team.facade.pojo.Order
+     * @auther: PWJ
+     * @date: 2018/11/26 12:22
+     **/
+    Order getOrderById(int id);
     /**
      * 功能描述:添加订单
      *

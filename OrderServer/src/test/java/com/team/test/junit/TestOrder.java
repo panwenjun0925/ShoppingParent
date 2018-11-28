@@ -25,6 +25,7 @@ public class TestOrder {
     @Autowired
     OrderMapper mapper;
 
+
     @Test
     public void testGetOrderByCondition() throws Exception {
         Order order = new Order();
@@ -41,7 +42,7 @@ public class TestOrder {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String s = sdf.format(date);
-        Order order = new Order(1, "2018002", 2, s, s, 2, 300.0, 2, 2);
+        Order order = new Order(1, "2018002", 2, s, s, 2, 300.0,1,"aa", 2,"11", 2,"22");
         int i = mapper.addOrder(order);
         System.out.println(i);
     }
@@ -56,7 +57,7 @@ public class TestOrder {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String s = sdf.format(date);
-        Order order = new Order(2, "2018002", 2, s, s, 2, 300.0, 2, 2);
+        Order order = new Order(2, "2018002", 2, s, s, 2, 300.0,1,"aa", 2,"11", 2,"22");
         int i = mapper.updateOrder(order);
         System.out.println(i);
     }

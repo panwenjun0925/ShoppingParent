@@ -39,7 +39,7 @@
             and typePicture = #{typePicture,jdbcType=VARCHAR}
         </if>
         <if test="typeDes != null and typeDes!=''">
-            and typeDes = #{typeDes,jdbcType=VARCHAR}
+            and typeDes = #{typeDes,jdbcType=VARBINARY}
         </if>
     </select>
 
@@ -83,7 +83,7 @@
                 #{typePicture,jdbcType=VARCHAR},
             </if>
             <if test="typeDes != null">
-                #{typeDes,jdbcType=VARCHAR},
+                #{typeDes,jdbcType=VARBINARY},
             </if>
 
         </trim>
@@ -94,26 +94,33 @@
     where goodsType = #{goodsType,jdbcType=INTEGER}
   </delete>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.team.facade.pojo.GoodsType">
+    <select id="selectByParentId" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from goodsType
+        where typeParentId = #{typeParentId,jdbcType=INTEGER}
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.team.facade.pojo.GoodsType" >
         update goodsType
-        <set>
-            <if test="typeName != null">
+        <set >
+
+            <if test="typeName != null" >
                 typeName = #{typeName,jdbcType=VARCHAR},
             </if>
-            <if test="typeParentId != null">
+            <if test="typeParentId != null" >
                 typeParentId = #{typeParentId,jdbcType=INTEGER},
             </if>
-            <if test="typePicture != null">
+
+            <if test="typePicture != null" >
                 typePicture = #{typePicture,jdbcType=VARCHAR},
             </if>
-
-            <if test="typeDes != null">
-                typeDes = #{typeDes,jdbcType=VARCHAR},
+            <if test="typeDes != null" >
+                typeDes = #{typeDes,jdbcType=VARBINARY},
             </if>
 
         </set>
         where typeId = #{typeId,jdbcType=INTEGER}
     </update>
-
 
 </mapper>
