@@ -27,6 +27,7 @@
         <module name="product-type-server" />
         <module name="service-commons" />
         <module name="ServiceCommons" />
+        <module name="Shopping" />
         <module name="user-service" />
         <module name="UserService" />
         <module name="Web" />

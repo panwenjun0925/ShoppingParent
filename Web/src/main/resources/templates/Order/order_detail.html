@@ -43,7 +43,8 @@
                                 $("#img").attr("src",result.goodsDesPicture);
                                 $("#gName").append("<span>"+result.goodsName+"</span>");
                                 $("#gNumber").append("<span>"+result.goodsId+"</span>");
-                                $("#gSpec").append("<span>"+result.goodsAttr+"</span>");
+                                $("#gSpec").append("<span>"+result.definiteAttr+"</span>");
+                                $("#realprice").append("<span>"+result.goodsRealPrice+"</span>")
                             }
                         });
                     }
@@ -110,7 +111,7 @@
             <dl>
                 <dt>常用布局示例</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="../product_list.html" class="active">商品列表示例</a></dd>
+                <dd><a href="../product_list.html" >商品列表示例</a></dd>
                 <dd><a href="../product_detail.html">商品详情示例</a></dd>
                 <dd><a href="../recycle_bin.html">商品回收站示例</a></dd>
             </dl>
@@ -118,8 +119,7 @@
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a href="order_list.html">订单列表示例</a></dd>
-                <dd><a href="order_detail.html">订单详情示例</a></dd>
+                <dd><a th:href="@{/order/getAllOrder}" class="active">订单列表</a></dd>
             </dl>
         </li>
         <li>
@@ -163,7 +163,7 @@
             <h2 class="fl">订单详情</h2>
             <a class="fr top_rt_btn" onclick="updateAddress()">修改地址</a>
         </div>
-        <form action="/address/getAddressById2/" method="post" id="form2">
+        <form action="/address/getAddressById2" method="post" id="form2">
             <input type="hidden" name="orderId" th:value="${order.getOrderId()}">
             <input type="hidden" name="addressId" th:value="${order.getAdressId()}">
         </form>
@@ -203,7 +203,7 @@
                 <td class="center" id="gSpec">
                 </td>
                 <td class="center" id="gNum"></td>
-                <td class="center"><strong class="rmb_icon">59.00</strong></td>
+                <td class="center"><strong class="rmb_icon" id="realprice"></strong></td>
             </tr>
 
         </table>
