@@ -94,6 +94,11 @@
         <!-- 分页助手 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+       <!-- <dependency>
+            <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>4.0.0</version>
         </dependency>
@@ -101,7 +106,7 @@
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
             <version>0.9.1</version>
-        </dependency>
+        </dependency>-->
         <!-- /分页助手 -->
         <!--导入dbunit的包 -->
         <dependency>
