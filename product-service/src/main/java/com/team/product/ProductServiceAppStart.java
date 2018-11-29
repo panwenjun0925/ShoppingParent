@@ -1,7 +1,9 @@
 package com.team.product;
 
+import com.github.tobato.fastdfs.FdfsClientConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 /**
  * @Auther: YouQi
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  */
 @SpringBootApplication
+
 public class ProductServiceAppStart {
     public static void main(String[] args) {
         SpringApplication.run(ProductServiceAppStart.class, args);

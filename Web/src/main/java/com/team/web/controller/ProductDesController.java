@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -66,8 +67,8 @@ public class ProductDesController {
 
     @RequestMapping(value = "productDes/list",method = RequestMethod.GET)
     public String queryAll(Model model){
-        List<GoodsDes> goodsDes = productDesFacade.queryList();
-        model.addAttribute("productDesList",goodsDes);
+        List<ProductDTO> productDetailList = productDesFacade.getProductDetail();
+        model.addAttribute("productDTOList",productDetailList);
         return "productDes_table";
     }
 

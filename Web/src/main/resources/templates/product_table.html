@@ -46,7 +46,7 @@
     </tr>
     </tbody>
 </table>
-<p>一共<span th:value="${pageInfo.pages}"></span>页</p>
+<p>一共<span th:text="${pageInfo.pages}"></span>页</p>
 <a th:href="@{/product/getList/(pageNum = ${pageInfo.firstPage})}">第一页</a>
 <a th:href="@{/product/getList/(pageNum = ${pageInfo.nextPage})}">下一页</a>
 <a th:href="@{/product/getList/(pageNum = ${pageInfo.prePage})}">上一页</a>

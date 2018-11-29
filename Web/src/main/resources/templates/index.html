@@ -54,9 +54,9 @@
 
   <li>
    <dl>
-    <dt>常用布局示例</dt>
+    <dt>商品管理</dt>
     <!--当前链接则添加class:active-->
-    <dd><a href="product_table.html" th:href="@{product/getList/1}" >商品列表示例</a></dd>
+    <dd><a href="product_table.html" th:href="@{product/getList/}" >上架商品列表</a></dd>
     <dd><a href="product_add.html">添加商品</a></dd>
     <dd><a href="product_table.html" th:href="@{product/getUnPutList}">商品回收站</a></dd>
    </dl>
@@ -67,7 +67,7 @@
     <dt>已售出商品管理</dt>
     <!--当前链接则添加class:active-->
     <dd><a href="productDes_table.html" th:href="@{productDes/list}" >已售出商品列表</a></dd>
-    <dd><a href="productDes_add.html">添加商品分类</a></dd>
+    <dd><a href="productDes_add.html">添加售出商品项</a></dd>
    </dl>
   </li>
 
@@ -76,7 +76,7 @@
     <dt>商品分类管理</dt>
     <!--当前链接则添加class:active-->
     <dd><a href="productType_table.html" th:href="@{productType/list}" >分类列表</a></dd>
-    <dd><a href="productType_add.html">添加商品分类</a></dd>
+    <dd><a href="productType_add.html" th:href="@{productType/initInsertType}">添加商品分类</a></dd>
    </dl>
   </li>
 

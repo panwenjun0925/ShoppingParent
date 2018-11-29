@@ -1,6 +1,7 @@
 package com.team.product.facadeImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageInfo;
 import com.team.facade.IFacade.IProductFacade;
 import com.team.facade.pojo.Goods;
 import com.team.product.service.ProductService;
@@ -24,8 +25,8 @@ public class IProductFacadeImpl implements IProductFacade {
 
 
     @Override
-    public List<Goods> getList() {
-        return productService.getList();
+    public PageInfo<Goods> getList(Integer pageNum) {
+        return productService.getList( pageNum);
     }
 
     @Override
