@@ -3,12 +3,12 @@ package com.team.web.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IOrderFacade;
 import com.team.facade.pojo.Order;
+import com.team.facade.dto.PageHelpDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Auther: PWJ
@@ -24,11 +24,10 @@ public class OrderController {
     private IOrderFacade orderFacade;
 
 
-    @RequestMapping("/getAllOrder")
-    public String getAll(Order order, Model model){
-        model.addAttribute("order",order);
-        List<Order> orderList = orderFacade.getOrderByCondition(order);
-        model.addAttribute("orderList",orderList);
+    @RequestMapping("/getAllOrder/{pageIndex}")
+    public String getAll(Order order, @PathVariable("pageIndex") Integer pageIndex, @RequestParam(defaultValue = "5") Integer pageSize, Model model){
+        PageHelpDto<Order, Order> p = orderFacade.getOrderByCondition(order, pageIndex, pageSize);
+        model.addAttribute("p",p);
         return "Order/order_list";
     }
 
@@ -48,7 +47,7 @@ public class OrderController {
     @RequestMapping("/delOrderById/{id}")
     public String delOrderById(@PathVariable("id") int id){
         orderFacade.delOrderByOrderId(id);
-        return  "redirect:/order/getAllOrder";
+        return  "redirect:/order/getAllOrder/1";
     }
 
     @RequestMapping("/updateOrder")

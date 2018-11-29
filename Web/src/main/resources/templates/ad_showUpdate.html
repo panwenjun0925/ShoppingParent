@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>后台管理系统</title>
+<meta name="author" content="DeathGhost" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="css/style.css">
+<!--[if lt IE 9]>
+<script th:src="@{/js/html5.js}" src="js/html5.js"></script>
+<![endif]-->
+<script th:src="@{/js/jquery.js}" src="js/jquery.js"></script>
+<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    function changepic() {
+
+        var reads= new FileReader();
+
+        f=document.getElementById('file').files[0];
+
+        reads.readAsDataURL(f);
+
+        reads.onload=function (e) {
+
+            document.getElementById('show').src=this.result;
+
+        };
+
+    }
+</script>
+</head>
+<body>
+<!--header-->
+<header>
+ <h1><img th:src="@{/images/admin_logo.png}" src="images/admin_logo.png"/></h1>
+ <ul class="rt_nav">
+  <li><a th:href="@{/index.html}" target="_blank" class="website_icon">站点首页</a></li>
+  <li><a href="#" class="clear_icon">清除缓存</a></li>
+  <li><a href="#" class="admin_icon">DeathGhost</a></li>
+  <li><a href="#" class="set_icon">账号设置</a></li>
+  <li><a th:href="@{/login.html}" class="quit_icon">安全退出</a></li>
+ </ul>
+ </header>
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">详情</h2>
+       <a href="adjust_funding.html" class="fr top_rt_btn money_icon">资金管理</a>
+      </div>
+      <form action="/ad/update" method="post" enctype="multipart/form-data" >
+       <input type="hidden" name="adId" th:value="${ad.adId}">
+      <ul class="ulColumn2">
+       <li>
+        <span class="item_name" style="width:120px;">上传头像：</span>
+        <label class="uploadImg">
+         <input type="file" name="file" id="file" onchange="changepic(this)"/>
+         <img th:src="@{${ad.adPicture}}" id="show" width="200px" height="100px" >
+         <span>上传头像</span>
+        </label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">广告描述：</span>
+        <input type="text" class="textbox textbox_225"  name="adDes" th:value="${ad.adDes}"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">广告类型：</span>
+        <select class="select" name="adType" th:value="${ad.adType}" th:field="${ad.adType}">
+         <option th:selected="${ad.adType=='0'}" value="0">悬浮广告</option>
+         <option th:selected="${ad.adType=='1'}" value="1">滚动广告</option>
+        </select>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" value="更新/保存"/>
+       </li>
+      </ul>
+      </form>
+ </div>
+</section>
+</body>
+</html>

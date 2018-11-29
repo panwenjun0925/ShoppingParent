@@ -44,7 +44,7 @@ public interface IAdFacade {
      * @date: 2018/11/22 19:28
      **/
 
-    void deleteAd(Ad ad);
+    void deleteAd(Integer id);
 
     /**
      * 功能描述:修改广告
