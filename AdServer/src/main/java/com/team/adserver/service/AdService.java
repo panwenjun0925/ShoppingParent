@@ -19,7 +19,7 @@ public interface AdService {
 
     Ad findById(AdVo adVo);
 
-    void deleteAd(Ad ad);
+    void deleteAd(Integer id);
 
     void  updateAd(Ad ad);
 }

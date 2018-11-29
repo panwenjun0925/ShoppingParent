@@ -1,8 +1,10 @@
-package com.team.web.utils;
+package com.team.facade.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PageHelpUtil<T,V> {
+public class PageHelpDto<T,V> implements Serializable {
+	private static final long serialVersionUID = -2846155696593126170L;
 	private Integer pageIndex;//当前页
 	private Integer pageCount;//共多少页
 	private Integer totalCount;//共多少条
@@ -61,7 +63,7 @@ public class PageHelpUtil<T,V> {
 	public void setBean(V bean) {
 		this.bean = bean;
 	}
-	public PageHelpUtil(Integer pageIndex, Integer totalCount, Integer pageSize,Integer pageCount, List<T> list, V bean) {
+	public PageHelpDto(Integer pageIndex, Integer totalCount, Integer pageSize, Integer pageCount, List<T> list, V bean) {
 		super();
 		this.pageIndex = pageIndex;
 		this.totalCount = totalCount;
@@ -89,7 +91,7 @@ public class PageHelpUtil<T,V> {
 		
 		
 	}
-	public PageHelpUtil() {
+	public PageHelpDto() {
 		super();
 	}
 

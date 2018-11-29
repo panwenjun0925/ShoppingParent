@@ -39,10 +39,10 @@
             adDes = #{adDes},
         </if>
         <if test="adPicture != null and adPicture !=''">
-            adPicture =#{adPicture},
+            adPicture = #{adPicture},
         </if>
         <if test="adType != null and adType !=''">
-            adType =#{adType},
+            adType = #{adType},
         </if>
     </set>
     where adId = #{adId}

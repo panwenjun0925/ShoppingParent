@@ -13,12 +13,21 @@
     <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
     <script>
 
-            function del(id) {
-                window.location.href = "/order/delOrderById/"+id;
-            }
-            function getById(id) {
-                window.location.href = "/order/getById/"+id;
-            }
+        function del(id) {
+            window.location.href = "/order/delOrderById/" + id;
+        }
+
+        function getById(id) {
+            window.location.href = "/order/getById/" + id;
+        }
+
+        function goPage(pageIndex) {
+            var psize = $("#psize").val();
+            $("#p1").val(psize);
+            $("#form1").attr("action","/order/getAllOrder/"+pageIndex);
+            $("#form1").submit();
+        }
+
 
 
         (function ($) {
@@ -46,7 +55,7 @@
 <body>
 <!--header-->
 <header>
-    <h1><img src="images/admin_logo.png"/></h1>
+    <h1><img th:src="@{/images/admin_logo.png}"/></h1>
     <ul class="rt_nav">
         <li><a href="http://www.aspku.com" target="_blank" class="website_icon">站点首页</a></li>
         <li><a href="#" class="clear_icon">清除缓存</a></li>
@@ -64,7 +73,7 @@
             <dl>
                 <dt>常用布局示例</dt>
                 <!--当前链接则添加class:active-->
-                <dd><a href="../product_list.html" class="active">商品列表示例</a></dd>
+                <dd><a href="../product_list.html">商品列表示例</a></dd>
                 <dd><a href="../product_detail.html">商品详情示例</a></dd>
                 <dd><a href="../recycle_bin.html">商品回收站示例</a></dd>
             </dl>
@@ -72,7 +81,7 @@
         <li>
             <dl>
                 <dt>订单信息</dt>
-                <dd><a th:href="@{/order/getAllOrder}">订单列表</a></dd>
+                <dd><a th:href="@{/order/getAllOrder/1}" >订单列表</a></dd>
             </dl>
         </li>
         <li>
@@ -114,20 +123,22 @@
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">订单列表</h2>
-            <a class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <section class="mtb">
-            <form action="/order/getAllOrder" method="post">
+            <form action="/order/getAllOrder/1" method="post" id="form1">
                 <select class="select" name="orderState">
-                    <option value="0" th:selected="${order.getOrderState() == 0}">订单状态</option>
-                    <option value="1" th:selected="${order.getOrderState() == 1}">待付款</option>
-                    <option value="2" th:selected="${order.getOrderState() == 2}">待发货</option>
-                    <option value="3" th:selected="${order.getOrderState() == 3}">已完成</option>
-                    <option value="3" th:selected="${order.getOrderState() == 4}">运输中</option>
+                    <option value="0" th:selected="${p.bean.getOrderState() == 0}">订单状态</option>
+                    <option value="1" th:selected="${p.bean.getOrderState() == 1}">待付款</option>
+                    <option value="2" th:selected="${p.bean.getOrderState() == 2}">待发货</option>
+                    <option value="3" th:selected="${p.bean.getOrderState() == 3}">已完成</option>
+                    <option value="3" th:selected="${p.bean.getOrderState() == 4}">运输中</option>
                 </select>
-                <input type="text" class="textbox textbox_225" th:value="${order.getOrderNum()}" name="orderNum"
+
+                <input type="hidden" name="pageSize" id="p1" th:value="${p.pageSize}">
+
+                <input type="text" class="textbox textbox_225" th:value="${p.bean.getOrderNum()}" name="orderNum"
                        placeholder="输入订单编号"/>
-                <input type="text" class="textbox textbox_225" th:value="${order.getUserName()}" name="userName"
+                <input type="text" class="textbox textbox_225" th:value="${p.bean.getUserName()}" name="userName"
                        placeholder="输入付款人姓名"/>
                 <input type="submit" value="查询" class="group_btn"/>
             </form>
@@ -142,7 +153,7 @@
                 <th>操作</th>
             </tr>
             <tbody align="center">
-            <tr th:each="orders:${orderList}">
+            <tr th:each="orders:${p.list}">
                 <td th:text="${orders.getOrderNum()}"></td>
                 <td th:if="${orders.getOrderState()== 1}" th:text="待付款"></td>
                 <td th:if="${orders.getOrderState()== 2}" th:text="待发货"></td>
@@ -154,17 +165,23 @@
                 <td class="center">
                     <a th:onclick="'javascript:getById(\''+${orders.getOrderId()}+'\')'"
                        title="查看订单" class="link_icon" target="_blank">&#118;</a>
-                    <a th:onclick="'javascript:del(\''+${orders.getOrderId()}+'\')'" title="删除" class="link_icon">&#100;</a>
+                    <a th:onclick="'javascript:del(\''+${orders.getOrderId()}+'\')'" title="删除"
+                       class="link_icon">&#100;</a>
                 </td>
             </tr>
             </tbody>
         </table>
         <aside class="paging">
-            <a>第一页</a>
-            <a>1</a>
-            <a>2</a>
-            <a>3</a>
-            <a>最后一页</a>
+            <a href="#" th:if="${p.pageIndex!=1}" th:onclick="'javascript:goPage(\'1\')'">首页</a>&nbsp;&nbsp;&nbsp;
+            <a href="#" th:if="${p.pageIndex!=1}" th:onclick="'javascript:goPage(\''+${p.pageIndex - 1}+'\')'">上一页</a>&nbsp;&nbsp;&nbsp;
+            <a href="#" th:if="${p.pageIndex!=p.pageCount}"
+               th:onclick="'javascript:goPage(\''+${p.pageIndex + 1}+'\')'">下一页</a>&nbsp;&nbsp;&nbsp;
+            <a href="#" th:if="${p.pageIndex!=p.pageCount}" th:onclick="'javascript:goPage(\''+${p.pageCount}+'\')'">末页</a>&nbsp;&nbsp;&nbsp;
+            每页显示<input type="text" id="psize" th:value="${p.pageSize}">条
+            <input type="button" class="btn" th:onclick="'javascript:goPage(\'1\')'" value="确定"/>
+            &nbsp;&nbsp;&nbsp;
+            当前<span th:text="${p.pageIndex}"></span>/<span th:text="${p.pageCount}"></span>页&nbsp;&nbsp;&nbsp;
+            共<span th:text="${p.totalCount}"></span>条
         </aside>
     </div>
 </section>

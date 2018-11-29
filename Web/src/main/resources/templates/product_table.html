@@ -5,7 +5,7 @@
     <title>商品展示列表</title>
 </head>
 <body>
-<a  href="../index.html"> 回到首页</a><br/>
+<a  href="/index.html"> 回到首页</a><br/>
 <table class="#" border="2" id="product_table" >
 
     <tr>
@@ -46,6 +46,11 @@
     </tr>
     </tbody>
 </table>
+<p>一共<span th:value="${pageInfo.pages}"></span>页</p>
+<a th:href="@{/product/getList/(pageNum = ${pageInfo.firstPage})}">第一页</a>
+<a th:href="@{/product/getList/(pageNum = ${pageInfo.nextPage})}">下一页</a>
+<a th:href="@{/product/getList/(pageNum = ${pageInfo.prePage})}">上一页</a>
+<a th:href="@{/product/getList/(pageNum = ${pageInfo.lastPage})}">最后页</a>
 
 
 

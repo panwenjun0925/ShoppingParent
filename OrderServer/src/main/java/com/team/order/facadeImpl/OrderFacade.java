@@ -3,11 +3,10 @@ package com.team.order.facadeImpl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IOrderFacade;
 import com.team.facade.pojo.Order;
+import com.team.facade.dto.PageHelpDto;
 import com.team.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * @Auther: PWJ
@@ -22,8 +21,8 @@ public class OrderFacade implements IOrderFacade {
     OrderService service;
 
     @Override
-    public List<Order> getOrderByCondition(Order order) {
-        return service.getOrderByCondition(order);
+    public PageHelpDto<Order,Order> getOrderByCondition(Order order, Integer pageIndex, Integer pageSize) {
+        return service.getOrderByCondition(order,pageIndex,pageSize);
     }
 
     @Override
