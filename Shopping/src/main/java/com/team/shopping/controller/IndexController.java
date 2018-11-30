@@ -1,4 +1,4 @@
-package com.team.shopping.controll;
+package com.team.shopping.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IAdFacade;

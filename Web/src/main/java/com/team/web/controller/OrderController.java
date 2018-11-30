@@ -24,12 +24,12 @@ public class OrderController {
     private IOrderFacade orderFacade;
 
 
-//    @RequestMapping("/getAllOrder/{pageIndex}")
-//    public String getAll(Order order, @PathVariable("pageIndex") Integer pageIndex, @RequestParam(defaultValue = "5") Integer pageSize, Model model){
-//        PageHelpDto<Order, Order> p = orderFacade.getOrderByCondition(order, pageIndex, pageSize);
-//        model.addAttribute("p",p);
-//        return "Order/order_list";
-//    }
+    @RequestMapping("/getAllOrder/{pageIndex}")
+    public String getAll(Order order, @PathVariable("pageIndex") Integer pageIndex, @RequestParam(defaultValue = "5") Integer pageSize, Model model){
+        PageHelpDto<Order, Order> p = orderFacade.getOrderByCondition(order, pageIndex, pageSize);
+        model.addAttribute("p",p);
+        return "Order/order_list";
+    }
 
     @RequestMapping("/getById/{id}")
     public String getOrderById(@PathVariable("id") Integer id,Model model){
