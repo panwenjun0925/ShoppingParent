@@ -32,8 +32,8 @@ public class BrandFacade implements IBrandFacade {
     }
 
     @Override
-    public void delete(Brand brand) {
-        brandService.delete(brand);
+    public void delete(Integer id) {
+        brandService.delete(id);
     }
 
     @Override

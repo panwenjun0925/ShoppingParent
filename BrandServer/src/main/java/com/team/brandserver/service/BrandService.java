@@ -17,7 +17,7 @@ public interface BrandService {
 
     List<Brand> findBy(BrandVo brandVo);
 
-    void delete(Brand brand);
+    void delete(Integer id);
 
     void update(Brand brand);
 }

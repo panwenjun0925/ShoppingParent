@@ -7,10 +7,9 @@ import com.team.facade.vo.AdminVo.AdminVo;
 import com.team.facade.vo.AdminVo.ConstomAdmin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 
@@ -31,7 +30,7 @@ public class AdminController {
     public String getAll(AdminVo adminVo, Model model){
         List<Admin> adminList = adminFacade.findBy(adminVo);
         model.addAttribute("admins",adminList);
-        return  "admin_list";
+        return  "admin/admin_list";
     }
 
     @RequestMapping("/add")
@@ -40,10 +39,19 @@ public class AdminController {
         return "redirect:/admin/list";
     }
 
-    @RequestMapping("/delete")
-    public String deleteAd(Admin admin){
-        adminFacade.delete(admin);
+    @RequestMapping("/delete/{id}")
+    public String deleteAd(@PathVariable(name = "id") Integer id){
+        adminFacade.delete(id);
         return "redirect:/admin/list";
+    }
+
+    @RequestMapping("/findBy")
+    public String findBy(ConstomAdmin constomAdmin,Model model){
+        AdminVo adminVo = new AdminVo();
+        adminVo.setConstomAdmin(constomAdmin);
+        List<Admin> list = adminFacade.findBy(adminVo);
+        model.addAttribute("admins",list.get(0));
+        return "/admin/admin_list";
     }
 
     @RequestMapping("/update")

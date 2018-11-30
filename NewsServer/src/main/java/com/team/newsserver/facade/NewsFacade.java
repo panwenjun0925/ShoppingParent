@@ -32,8 +32,8 @@ public class NewsFacade implements INewsFacade {
     }
 
     @Override
-    public void delete(News news) {
-        newsService.delete(news);
+    public void delete(Integer id) {
+        newsService.delete(id);
     }
 
     @Override

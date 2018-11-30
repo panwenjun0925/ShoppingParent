@@ -11,7 +11,7 @@
                 brandId =#{constomBrand.brandId}
             </if>
             <if test="constomBrand.brandName !=null and constomBrand.brandName !=''">
-                brandName =#{constomBrand.brandName}
+                brandName like '%${constomBrand.brandName}%'
             </if>
             </if>
         </where>
@@ -29,10 +29,10 @@
         update brand
         <set>
             <if test="brandLog !=null and brandLog !=''">
-                brandLog =#{brandLog}，
+                brandLog =#{brandLog},
             </if>
             <if test="brandName != null and brandName !=''">
-                brandName =#{brandName}，
+                brandName =#{brandName},
             </if>
         </set>
         where brandId =#{brandId}

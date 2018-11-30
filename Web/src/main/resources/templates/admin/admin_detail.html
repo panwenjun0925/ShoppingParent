@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>后台管理系统</title>
+<meta name="author" content="DeathGhost" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/css/style.css">
+<!--[if lt IE 9]>
+<script th:src="@{/js/html5.js}" src="/js/html5.js"></script>
+<![endif]-->
+<script th:src="@{/js/jquery.js}" src="/js/jquery.js"></script>
+<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}" src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+</script>
+</head>
+<body>
+<!--header-->
+<header>
+ <h1><img th:src="@{/images/admin_logo.png}" src="/images/admin_logo.png"/></h1>
+ <ul class="rt_nav">
+  <li><a th:href="@{/templates/index.html}" target="_blank" class="website_icon">站点首页</a></li>
+  <li><a href="#" class="clear_icon">清除缓存</a></li>
+  <li><a href="#" class="admin_icon">DeathGhost</a></li>
+  <li><a href="#" class="set_icon">账号设置</a></li>
+  <li><a th:href="@{/templates/login.html}" class="quit_icon">安全退出</a></li>
+ </ul>
+ </header>
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">详情</h2>
+      </div>
+      <form action="/admin/add" method="post" enctype="multipart/form-data" >
+      <ul class="ulColumn2">
+       <li>
+        <span class="item_name" style="width:120px;">管理员名字：</span>
+        <input type="text" class="textbox textbox_225"  name="adminName"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">管理员密码：</span>
+        <input type="password" class="textbox textbox_225"  name="adminPassword"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" value="更新/保存"/>
+       </li>
+      </ul>
+      </form>
+ </div>
+</section>
+</body>
+</html>

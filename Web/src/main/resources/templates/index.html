@@ -4,7 +4,6 @@
 <meta charset="utf-8"/>
 <title>后台管理系统</title>
 <meta name="author" content="DeathGhost" />
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{/css/style.css}">
 <!--[if lt IE 9]>
 <script src="js/html5.js" th:src="@{/js/html5.js}"></script>
@@ -15,7 +14,6 @@
  <script src="js/serial.js"  th:src="@{/js/serial.js}"></script>
  <script src="js/pie.js"  th:src="@{/js/pie.js}"></script>
  <script>
-=======
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <!--[if lt IE 9]>
 <script src="../js/html5.js"></script>
@@ -23,7 +21,6 @@
 <script src="../js/jquery.js"></script>
 <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
->>>>>>> origin/master
 
 	(function($){
 		$(window).load(function(){
@@ -50,11 +47,8 @@
 <body>
 <!--header-->
 <header>
-<<<<<<< HEAD
  <h1><img src="images/admin_logo.png" th:src="@{/images/admin_logo.png}"/></h1>
-=======
  <h1><img src="../images/admin_logo.png"/></h1>
->>>>>>> origin/master
  <ul class="rt_nav">
   <li><a href="index.html" class="website_icon">站点首页</a></li>
   <li><a href="#" class="clear_icon">清除缓存</a></li>
@@ -117,29 +111,28 @@
    <dl>
     <dt>管理员管理</dt>
     <dd><a th:href="@{/admin/list}" href="/admin/list">管理员列表</a></dd>
-    <dd><a th:href="@{../admin_detail.html}" href="/admin_detail.html">添加广告</a></dd>
+    <dd><a th:href="@{../admin/admin_detail.html}" href="/admin/admin_detail.html">添加管理员</a></dd>
    </dl>
   </li>
   <li>
    <dl>
     <dt>广告管理</dt>
     <dd><a th:href="@{/ad/list}" href="/ad/list">广告列表</a></dd>
-    <dd><a th:href="@{../ad_detail.html}" href="/ad_detail.html">添加广告</a></dd>
+    <dd><a th:href="@{../ad/ad_detail.html}" href="/ad/ad_detail.html">添加广告</a></dd>
    </dl>
   </li>
   <li>
    <dl>
     <dt>品牌管理</dt>
-    <dd><a href="/brand/list" th:href="@{../brand/list}">品牌列表示例</a></dd>
-    <dd><a th:href="@{../brand_detail.html}" href="/brand_detail.html">添加广告</a></dd>
-
+    <dd><a href="/brand/list" th:href="@{../brand/list}">品牌列表</a></dd>
+    <dd><a th:href="@{../brand/brand_detail.html}" href="/brand/brand_detail.html">添加品牌</a></dd>
    </dl>
   </li>
   <li>
    <dl>
     <dt>新闻管理</dt>
-    <dd><a href="/news/list" th:href="@{../news/list}">新闻列表示例</a></dd>
-    <dd><a th:href="@{../news_detail.html}" href="/news_detail.html">添加广告</a></dd>
+    <dd><a href="/news/list" th:href="@{../news/list}">新闻列表</a></dd>
+    <dd><a th:href="@{../news/news_detail.html}" href="/news/news_detail.html">添加新闻</a></dd>
    </dl>
   </li>
   <li>
