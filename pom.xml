@@ -31,7 +31,7 @@
         <module>ServiceCommons</module>
         <module>UserService</module>
         <module>Web</module>
-        <module>Web1</module>
+        <module>Shopping</module>
     </modules>
 
     <dependencies>
@@ -72,12 +72,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 引入fastDFS -->
-        <dependency>
-            <groupId>com.github.tobato</groupId>
-            <artifactId>fastdfs-client</artifactId>
-            <version>1.26.1-RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -100,28 +94,29 @@
         <!-- 分页助手 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.0.0</version>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.3</version>
         </dependency>
+        <!-- 引入fastDFS -->
         <dependency>
-            <groupId>com.github.jsqlparser</groupId>
-            <artifactId>jsqlparser</artifactId>
-            <version>0.9.1</version>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>1.26.1-RELEASE</version>
         </dependency>
         <!-- /分页助手 -->
-        <!--导入dbunit的包 -->
-        <dependency>
-            <groupId>org.dbunit</groupId>
-            <artifactId>dbunit</artifactId>
-            <version>2.5.3</version>
-        </dependency>
-        <!--导入EasyMock的相关包 -->
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-            <version>3.5.1</version>
-            <scope>test</scope>
-        </dependency>
+        <!--&lt;!&ndash;导入dbunit的包 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.dbunit</groupId>-->
+            <!--<artifactId>dbunit</artifactId>-->
+            <!--<version>2.5.3</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;导入EasyMock的相关包 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.easymock</groupId>-->
+            <!--<artifactId>easymock</artifactId>-->
+            <!--<version>3.5.1</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
 
         <!--配置fastjson -->
         <dependency>

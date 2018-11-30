@@ -1,6 +1,7 @@
 package com.team.facade.IFacade;
 
 import com.team.facade.pojo.GoodsDes;
+import com.team.facade.vo.ProductVo.ProductDTO;
 
 import java.util.List;
 
@@ -73,5 +74,15 @@ public interface IProductDesFacade {
      * @date: 2018/11/21 10:56
      **/
     Integer updateByPrimaryKeySelective(GoodsDes goods);
+
+    /**
+     * 功能描述:根据商品详情id得到具体商品详尽的信息
+     *
+     * @param: []
+     * @return: java.util.List<com.team.facade.vo.ProductVo.ProductDTO>
+     * @auther: YouQi
+     * @date: 2018/11/29 15:00
+     **/
+    List<ProductDTO> getProductDetail();
 
 }

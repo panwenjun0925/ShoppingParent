@@ -1,11 +1,16 @@
 package com.team.product.service.Impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.team.facade.pojo.Goods;
 import com.team.product.mapper.GoodsMapper;
 import com.team.product.service.ProductService;
+import com.team.product.utils.AttrUtil;
+import com.team.product.utils.TimeFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,14 +27,27 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Goods> getList() {
+    public PageInfo<Goods> getList(Integer pageNum) {
+
+        PageHelper.startPage(pageNum,3);
+        List<Goods> goods = goodsMapper.queryList();
+        PageInfo<Goods> pageInfo = new PageInfo<>(goods);
 
 
-        return goodsMapper.queryList();
+        return pageInfo;
     }
 
     @Override
     public Integer insertSlective(Goods goods) {
+
+        goods.setGoodsShelfTime(TimeFormatUtil.formatTime(new Date()));
+        goods.setGoodsDiscount(goods.getGoodsRealPrice()/goods.getGoodsShowPrice());
+        goods.setGoodsSaleNum(0);
+        String goodsAttr = goods.getGoodsAttr();
+        if (goodsAttr!=null&&goodsAttr!=null){
+            String s = AttrUtil.attrToJsonString(goodsAttr);
+            goods.setGoodsAttr(s);
+        }
         return goodsMapper.insertSelective(goods);
     }
 

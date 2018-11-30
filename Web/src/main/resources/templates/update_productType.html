@@ -8,7 +8,7 @@
 
 <a  href="../index.html"> 回到首页</a><br/>
     <div>
-    <form action="/productType/update" method="post">
+    <form action="/productType/update" method="post" enctype="multipart/form-data">
 
         <input type="hidden" name="typeId" th:value="${productType.typeId}"/>
 
@@ -27,7 +27,12 @@
 
 
         <label class="#">类别展示图</label>
-        <input type="text"  name="typePicture" th:value="${productType.typePicture}">
+        <!--<input type="text"  name="typePicture" th:value="${productType.typePicture}">-->
+        <!--<br/>-->
+        <div class="container">
+            <label>请选择一个图像文件：</label>
+            <input type="file" id="file_input"  name="TypePictures"  />
+        </div>
         <br/>
         <button type="submit" class="#">确  定</button>
     </form>

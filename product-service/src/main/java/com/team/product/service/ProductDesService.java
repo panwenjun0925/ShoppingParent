@@ -1,6 +1,7 @@
 package com.team.product.service;
 
 import com.team.facade.pojo.GoodsDes;
+import com.team.facade.vo.ProductVo.ProductDTO;
 
 import java.util.List;
 
@@ -73,5 +74,7 @@ public interface ProductDesService {
      * @date: 2018/11/21 10:56
      **/
     Integer updateByPrimaryKeySelective(GoodsDes goods);
+
+    List<ProductDTO> getProductDetail();
 
 }

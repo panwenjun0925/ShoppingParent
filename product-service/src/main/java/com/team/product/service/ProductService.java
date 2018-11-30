@@ -1,5 +1,6 @@
 package com.team.product.service;
 
+import com.github.pagehelper.PageInfo;
 import com.team.facade.pojo.Goods;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public interface ProductService {
 
-    List<Goods> getList();
+    PageInfo<Goods> getList(Integer pageNum);
 
     Integer insertSlective(Goods goods);
 

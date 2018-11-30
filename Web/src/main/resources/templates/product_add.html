@@ -10,7 +10,7 @@
 
 <span>添加商品</span>
 <div>
-    <form action="/product/insertGoods" method="post">
+    <form action="/product/insertGoods" method="post" enctype="multipart/form-data">
         <label class="#">商品名</label>
         <input type="text"  name="goodsName">
         <br/>
@@ -32,7 +32,10 @@
         <br/>
 
         <label class="#">是否上架</label>
-        <input type="text"  name="isPutaway">
+        <select name="isPutaway">
+            <option value="1">上架</option>
+            <option value="0">下架</option>
+        </select>
         <br/>
 
         <label class="#">商品类别</label>
@@ -47,9 +50,15 @@
         <input type="text"  name="goodsAttr">
         <br/>
 
-        <label class="#">展示图片</label>
-        <input type="text"  name="goodsShowPicture">
+        <!--<label class="#">展示图片</label>-->
+        <!--<input type="text"  name="goodsShowPicture">-->
+        <!--<br/>-->
+        <div class="container">
+            <label>可选择多个图像文件：</label>
+            <input type="file" id="file_input"  name="ShowPictures"  multiple/>
+        </div>
         <br/>
+
 
         <button type="submit" class="#">添  加</button>
 
