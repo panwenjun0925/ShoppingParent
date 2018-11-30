@@ -24,12 +24,12 @@ public class AddessController {
     @Reference(timeout = 10000)
     private IAddressFacade facade;
 
-//    @RequestMapping("/getAllAddress")
-//    public String getAll(AddressVo addressVo, Model model){
-//        List<Address> all = facade.getAll(addressVo);
-//        model.addAttribute("addresses",all);
-//        return "address";
-//    }
+    @RequestMapping("/getAllAddress11")
+    public String getAll(AddressVo addressVo, Model model){
+        List<Address> all = facade.getAll(addressVo);
+        model.addAttribute("addresses",all);
+        return "address";
+    }
 
     @RequestMapping("/getAddressById/{id}")
     public String getAddressById(@PathVariable("id") Integer id, Model model){

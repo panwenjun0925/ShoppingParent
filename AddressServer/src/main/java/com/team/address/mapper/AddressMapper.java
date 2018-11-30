@@ -48,5 +48,13 @@ public interface AddressMapper {
      **/
 
     int update(Address address);
+    /**
+     * @param: []
+     * @return: void
+     * @auther: qin
+     * @date: 2018/11/29
+     * @Description:重置默认地址
+     **/
 
+    void resetIsDefault();
 }

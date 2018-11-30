@@ -62,7 +62,7 @@
      <th>标志性建筑</th>
      <th>邮政编码</th>
      <th>最佳送货时间</th>
-     <th>操作</th>
+     <th>是否默认地址</th>
     </tr>
     <tr th:each="address:${addresses}">
      <td class="center" th:text="${address.receiver}">666</td>
@@ -74,9 +74,8 @@
      <td class="center" th:text="${address.landmark}">6666</td>
      <td class="center" th:text="${address.postcode}">6666</td>
      <td class="center" th:text="${address.bestDeliverTime}">6666</td>
-     <td class="center">
-      <a href="#" title="删除" class="link_icon">&#100;</a>
-     </td>
+     <td class="center" th:if="${address.isDefault==1}" th:text="是">6666</td>
+     <td class="center" th:if="${address.isDefault==0}" th:text="否">6666</td>
     </tr>
    </table>
  </div>

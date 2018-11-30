@@ -10,6 +10,10 @@
                     and userId=#{customUser.userId}
                 </if>
 
+                <if test="customUser.userNick!=null adn customUser.userNick!=''">
+                    and userNick=#{customUser.userNick}
+                </if>
+
                 <if test="customUser.userNumber!=null adn customUser.userNumber!=''">
                     and userNumber=#{customUser.userNumber}
                 </if>
@@ -42,13 +46,17 @@
                     and password=#{customUser.password}
                 </if>
 
+                <if test="customUser.head!=null adn customUser.head!=''">
+                    and head=#{customUser.head}
+                </if>
+
             </if>
         </where>
     </select>
 
     <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
         insert into user values (null,#{userNumber},#{userName},#{phone},#{registerTime},
-        #{email},#{idCard},#{inviterId},#{password})
+        #{email},#{idCard},#{inviterId},#{password},#{userNick},#{head})
     </insert>
 
     <update id="update" parameterType="User">
@@ -84,6 +92,14 @@
 
             <if test="password!=null and password!=''">
                 password=#{password},
+            </if>
+
+            <if test="userNick!=null and userNick!=''">
+                userNick=#{userNick},
+            </if>
+
+            <if test="head!=null and head!=''">
+                head=#{head},
             </if>
         </set>
         where userId=#{userId}

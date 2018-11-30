@@ -40,17 +40,23 @@
                 <if test="customAddress.userId>0 and customAddress.userId!=null">
                     and userId=#{customAddress.userId}
                 </if>
+                <if test="customAddress.isDefault!=null">
+                    and isDefault=#{customAddress.isDefault}
+                </if>
             </if>
         </where>
 
     </select>
     <insert id="add" parameterType="Address" keyProperty="addressId" useGeneratedKeys="true">
         insert into address values(null,#{receiver},#{deliveryAddress},#{detailedAddress},#{phone},#{tel},#{email},
-        #{landmark},#{bestDeliverTime},#{postcode},#{userId})
+        #{landmark},#{bestDeliverTime},#{postcode},#{userId},0)
     </insert>
     <delete id="deleteById" parameterType="Address">
         delete from address where addressId=#{addressId}
     </delete>
+    <update id="resetIsDefault">
+        update address set isDefault=0
+    </update>
     <update id="update" parameterType="Address">
         update address
         <set>
@@ -83,6 +89,9 @@
             </if>
             <if test="userId!=null and userId>0">
                 userId=#{userId},
+            </if>
+            <if test="isDefault!=null">
+                isDefault=#{isDefault},
             </if>
         </set>
         where addressId=#{addressId}
