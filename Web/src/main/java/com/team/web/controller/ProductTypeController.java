@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -86,6 +87,12 @@ public class ProductTypeController {
         List<GoodsType> goodsTypes = productTypeFacade.queryGoodsTypeByExample(goodsType);
         model.addAttribute("typeOne",goodsTypes);
         return  "productType_add";
+    }
+
+    @RequestMapping(value = "productType/getProductType",method = RequestMethod.POST)
+    public @ResponseBody  List<GoodsType> getAllType(){
+        List<GoodsType> goodsTypes = productTypeFacade.queryList();
+        return goodsTypes;
     }
 
 }

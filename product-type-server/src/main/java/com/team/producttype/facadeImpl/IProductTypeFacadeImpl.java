@@ -54,6 +54,10 @@ public class IProductTypeFacadeImpl implements IProductTypeFacade {
         return productTypeService.updateByPrimaryKeySelective(goods);
     }
 
+    @Override
+    public List<GoodsType> selectByParentId(Integer parentTypeId) {
+        return productTypeService.selectByParentId(parentTypeId);
+    }
 
 
 }
