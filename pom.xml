@@ -104,19 +104,20 @@
             <version>1.26.1-RELEASE</version>
         </dependency>
         <!-- /分页助手 -->
-        <!--&lt;!&ndash;导入dbunit的包 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.dbunit</groupId>-->
-            <!--<artifactId>dbunit</artifactId>-->
-            <!--<version>2.5.3</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash;导入EasyMock的相关包 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.easymock</groupId>-->
-            <!--<artifactId>easymock</artifactId>-->
-            <!--<version>3.5.1</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
+        <!--导入dbunit的包 -->
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.5.3</version>
+            <scope>test</scope>
+        </dependency>
+        <!--导入EasyMock的相关包 -->
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.5.1</version>
+            <scope>test</scope>
+        </dependency>
 
         <!--配置fastjson -->
         <dependency>
