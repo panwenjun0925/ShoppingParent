@@ -33,8 +33,8 @@ public class AdminFacade implements IAdminFacade {
 
 
     @Override
-    public void delete(Admin admin) {
-        adminService.deleteAdmin(admin);
+    public void delete(Integer id) {
+        adminService.deleteAdmin(id);
     }
 
     @Override

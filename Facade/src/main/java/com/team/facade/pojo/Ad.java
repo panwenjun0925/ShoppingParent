@@ -14,15 +14,21 @@ public class Ad implements Serializable{
     private String adDes;          //广告描述
     private String adPicture;      //广告图片地址
     private Integer adType;        //广告类型
+    private Integer productType;   //商品类型
 
     public Ad() {
     }
 
-    public Ad(Integer adId, String adDes, String adPicture, Integer adType) {
+    public Ad(Integer adId, String adDes, String adPicture, Integer adType, Integer productType) {
         this.adId = adId;
         this.adDes = adDes;
         this.adPicture = adPicture;
         this.adType = adType;
+        this.productType = productType;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Integer getAdId() {
@@ -57,6 +63,14 @@ public class Ad implements Serializable{
         this.adType = adType;
     }
 
+    public Integer getProductType() {
+        return productType;
+    }
+
+    public void setProductType(Integer productType) {
+        this.productType = productType;
+    }
+
     @Override
     public String toString() {
         return "Ad{" +
@@ -64,6 +78,7 @@ public class Ad implements Serializable{
                 ", adDes='" + adDes + '\'' +
                 ", adPicture='" + adPicture + '\'' +
                 ", adType=" + adType +
+                ", productType=" + productType +
                 '}';
     }
 }

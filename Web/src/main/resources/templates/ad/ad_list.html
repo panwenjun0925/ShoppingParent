@@ -20,14 +20,14 @@
   <li><a href="#" class="clear_icon">清除缓存</a></li>
   <li><a href="#" class="admin_icon">DeathGhost</a></li>
   <li><a href="#" class="set_icon">账号设置</a></li>
-  <li><a href="login.html" class="quit_icon">安全退出</a></li>
+  <li><a href="../login.html" class="quit_icon">安全退出</a></li>
  </ul>
 </header>
 
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">广告列表</h2>
-       <a href="user_detail.html" class="fr top_rt_btn add_icon">添加新广告</a>
+       <a th:href="@{../ad/ad_detail.html}" href="/ad/ad_detail.html" class="fr top_rt_btn add_icon">添加新广告</a>
       </div>
       <section class="mtb">
        <form action="/ad/findBy" method="post">

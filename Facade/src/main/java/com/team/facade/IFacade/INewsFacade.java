@@ -42,7 +42,7 @@ public interface INewsFacade {
      * @auther: daixiao
      * @date: 2018/11/22 12:10
      **/
-    void delete(News news);
+    void delete(Integer id);
 
     /**
      * 功能描述:

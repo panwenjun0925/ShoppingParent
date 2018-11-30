@@ -8,12 +8,22 @@
 <a  href="../index.html"> 回到首页</a><br/>
 <span>添加商品分类</span>
 <div>
-    <form action="/productType/insert" method="post">
+    <form action="/productType/insert" method="post" enctype="multipart/form-data">
 
-        <label class="#">父类别</label>
-        <input type="text"  name="typeParentId">
+        <label class="#">选择一级父类别</label>
+        <!--<input type="text"  name="typeParentId">-->
+        <!--<select name="typeParentId" >-->
+            <!---->
+        <!--th:each="type: ${typeOne}-->
+            <!--<option th:value="${type.typeId}" th:text="${type.typeName}">上架</option>-->
+            <!--<option value="0">下架</option>-->
+        <!--</select>-->
+        <!--<br/>-->
+        <select name="typeParentId">
+            <option th:each="type : ${typeOne}"
+                    th:value="${type.typeId}" th:text="${type.typeName}">Credit card</option>
+        </select>
         <br/>
-
 
         <label class="#">类别名</label>
         <input type="text"  name="typeName">
@@ -24,8 +34,13 @@
         <br/>
 
 
-        <label class="#">类别展示图</label>
-        <input type="text"  name="typePicture">
+        <!--<label class="#">类别展示图</label>-->
+        <!--<input type="text"  name="typePicture">-->
+        <!--<br/>-->
+        <div class="container">
+            <label>请选择一个图像文件：</label>
+            <input type="file" id="file_input"  name="TypePictures"  />
+        </div>
         <br/>
 
         <button type="submit" class="#">添  加</button>

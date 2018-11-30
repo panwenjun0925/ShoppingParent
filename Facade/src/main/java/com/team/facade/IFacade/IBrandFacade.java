@@ -43,7 +43,7 @@ public interface IBrandFacade {
      * @date: 2018/11/22 11:22
      **/
 
-    void delete(Brand brand);
+    void delete(Integer id);
 
     /**
      * 功能描述:

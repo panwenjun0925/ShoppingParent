@@ -37,7 +37,7 @@ public class AdController {
     public String getAll(AdVo adVo, Model model){
         List<Ad> adList = adFacade.findAll(adVo);
         model.addAttribute("ads",adList);
-        return  "ad_list";
+        return  "ad/ad_list";
     }
 
     @RequestMapping("/add")
@@ -65,7 +65,7 @@ public class AdController {
         adVo.setConstomAd(constomAd);
         List<Ad> adList = adFacade.findAll(adVo);
         model.addAttribute("ad",adList.get(0));
-        return "ad_showUpdate";
+        return "/ad/ad_showUpdate";
     }
 
     @RequestMapping("/update")
@@ -75,19 +75,16 @@ public class AdController {
             String path = "http://119.23.236.201:8888/"+storePath.getGroup()+"/"+storePath.getPath();
             ad.setAdPicture(path);
         }
-        System.out.println(ad);
         adFacade.updateAd(ad);
         return  "redirect:/ad/list";
     }
 
     @RequestMapping("/findBy")
     public  String findBy(ConstomAd constomAd,Model model){
-        System.out.println(constomAd.getAdDes());
         AdVo adVo = new AdVo();
         adVo.setConstomAd(constomAd);
         List<Ad> list = adFacade.findAll(adVo);
-        System.out.println(list);
         model.addAttribute("ads",list);
-        return "ad_list";
+        return "ad/ad_list";
     }
 }

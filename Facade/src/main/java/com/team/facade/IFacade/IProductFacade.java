@@ -1,5 +1,6 @@
 package com.team.facade.IFacade;
 
+import com.github.pagehelper.PageInfo;
 import com.team.facade.pojo.Goods;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Map;
  * @Version: 1.0
  */
 public interface IProductFacade {
-    List<Goods> getList();
+    PageInfo<Goods> getList(Integer pageNum);
 
     Integer insertSlective(Goods goods);
 

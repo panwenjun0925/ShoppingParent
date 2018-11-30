@@ -23,9 +23,5 @@
         <module name="web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ProductService" target="6" />
-      <module name="Web1" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>

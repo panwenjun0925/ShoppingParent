@@ -12,20 +12,23 @@
             and adId = #{constomAd.adId}
              </if>
             <if test="constomAd.adDes != null and constomAd.adDes !=''">
-                and adDes =#{constomAd.adDes}
+                and adDes like  '%${constomAd.adDes}%'
             </if>
             <if test="constomAd.adPicture != null and constomAd.adPicture !=''">
                 and adPicture = #{constomAd.adPicture}
             </if>
-            <if test="constomAd.adType != null and constomAd.adType != ''">
+            <if test="constomAd.adType != null and constomAd.adType >0">
                 and adType =#{constomAd.adType}
+            </if>
+            <if test="constomAd.productType != null and constomAd.productType >0">
+                and productType =#{constomAd.productType}
             </if>
         </if>
 </where>
 </select>
 
 <insert id="add" parameterType="Ad">
-    insert into ad (adId,adDes,adPicture,adType) values (null,#{adDes},#{adPicture},#{adType})
+    insert into ad (adId,adDes,adPicture,adType,productType) values (null,#{adDes},#{adPicture},#{adType},#{productType})
 </insert>
 
 <delete id="delete" >
@@ -41,8 +44,11 @@
         <if test="adPicture != null and adPicture !=''">
             adPicture = #{adPicture},
         </if>
-        <if test="adType != null and adType !=''">
+        <if test="adType != null and adType >0">
             adType = #{adType},
+        </if>
+        <if test="productType != null and productType >0">
+            productType=#{productType},
         </if>
     </set>
     where adId = #{adId}
