@@ -3,6 +3,7 @@ package com.team.product.facadeImpl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.team.facade.IFacade.IProductDesFacade;
 import com.team.facade.pojo.GoodsDes;
+import com.team.facade.vo.ProductVo.ProductDTO;
 import com.team.product.mapper.GoodsDesMapper;
 import com.team.product.service.ProductDesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ public class IProductDesFacadeImpl implements IProductDesFacade {
     @Override
     public Integer updateByPrimaryKeySelective(GoodsDes goods) {
         return productDesService.updateByPrimaryKeySelective(goods);
+    }
+
+    @Override
+    public List<ProductDTO> getProductDetail() {
+        return productDesService.getProductDetail();
     }
 
 }

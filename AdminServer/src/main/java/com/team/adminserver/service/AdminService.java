@@ -19,7 +19,7 @@ public interface AdminService {
 
     Admin findById(AdminVo adminVo);
 
-    void  deleteAdmin(Admin admin);
+    void  deleteAdmin(Integer id);
 
     void  updateAdmin(Admin admin);
 }

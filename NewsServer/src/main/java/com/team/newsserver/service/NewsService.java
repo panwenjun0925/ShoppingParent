@@ -17,7 +17,7 @@ public interface NewsService {
 
     List<News> findBy(NewsVo newsVo);
 
-    void delete(News news);
+    void delete(Integer id);
 
     void  update(News news);
 }

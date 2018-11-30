@@ -86,4 +86,5 @@ public interface GoodsTypeMapper {
      * @date: 2018/11/27 11:27
      **/
     List<GoodsType> selectByParentId(Integer id);
+
 }

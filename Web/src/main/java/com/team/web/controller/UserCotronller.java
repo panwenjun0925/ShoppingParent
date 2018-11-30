@@ -1,6 +1,8 @@
 package com.team.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.github.tobato.fastdfs.domain.StorePath;
+import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import com.team.facade.IFacade.IUserFacade;
 import com.team.facade.pojo.User;
 import com.team.facade.vo.userVo.UserVo;
@@ -8,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,6 +27,9 @@ import java.util.List;
 public class UserCotronller {
     @Reference(timeout = 10000)
     private IUserFacade facade;
+
+    @Resource
+    private FastFileStorageClient storageClient;
 
     @RequestMapping("/login")
     public String login(UserVo userVo){
@@ -40,7 +48,12 @@ public class UserCotronller {
         return "user_list";
     }
     @PostMapping("/addUser")
-    public String addUser(User user){
+    public String addUser(User user, MultipartFile file) throws IOException {
+        if(!file.isEmpty()){
+            StorePath storePath = storageClient.uploadFile(null, file.getInputStream(), file.getSize(), "jpg");
+            String path = "http://119.23.236.201:8888/"+storePath.getGroup()+"/"+storePath.getPath();
+            user.setHead(path);
+        }
         facade.add(user);
         return "redirect:/user/getAll";
     }

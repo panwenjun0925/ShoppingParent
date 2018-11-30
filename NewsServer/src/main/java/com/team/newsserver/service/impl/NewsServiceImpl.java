@@ -33,8 +33,8 @@ public class NewsServiceImpl implements NewsService {
 
 
     @Override
-    public void delete(News news) {
-    newsMapper.delete(news.getNewsId());
+    public void delete(Integer id) {
+    newsMapper.delete(id);
     }
 
     @Override

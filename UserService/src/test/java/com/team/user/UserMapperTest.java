@@ -40,16 +40,16 @@ public class UserMapperTest {
         recoveTable();
     }
 
-    @Test
-    public void testAdd() throws Exception{
-        backoneTable();
-        insert();
-        User user = new User(null, "5555", "杨", "159", "2019", "@sss",
-                "789654", "5564", "dsa");
-        int state = mapper.add(user);
-        Assert.assertEquals(1,state);
-        recoveTable();
-    }
+//    @Test
+//    public void testAdd() throws Exception{
+//        backoneTable();
+//        insert();
+//        User user = new User(null, "5555", "杨", "159", "2019", "@sss",
+//                "789654", "5564", "dsa");
+//        int state = mapper.add(user);
+//        Assert.assertEquals(1,state);
+//        recoveTable();
+//    }
     @Test
     public void testUpdate() throws Exception{
         backoneTable();

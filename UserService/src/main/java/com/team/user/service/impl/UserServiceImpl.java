@@ -4,6 +4,7 @@ import com.team.facade.pojo.User;
 import com.team.facade.vo.userVo.UserVo;
 import com.team.user.mapper.UserMapper;
 import com.team.user.service.UserService;
+import com.team.user.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +31,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int add(User user) {
+        user.setUserNumber(UserUtil.getNum());
+        user.setRegisterTime(UserUtil.getResisterTime());
+        String pwd=UserUtil.encryption(user.getPassword());
+        user.setPassword(pwd);
+        user.setUserNick(user.getUserName());
         return mapper.add(user);
     }
 

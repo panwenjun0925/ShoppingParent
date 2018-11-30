@@ -19,11 +19,13 @@ public class User implements Serializable {
     private String idCard;          //身份证号码
     private String inviterId;       //邀请人的id
     private String password;        //登录密码
+    private String userNick;        //昵称
+    private String head;            //头像
 
     public User() {
     }
 
-    public User(Integer userId, String userNumber, String userName, String phone, String registerTime, String email, String idCard, String inviterId, String password) {
+    public User(Integer userId, String userNumber, String userName, String phone, String registerTime, String email, String idCard, String inviterId, String password, String userNick, String head) {
         this.userId = userId;
         this.userNumber = userNumber;
         this.userName = userName;
@@ -33,9 +35,11 @@ public class User implements Serializable {
         this.idCard = idCard;
         this.inviterId = inviterId;
         this.password = password;
+        this.userNick = userNick;
+        this.head = head;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -107,6 +111,22 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getUserNick() {
+        return userNick;
+    }
+
+    public void setUserNick(String userNick) {
+        this.userNick = userNick;
+    }
+
+    public String getHead() {
+        return head;
+    }
+
+    public void setHead(String head) {
+        this.head = head;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -119,6 +139,8 @@ public class User implements Serializable {
                 ", idCard='" + idCard + '\'' +
                 ", inviterId='" + inviterId + '\'' +
                 ", password='" + password + '\'' +
+                ", userNick='" + userNick + '\'' +
+                ", head='" + head + '\'' +
                 '}';
     }
 }

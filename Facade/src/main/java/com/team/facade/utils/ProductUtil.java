@@ -26,6 +26,9 @@ public class ProductUtil {
         productDTO.setGoodsTypeId(goods.getGoodsTypeId());
         productDTO.setGoodsShelfTime(goods.getGoodsShelfTime());
         productDTO.setGoodsTotal(goods.getGoodsTotal());
+        productDTO.setGoodsShowPicture(goods.getGoodsShowPicture());
+        productDTO.setGoodsShowPrice(goods.getGoodsShowPrice());
+        productDTO.setGoodsDiscount(goods.getGoodsDiscount());
 
         return productDTO;
     }

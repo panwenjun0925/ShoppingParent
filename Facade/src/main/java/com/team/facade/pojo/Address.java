@@ -21,11 +21,12 @@ public class Address implements Serializable {
     private String bestDeliverTime; //最佳送货时间
     private String postcode;    //邮政编码
     private Integer userId;     //用户的id
+    private Integer isDefault;  //是否默认地址
 
     public Address() {
     }
 
-    public Address(Integer addressId, String receiver, String deliveryAddress, String detailedAddress, String phone, String tel, String email, String landmark, String bestDeliverTime, String postcode, Integer userId) {
+    public Address(Integer addressId, String receiver, String deliveryAddress, String detailedAddress, String phone, String tel, String email, String landmark, String bestDeliverTime, String postcode, Integer userId, Integer isDefault) {
         this.addressId = addressId;
         this.receiver = receiver;
         this.deliveryAddress = deliveryAddress;
@@ -37,6 +38,7 @@ public class Address implements Serializable {
         this.bestDeliverTime = bestDeliverTime;
         this.postcode = postcode;
         this.userId = userId;
+        this.isDefault = isDefault;
     }
 
     public Integer getAddressId() {
@@ -127,6 +129,14 @@ public class Address implements Serializable {
         this.userId = userId;
     }
 
+    public Integer getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
@@ -141,6 +151,7 @@ public class Address implements Serializable {
                 ", bestDeliverTime='" + bestDeliverTime + '\'' +
                 ", postcode='" + postcode + '\'' +
                 ", userId=" + userId +
+                ", isDefault=" + isDefault +
                 '}';
     }
 }

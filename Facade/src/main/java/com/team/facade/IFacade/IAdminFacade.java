@@ -43,7 +43,7 @@ public interface IAdminFacade {
      * @date: 2018/11/21 17:59
      **/
 
-    void  delete(Admin admin);
+    void  delete(Integer id);
 
     /**
      * 功能描述:更新

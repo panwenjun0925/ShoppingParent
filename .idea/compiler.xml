@@ -8,35 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ad-server" />
         <module name="address-server" />
-        <module name="AddressServer" />
         <module name="admin-server" />
-        <module name="AdminServer" />
-        <module name="AdServer" />
         <module name="brand-server" />
-        <module name="BrandServer" />
         <module name="commons" />
-        <module name="Commons" />
         <module name="Facade" />
         <module name="mapper-commons" />
-        <module name="MapperCommons" />
         <module name="news-server" />
-        <module name="NewsServer" />
         <module name="order-server" />
-        <module name="OrderServer" />
         <module name="product-service" />
         <module name="product-type-server" />
         <module name="service-commons" />
-        <module name="ServiceCommons" />
-        <module name="Shopping" />
+        <module name="shopping" />
         <module name="user-service" />
-        <module name="UserService" />
-        <module name="Web" />
         <module name="web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ProductService" target="6" />
-      <module name="ProductTypeServer" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

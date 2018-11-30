@@ -10,6 +10,22 @@
     <![endif]-->
     <script src="../js/jquery.js" th:src="@{/js/jquery.js}" src=""></script>
     <script src="../js/jquery.mCustomScrollbar.concat.min.js" th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+    <script>
+        function changepic() {
+
+            var reads = new FileReader();
+
+            f = document.getElementById('file').files[0];
+
+            reads.readAsDataURL(f);
+
+            reads.onload = function (e) {
+
+                document.getElementById('show').src = this.result;
+
+            };
+        }
+    </script>
 </head>
 <body>
 <!--header-->
@@ -30,11 +46,20 @@
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
-            <h2 class="fl">会员详情</h2>
-            <a href="adjust_funding.html" class="fr top_rt_btn money_icon">资金管理</a>
+            <h2 class="fl">添加会员</h2>
+            <a href="../index.html" class="fr top_rt_btn money_icon">首页</a>
         </div>
-        <form id="form1" action="/user/addUser" method="post">
+        <form id="form1" action="/user/addUser" method="post" enctype="multipart/form-data">
             <ul class="ulColumn2">
+                <li>
+                    <span class="item_name" style="width:120px;">上传头像：</span>
+                    <label class="uploadImg">
+                        <input type="file" name="file" id="file" onchange="changepic(this)" />
+                        <img src="" id="show" width="200px" height="100px">
+                        <span>上传头像</span>
+                    </label>
+                </li>
+                <li>
                     <span class="item_name" style="width:120px;">会员名称：</span>
                     <input type="text" class="textbox textbox_225" name="userName"/>
                     <span class="errorTips">错误提示信息...</span>
