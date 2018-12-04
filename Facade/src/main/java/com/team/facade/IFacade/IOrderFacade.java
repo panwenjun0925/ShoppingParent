@@ -1,8 +1,7 @@
 package com.team.facade.IFacade;
 
 import com.team.facade.pojo.Order;
-
-import java.util.List;
+import com.team.facade.dto.PageHelpDto;
 
 /**
  * @Auther: PWJ
@@ -19,7 +18,7 @@ public interface IOrderFacade {
      * @auther: PWJ
      * @date: 2018/11/21 11:14
      **/
-    List<Order> getOrderByCondition(Order order);
+    PageHelpDto<Order,Order> getOrderByCondition(Order order, Integer pageIndex, Integer pageSize);
     /**
      * 功能描述:通过ID查询订单
      *

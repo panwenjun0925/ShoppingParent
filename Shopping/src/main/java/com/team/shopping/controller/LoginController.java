@@ -1,4 +1,4 @@
-package com.team.shopping.controll;
+package com.team.shopping.controller;
 
 import org.jasig.cas.client.authentication.AttributePrincipal;
 import org.jasig.cas.client.util.AbstractCasFilter;
