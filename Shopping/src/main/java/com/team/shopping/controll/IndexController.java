@@ -4,9 +4,12 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.team.facade.IFacade.IAdFacade;
 import com.team.facade.IFacade.INewsFacade;
 import com.team.facade.IFacade.IProductTypeFacade;
+import com.team.facade.pojo.Ad;
 import com.team.facade.pojo.GoodsType;
+import com.team.facade.pojo.News;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -20,28 +23,37 @@ import java.util.Map;
  * @Version: 1.0
  */
 @Controller
+@RequestMapping("/index")
 public class IndexController {
 
     @Reference
     private IProductTypeFacade productTypeFacade;
     @Reference
     private IAdFacade AdFacade;
-    @Reference
+    @Reference(timeout = 10000)
     private INewsFacade newsFacade;
 
-    @RequestMapping("index/initPram")
-    public @ResponseBody Map<String, List<GoodsType>> getProductType(){
+    @RequestMapping(value = "/getNews",method = RequestMethod.POST)
+    public @ResponseBody List<News> initPram(){
+        List<News> by = newsFacade.findBy(null);
+        return by;
+    }
+
+    @RequestMapping(value = "/getADs",method = RequestMethod.POST)
+    public @ResponseBody List<Ad> getADs(){
+        List<Ad> all = AdFacade.findAll(null);
+        return all;
+    }
+
+    @RequestMapping(value = "/getProductType",method = RequestMethod.POST)
+    public @ResponseBody Map<String,List<GoodsType>> getProductType(){
+
+        HashMap<String, List<GoodsType>> goodsTypeMap=new HashMap<>();
         List<GoodsType> goodsTypes = productTypeFacade.selectByParentId(1);
-
-        HashMap<String, List<GoodsType>> typeMap = new HashMap<>();
-
         for (GoodsType parentType : goodsTypes) {
             List<GoodsType> sonList = productTypeFacade.selectByParentId(parentType.getTypeId());
-            typeMap.put(parentType.getTypeName(),sonList);
+            goodsTypeMap.put(parentType.getTypeName(),sonList);
         }
-
-
-
-        return typeMap;
+        return goodsTypeMap;
     }
 }
