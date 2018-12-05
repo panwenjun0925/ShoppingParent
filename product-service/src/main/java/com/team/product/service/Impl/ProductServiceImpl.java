@@ -75,4 +75,9 @@ public class ProductServiceImpl implements ProductService {
     public Goods queryByPrimaryKey(Integer id) {
         return goodsMapper.queryByPrimaryKey(id);
     }
+
+    @Override
+    public List<Goods> queryAll() {
+        return goodsMapper.queryList();
+    }
 }

@@ -58,4 +58,6 @@ public interface IProductFacade {
     List<Goods> queryUnPutaway();
 
     Goods queryByPrimaryKey(Integer id);
+
+    List<Goods> queryAll();
 }
