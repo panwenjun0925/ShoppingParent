@@ -33,7 +33,7 @@ public class SolrController {
     public String getBeanByCondition() throws IOException, SolrServerException {
         //构建查询条件
         SolrQuery condition = new SolrQuery();
-        condition.add("q","*:*");
+        condition.add("q","goodsAll:*");
         //进行查询
         QueryResponse response = solrClient.query(condition);
         //获取查询结果
@@ -44,7 +44,8 @@ public class SolrController {
             //输出数据
             SolrDocument solrDocument = iterator.next();
             System.out.println("查询出来的数据是："+solrDocument.get("id"));
-            System.out.println("查询出来的数据是："+solrDocument.get("title"));
+            System.out.println("查询出来的数据是："+solrDocument.get("goodsName"));
+            System.out.println("查询出来的数据是："+solrDocument.get("goodsAttr"));
             System.out.println("-------------------------------------------");
         }
         //提交数据
