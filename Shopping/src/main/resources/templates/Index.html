@@ -71,6 +71,38 @@
             // });
 
             $.ajax({
+                type: "post",
+                url: '/index/getProductType',
+                dataType: "json",
+                async: true,
+                success: function (data) {
+                    var Data =data;
+                    var num = 1;
+                    var  parentTypes = Data['firstType'];
+                    /*<![CDATA[*/
+
+
+                    for (var i = 0,i < parentTypes.length,i++){
+
+
+                    }
+
+
+                    for(var key in Data){
+
+
+
+                    }
+
+                    // <span class="floor_num">1F</span>
+                    //<span class="fl">进口 <b>·</b> 生鲜</span>
+                    /* ]]>*/
+                }
+            });
+
+
+
+            $.ajax({
                 type:"post",
                 url: '/index/getProductType',
                 dataType:"json",
@@ -300,7 +332,7 @@
                             <span class="n_img"><span></span><img src="images/nav1.png"/></span>
 
                         </div>
-                        <div class="zj" id="">
+                        <div class="zj" >
                             <div class="zj_l">
 
                                 <div class="zj_l_c" id="nav_content_floor_1">
@@ -677,10 +709,10 @@
         <img id="adFoor1" width="1200" height="110"/>
     </div>
     <!--Begin 进口 生鲜 Begin-->
-    <div class="i_t mar_10" id="">
-        <span class="floor_num">1F</span>
+    <div class="i_t mar_10" id="firstFloor">
+        <!--<span class="floor_num">1F</span>-->
 
-        <span class="fl">进口 <b>·</b> 生鲜</span>
+        <!--<span class="fl">进口 <b>·</b> 生鲜</span>-->
 
         <span class="i_mores fr"><a href="#">进口咖啡</a>&nbsp; &nbsp; &nbsp; <a href="#">进口酒</a>&nbsp; &nbsp; &nbsp; <a
                 href="#">进口母婴</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜蔬菜</a>&nbsp; &nbsp; &nbsp; <a

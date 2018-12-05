@@ -1,12 +1,15 @@
 package com.team.shopping.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
 import com.team.facade.IFacade.IAdFacade;
 import com.team.facade.IFacade.INewsFacade;
 import com.team.facade.IFacade.IProductTypeFacade;
 import com.team.facade.pojo.Ad;
 import com.team.facade.pojo.GoodsType;
 import com.team.facade.pojo.News;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +28,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/index")
 public class IndexController {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Reference
     private IProductTypeFacade productTypeFacade;
@@ -49,11 +55,19 @@ public class IndexController {
     public @ResponseBody Map<String,List<GoodsType>> getProductType(){
 
         HashMap<String, List<GoodsType>> goodsTypeMap=new HashMap<>();
-        List<GoodsType> goodsTypes = productTypeFacade.selectByParentId(1);
-        for (GoodsType parentType : goodsTypes) {
-            List<GoodsType> sonList = productTypeFacade.selectByParentId(parentType.getTypeId());
-            goodsTypeMap.put(parentType.getTypeName(),sonList);
+        String productTypeMap = (String)redisTemplate.opsForValue().get("productTypeMap");
+        if (productTypeMap!=null&&productTypeMap!=""){
+            HashMap hashMap = JSON.parseObject(productTypeMap, goodsTypeMap.getClass());
+            return hashMap;
+        }else {
+            List<GoodsType> goodsTypes = productTypeFacade.selectByParentId(1);
+            for (GoodsType parentType : goodsTypes) {
+                List<GoodsType> sonList = productTypeFacade.selectByParentId(parentType.getTypeId());
+                goodsTypeMap.put(parentType.getTypeName(),sonList);
+                goodsTypeMap.put("firstType",goodsTypes);
+            }
+            return goodsTypeMap;
         }
-        return goodsTypeMap;
+
     }
 }
