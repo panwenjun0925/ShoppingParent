@@ -94,7 +94,7 @@
     where goodsType = #{goodsType,jdbcType=INTEGER}
   </delete>
 
-    <select id="selectByParentId" parameterType="java.lang.Integer" >
+    <select id="selectByParentId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select
         <include refid="Base_Column_List" />
         from goodsType

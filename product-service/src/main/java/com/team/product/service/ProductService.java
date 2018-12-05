@@ -58,4 +58,6 @@ public interface ProductService {
     List<Goods> queryUnPutaway();
 
     Goods queryByPrimaryKey(Integer id);
+
+    List<Goods> queryAll();
 }

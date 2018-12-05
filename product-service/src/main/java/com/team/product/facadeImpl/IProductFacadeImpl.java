@@ -59,4 +59,9 @@ public class IProductFacadeImpl implements IProductFacade {
         return productService.queryByPrimaryKey(id);
     }
 
+    @Override
+    public List<Goods> queryAll() {
+        return productService.queryAll();
+    }
+
 }

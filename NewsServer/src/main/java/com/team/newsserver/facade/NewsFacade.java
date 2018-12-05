@@ -15,7 +15,8 @@ import java.util.List;
  * @Description:
  * @Version: 1.0
  */
-@Service
+@Service(timeout = 10000)
+
 public class NewsFacade implements INewsFacade {
 
     @Autowired
